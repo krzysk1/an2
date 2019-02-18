@@ -179,35 +179,34 @@
             >
             <[collisionhull][CollisionFuselage][]
                 <[string8][Body][Fuselage]>
-                <[string8][Geometry][external_152952_4]>
+                <[string8][Geometry][fuselage]>
                 <[float64][K][13796000]>
                 <[float64][D][137960]>
             >
             <[collisionhull][CollisionLeftWing][]
                 <[string8][Body][LeftWing]>
-                <[string8][Geometry][external_408843_4]>
+                <[string8][Geometry][leftwing]>
                 <[float64][K][2366000]>
                 <[float64][D][35490]>
             >
             <[collisionhull][CollisionRightWing][]
                 <[string8][Body][RightWing]>
-                <[string8][Geometry][external_408639_4]>
+                <[string8][Geometry][rightwing]>
                 <[float64][K][2366000]>
                 <[float64][D][35490]>
             >
             <[collisionhull][CollisionLeftUpperWing][]
                 <[string8][Body][LeftUpperWing]>
-                <[string8][Geometry][external_523998_4]>
+                <[string8][Geometry][leftupperwing]>
                 <[float64][K][2366000]>
                 <[float64][D][35490]>
             >
             <[collisionhull][CollisionRightUpperWing][]
                 <[string8][Body][RightUpperWing]>
-                <[string8][Geometry][external_522525_4]>
+                <[string8][Geometry][rightupperwing]>
                 <[float64][K][2366000]>
                 <[float64][D][35490]>
             >
-
 
             // Gears
 
@@ -1624,7 +1623,7 @@
             // Fuselage
 
             <[rigidbodygraphics][Fuselage][]
-                <[string8][GeometryList][ external_4 external_152952_4 external_531210_4 external_531918_4 ]> //external_152952_4transp
+                <[string8][GeometryList][ external_4 fuselage fuselagedecal antenna leftstabilizer rightstabilizer leftwing rightwing leftupperwing rightupperwing leftwingstrings rightwingstrings	motor external_531210_4 external_604149_4 external_window_5 external_window_9438_5 external_window_4650_5 ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
             >
@@ -2097,12 +2096,6 @@
                 <[tmvector3d][Color][ 1.0 0.3 0.1 1.0 ]>
                 <[float64][Brightness][ 2.0 ]>
             >
-            <[rigidbodygraphics][external_604149_4][]
-                <[string8][GeometryList][ external_604149_4 external_window_5 external_window_9438_5 external_window_4650_5 ]>
-                <[uint32][PositionID][Fuselage.R]>
-                <[uint32][OrientationID][Fuselage.Q]>
-            >
-
 
             // general_pilot
 
@@ -4214,7 +4207,7 @@
                 <[string8][InputTrigger][SwitchSound.Output]>
                 <[string8][InputVolume][0.6]>
                 <[string8][InputPitch][1.5]>
-                <[string8][SoundFile][button_small.wav]>
+                <[string8][SoundFile][click.wav]>
                 <[bool][External][false]>
             >
 		>
