@@ -1129,6 +1129,9 @@
             >
             <[output][UniversalTime][]
                 <[string8][Input][Clock.OutputUniversalTime]>
+            >
+            <[output][LocalTime][]
+                <[string8][Input][Clock.OutputLocalTime]>
             >			
             <[attitude_indicator][AttitudeIndicator][]
                 <[string8][Body][Fuselage]>
@@ -3544,7 +3547,8 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputTransform][CockpitMoving_map1.Output]>
             >
-     // generator_amps
+			
+			// generator_amps
             <[graphics_input][CockpitInput_29][]
                 <[uint32][InputID][ServoCheck.Output]>
                 <[float64][Scaling][400]>
@@ -3561,7 +3565,8 @@
                 <[tmvector3d][Axis][-1.0 0.0 0.0]>
                 <[tmvector3d][Pivot][1.7808 0.2740 0.6878]>
             >
-     // Airspeed
+			
+			// Airspeed
             <[graphics_input][CockpitInput_30][]
                 <[uint32][InputID][AirspeedIndicatorNeedle.Output]>
                 <[float64][Scaling][1.9438]>
@@ -3586,7 +3591,8 @@
                 <[tmvector3d][Axis][-1.0 0.0 0.0]>
                 <[tmvector3d][Pivot][1.7818 -0.2434 0.6469]>
             >
-     // Gyro Compas
+			
+			// Gyro Compas
             <[graphics_mapping][CockpitMapping_1210][]
                 <[string8][Input][HeadingAngleInput_4.Output]> // actuators/nav1_obs_deg_mag_pilot
                 <[tmvector2d][Map][(-8 -8) (0 0.0) (8 8)]>
@@ -3612,21 +3618,28 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputTransform][CockpitRotate_1213.Output]>
             >
-     // Timer
-            <[hingedbodygraphics][Cockpit_12879_13][]
+			
+			// Timer
+            <[graphics_input][LocalTime][]
+                <[uint32][InputID][LocalTime.Output]>
+            >
+            <[graphics_sec_to_hms][Watch][]
+                <[string8][Input][LocalTime.Output]>
+            >	 
+            <[hingedbodygraphics][Cockpit_HourWatch][]
                 <[string8][GeometryList][ an-2_cockpit_12879_13 ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][AngleID][Clock.Output]>
+                <[string8][InputAngle][LocalTime.Output]>
                 <[float64][AngleMax][0.00014537037]>
                 <[tmvector3d][Axis][-1.0 0.0 0.0]>
                 <[tmvector3d][Pivot][1.7817 -0.2810 0.7421]>
             >
-            <[hingedbodygraphics][Cockpit_12885_13][]
+            <[hingedbodygraphics][Cockpit_MinuteWatch][]
                 <[string8][GeometryList][ an-2_cockpit_12885_13 ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][AngleID][Clock.Output]>
+                <[string8][InputAngle][LocalTime.Output]>
                 <[float64][AngleMax][0.001744]>
                 <[tmvector3d][Axis][-1.0 0.0 0.0]>
                 <[tmvector3d][Pivot][1.7818 -0.2810 0.7421]>
@@ -3649,16 +3662,17 @@
                 <[tmvector3d][Axis][-1.0 0.0 0.0]>
                 <[tmvector3d][Pivot][1.7820 -0.2810 0.7625]>
             >
-            <[hingedbodygraphics][Cockpit_12897_13][]
+            <[hingedbodygraphics][Cockpit_SecundeWatch][]
                 <[string8][GeometryList][ an-2_cockpit_12897_13 ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][AngleID][Clock.Output]>
+                <[string8][InputAngle][Watch.Seconds60]>	
                 <[float64][AngleMax][0.104667]>
                 <[tmvector3d][Axis][-1.0 0.0 0.0]>
                 <[tmvector3d][Pivot][1.7816 -0.2810 0.7421]>
             >
-     // Artificial Horizon
+			
+			// Artificial Horizon
             <[graphics_input][GyroPitchInput_32][]
                 <[uint32][InputID][PitchAngle.Output]>
                 <[float64][Scaling][0.25]>
@@ -3715,7 +3729,8 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputTransform][CockpitRotate_1260.Output]>
             >
-     // Artificial horizon adjust
+     
+			// Artificial horizon adjust
             <[graphics_input][CockpitInput_34][]
                 <[uint32][InputID][ServoElevatorTrim.Output]>
                 <[float64][Scaling][50]>
@@ -3747,7 +3762,8 @@
                 <[tmvector3d][Axis][-1.0 0.0 0.0]>
                 <[tmvector3d][Pivot][1.7731 0.5146 0.6242]>
             >
-     // autopilot altitude_mode switch
+			
+			// autopilot altitude_mode switch
             <[graphics_input][CockpitInput_35][]
                 <[uint32][InputID][ServoCheck.Output]>
                 <[float64][Scaling][6.0]>
@@ -3764,7 +3780,8 @@
                 <[tmvector3d][Axis][0.0 1.0 0.0]>
                 <[tmvector3d][Pivot][1.6389 0.1041 0.5229]>
             >
-     // autopilot heading_mode switch
+			
+			// autopilot heading_mode switch
             <[graphics_input][CockpitInput_36][]
                 <[uint32][InputID][ServoCheck.Output]>
             >
@@ -3780,7 +3797,8 @@
                 <[tmvector3d][Axis][0.0 1.0 0.0]>
                 <[tmvector3d][Pivot][1.6233 -0.0139 0.5177]>
             >
-     // Transponder_mode knob
+			
+			// Transponder_mode knob
             <[graphics_input][CockpitInput_37][]
                 <[uint32][InputID][ServoCheck.Output]>
                 <[float64][Scaling][3.0]>
@@ -3797,7 +3815,8 @@
                 <[tmvector3d][Axis][-0.2315 0.0 0.9728]>
                 <[tmvector3d][Pivot][1.3340 -0.0489 0.4145]>
             >
-     // Artificial horizon
+			
+			// Artificial horizon
             <[graphics_mapping][CockpitMapping_1294][]
                 <[string8][Input][GyroPitchEnable.Output]>
                 <[tmvector2d][Map][(-0.174533 -0.228638) (0.174533 0.120428)]>
@@ -3844,7 +3863,8 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputTransform][CockpitRotate_1307.Output]>
             >
-     // ADF faces
+			
+			// ADF faces
             <[graphics_input][CockpitInput_38][]
                 <[uint32][InputID][HeadingAngle.Output]> // actuators/nav2_obs_deg_mag_pilot
             >
