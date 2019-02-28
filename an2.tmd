@@ -835,7 +835,7 @@
                 <[string8][Input][ServoAileronPosition.Output]>
             >
             <[servoclassic][ServoAileronTrim][]
-                <[string8][Input][AileronTrimInput.Output]>
+                <[string8][Input][AileronTrim.Output]>
                 <[float64][Speed][0.2]>
                 <[float64][P0][0.0]>
                 <[float64][P1][0.907571]>
