@@ -1075,6 +1075,10 @@
                 <[float64][ReductionRatio][0.689655]>
                 <[float64][Efficiency][0.9800]>
             >
+			// engine Shvetsov ASh-62IR 
+			// 9-cylinder supercharged radial engine, 750 kW (1,000 hp)
+			// 746 kW (1,000 hp) at 2,200 rpm for takeoff
+			// Dry weight: 560kg
             <[engine][Engine][]
                 <[string8][ThrottleControl][ThrottleInput.Output]>
                 <[string8][RotationSpeed][DriveShaft.RotationSpeed]>
@@ -1083,9 +1087,9 @@
                 <[string8][AddTorque][DriveShaft.AddTorque]>
                 <[string8][AddInertia][DriveShaft.AddInertia]>
                 <[float64][Friction][50.0]>
-                <[float64][RatedRotationSpeed][210.0]>
+                <[float64][RatedRotationSpeed][220.0]>
                 <[float64][RatedPower][768816]>
-                <[float64][Displacement][0.013859]>
+                <[float64][Displacement][0.0298]>
             >
             <[output][RotationSpeed][]
                 <[string8][Input][DriveShaft.GetRotationSpeed]>
@@ -1219,7 +1223,6 @@
             <[output][StrobeLightOn][]
                 <[string8][Input][StrobeLightSwitch.Output]>
             >
-
             // navigation lights
             <[input_switch][NavigationLightSwitch][]
                 <[string8][Input][Controls.Lighting.Navigation]>
@@ -1230,7 +1233,6 @@
             <[output][NavigationLightOn][]
                 <[string8][Input][NavigationLightSwitch.Output]>
             >
-
             // beacon light
             <[input_switch][BeaconLightSwitch][]
                 <[string8][Input][Controls.Lighting.Beacon]>
@@ -1241,7 +1243,6 @@
             <[output][BeaconLightOn][]
                 <[string8][Input][BeaconLightSwitch.Output]>
             >
-
             // landing lights
             <[input_switch][LandingLightSwitch][]
                 <[string8][Input][Controls.Lighting.Landing]>
@@ -1251,7 +1252,7 @@
             >
             <[output][LandingLightOn][]
                 <[string8][Input][LandingLightSwitch.Output]>
-            >
+            >			
             // taxi lights
             <[input_switch][TaxiLightSwitch][]
                 <[string8][Input][Controls.Lighting.Taxi]>
@@ -1729,7 +1730,7 @@
         // Fuselage
 
             <[rigidbodygraphics][Fuselage][]
-                <[string8][GeometryList][ external_4 fuselage fuselagedecal antenna leftstabilizer rightstabilizer leftwing rightwing leftupperwing rightupperwing leftwingstrings rightwingstrings    motor external_531210_4 external_604149_4 external_window_5 external_window_9438_5 external_window_4650_5 ]>
+                <[string8][GeometryList][ external_4 fuselage fuselagedecal antenna leftstabilizer rightstabilizer leftwing rightwing leftupperwing rightupperwing leftwingstrings rightwingstrings    motor external_531210_4 external_604149_4 external_window_5 external_window_9438_5 external_window_4650_5 internal_windows internal_windows_frame ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
             >
@@ -2044,11 +2045,15 @@
                 <[uint32][PositionID][LeftGear.R]>
                 <[uint32][OrientationID][LeftGear.Q]>
             >
-            <[rotatingbodygraphics][LeftWheel][]
+            <[graphics_wheel][LeftWheel][]
                 <[string8][GeometryList][ external_480528_4 ]>
                 <[uint32][PositionID][LeftGear.R]>
                 <[uint32][OrientationID][LeftGear.Q]>
                 <[uint32][AngleID][LeftWheelHull.RotationAngle]>
+                <[uint32][GroundID][LeftWheelHull.Ground]>
+                <[uint32][DeformationID][LeftWheelHull.Deformation]>
+                <[float64][Radius][0.41245]>
+                <[float64][RimRadius][0.181]>
                 <[tmvector3d][Axis][0.0 0.9804 -0.1972]>
                 <[tmvector3d][Pivot][1.0389 1.7661 -2.074]>
             >
@@ -2065,11 +2070,15 @@
                 <[uint32][PositionID][RightGear.R]>
                 <[uint32][OrientationID][RightGear.Q]>
             >
-            <[rotatingbodygraphics][RightWheel][]
+            <[graphics_wheel][RightWheel][]
                 <[string8][GeometryList][ external_505167_4 ]>
                 <[uint32][PositionID][RightGear.R]>
                 <[uint32][OrientationID][RightGear.Q]>
                 <[uint32][AngleID][RightWheelHull.RotationAngle]>
+                <[uint32][GroundID][RightWheelHull.Ground]>
+                <[uint32][DeformationID][RightWheelHull.Deformation]>
+                <[float64][Radius][0.41245]>
+                <[float64][RimRadius][0.181]>
                 <[tmvector3d][Axis][0.0 0.9843 0.1762]>
                 <[tmvector3d][Pivot][1.0389 -1.7602 -2.073]>
             >
@@ -2101,16 +2110,20 @@
                 <[string8][InputTransform][externalMoving_448.Output]>
             >
             // tail wheel
-            <[rigidbodygraphics][external_529380_4][]
+            <[rigidbodygraphics][TailGear][]
                 <[string8][GeometryList][ external_529380_4 ]>
                 <[uint32][PositionID][TailGear.R]>
                 <[uint32][OrientationID][TailGear.Q]>
             >
-            <[rotatingbodygraphics][external_525468_4][]
+            <[graphics_wheel][TailWheel][]
                 <[string8][GeometryList][ external_525468_4 ]>
                 <[uint32][PositionID][TailGear.R]>
                 <[uint32][OrientationID][TailGear.Q]>
                 <[uint32][AngleID][TailWheelHull.RotationAngle]>
+                <[uint32][GroundID][TailWheelHull.Ground]>
+                <[uint32][DeformationID][TailWheelHull.Deformation]>
+                <[float64][Radius][0.2276]>
+                <[float64][RimRadius][0.091]>				
                 <[tmvector3d][Axis][0.0 1.0 0.0]>
                 <[tmvector3d][Pivot][-7.1137 -0.0017 -0.5055]>
             >

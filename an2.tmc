@@ -7,18 +7,18 @@
 		//Crew: 1–2, Capacity: 12 passengers, Length: 12.4 m (40 ft 8 in), Wingspan: 18.2 m (59 ft 8 in), Empty weight: 3,300 kg (7,300 lb), Loaded weight: 5,500 kg (12,000 lb), Powerplant: 1 × Shvetsov ASh-62IR 9-cylinder supercharged radial engine, 750 kW (1,000 hp), Maximum speed: 258 km/h (139 kn, 160 mph), Cruise speed: 190 km/h (100 kn, 120 mph), Stall speed: ~50 km/h (26 knots, 30 mph), Range: 845 km (456 nmi, 525 mi), Service ceiling: 4,500 m (14,750 ft), Rate of climb: 3.5 m/s (700 ft/min).
 		<[float64][WingSpan][18.3]>
 		<[float64][Mass][4733]>
-		<[float64][MaximumSpeed][73.0]>
-		<[float64][MinimumSpeed][24.3]>
-        <[float64][ApproachSpeed][33.3]>
+		<[float64][MaximumSpeed][69.5]>
+		<[float64][MinimumSpeed][23.0]>
+        <[float64][ApproachSpeed][26.3]>
         <[float64][CruiseSpeed]  [50.0]>
-		<[tmvector2d][NormalSpeedRange][ 24.3 58.0 ]>
-		<[tmvector2d][CautionSpeedRange][ 58.0 73.0 ]>
+		<[tmvector2d][NormalSpeedRange][ 23.0 58.0 ]>
+		<[tmvector2d][CautionSpeedRange][ 58.0 69.5 ]>
 		<[tmvector2d][FlapSpeedRange][ 24.0 45.5 ]>
         <[float64][MaximumAltitude][4500.0]>
         <[float64][CruiseAltitude] [1826.0]>
         <[float64][QSpan][18.3]>
         <[float64][QMass][5500.0]>
-        <[float64][QSpeed][86.0]>
+        <[float64][QSpeed][69.5]>
         <[float64][QPower][750000.0]>
         <[float64][QThrust][0.0]>
         <[float64][QRange][845000.0]>
