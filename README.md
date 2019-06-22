@@ -15,7 +15,6 @@ Installation
 
 1. Unzip file and move the folder "an2" to C:\Users\~\Documents\Aerofly FS2\aircraft.
 
-
 Tips:
 
 Use Gear button to open/close door.
@@ -28,7 +27,8 @@ There are other liveries in 'liveries' folder:
 - Interflug
 - SP-FLY_Milka
 - Yellow
-To use them change the line of main.mcf file from <[string8][model_0_paint][]> to <[string8][model_0_paint][liveries/anytexturename]>, for example <[string8][model_0_paint][liveries/1465 Polish AF]>.
+
+Aircraft Technical Data & Specifications: http://www.airliners.net/aircraft-data/antonov-an-22-antei/36
 
 ========================================================================================================================
 
