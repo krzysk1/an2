@@ -1,11 +1,10 @@
 ﻿<[file][][]
     <[object][][]
         <[int][Version][210]>
-        <[vec32array][ContactSpheres][ (-7.1137 -0.0 -0.5055 0.2276 ) (1.0389 1.7661 -2.074 0.41245) (1.0389 -1.7602 -2.073 0.41245) ]>
+        <[vec32array][ContactSpheres][ (-7.114 -0.0 -0.506 0.227 ) (1.039 1.76 -2.074 0.412) (1.039 -1.76 -2.074 0.412) ]>
         <[string8][DisplayName][Antonov An-2]>
         <[string8][DescriptionTextEN][The Antonov An-2 (Russian nickname: "Annushka" or "Annie") is a Soviet mass-produced single-engine biplane utility/agricultural (hence its other nickname Kukuruznik, literally cropduster) aircraft designed and manufactured by the Antonov Design Bureau (now State Company) since 1946. 
 For Aerofly FS2 made by Krzysztof Kaniewski. Original 3D model made by Pedro van Leeuwen - modified by Mihaly Alberti and Stefan Mueller-Pfeiffer.]>
-		//Crew: 1–2, Capacity: 12 passengers, Length: 12.4 m (40 ft 8 in), Wingspan: 18.2 m (59 ft 8 in), Empty weight: 3,300 kg (7,300 lb), Loaded weight: 5,500 kg (12,000 lb), Powerplant: 1 × Shvetsov ASh-62IR 9-cylinder supercharged radial engine, 750 kW (1,000 hp), Maximum speed: 258 km/h (139 kn, 160 mph), Cruise speed: 190 km/h (100 kn, 120 mph), Stall speed: ~50 km/h (26 knots, 30 mph), Range: 845 km (456 nmi, 525 mi), Service ceiling: 4,500 m (14,750 ft), Rate of climb: 3.5 m/s (700 ft/min).
 		<[float64][WingSpan][18.3]>
 		<[float64][Mass][4733]>
 		<[float64][MaximumSpeed][69.5]>
@@ -15,7 +14,7 @@ For Aerofly FS2 made by Krzysztof Kaniewski. Original 3D model made by Pedro van
 		<[tmvector2d][NormalSpeedRange][ 23.0 58.0 ]>
 		<[tmvector2d][CautionSpeedRange][ 58.0 69.5 ]>
 		<[tmvector2d][FlapSpeedRange][ 24.0 45.5 ]>
-        <[float64][MaximumAltitude][4500.0]>
+        <[float64][MaximumAltitude][4920.0]>
         <[float64][CruiseAltitude] [1826.0]>
         <[float64][QSpan][18.3]>
         <[float64][QMass][5500.0]>
@@ -26,7 +25,7 @@ For Aerofly FS2 made by Krzysztof Kaniewski. Original 3D model made by Pedro van
         <[float64][QRatio][0.0]>
         <[float64][QBuild][55300]>
         <[float64][QVirgin][1946]>
-        <[tmvector2d][FlapSettings][ (0.0 0.0) (0.33 0.349066) (0.66 0.523599) (1.0 0.6894) ]>
+        <[tmvector2d][FlapSettings][ (0.0 0.0) (0.33 0.349) (0.66 0.524) (1.0 0.689) ]>
         <[string8][FlapQualifier][]>			
 		<[bool][Airplane][true]>
 		<[bool][Flaps][true]>
