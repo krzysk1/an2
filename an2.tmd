@@ -4335,21 +4335,44 @@
             >
             // GPS map
             <[rigidbodygraphics][Iphone][]
-            //    <[string8][GeometryList][ an-2_cockpit_5064_13 an-2_cockpit_10575_13 lcd_panel ]>
+        //        <[string8][GeometryList][ an-2_cockpit_5064_13 an-2_cockpit_10575_13 lcd_panel ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
             >
             <[texture_animation][DisplayTexture][]
                 <[string8][TextureName][lcd_color]>
-                <[string8][RenderList][DisplayMap.Render]>
+                <[string8][RenderList][ DisplayMap.Render DisplayMapOverlay.Render ]>
             >
+            <[graphics_input][GPSZoom][]
+                <[uint32][InputID][GPSZoom.Output]>
+            >			
             <[texture_animation_map_display][DisplayMap][]
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[tmvector2d][TargetPosition][ 0 0 ]>
-                <[tmvector2d][TargetSize][ 256 256 ]>
-                <[tmvector2d][TargetScale][ 256 256 ]>
-            >			
+                <[tmvector2d][TargetSize][ 512 512]>
+                <[tmvector2d][TargetScale][ 512 512 ]>
+                <[string8][InputZoom][GPSZoom.Output]>				
+            >
+            <[graphics_input][HeadingAngleInput][]
+                <[uint32][InputID][HeadingAngle.Output]>
+            >				
+            <[display_c172][DisplayMapOverlay][]
+                <[tmvector2d][TargetPosition][ 0 0 ]>
+                <[tmvector2d][TargetSize][ 512 512]>
+                <[tmvector2d][TargetScale][ 512 512 ]>
+                <[float64][FontSize]         [ 20 ]>
+                <[tmvector4f][ColorAircraft]     [ 0.373 0.992 0.000 1.0 ]>
+                <[tmvector4f][ColorVOR]          [ 0.200 1.000 1.000 1.0 ]>
+                <[tmvector4f][ColorNDB]          [ 1.000 0.500 0.500 1.0 ]>
+                <[tmvector4f][ColorAirport]      [ 1.000 1.000 1.000 1.0 ]>
+                <[tmvector4f][ColorRoute]        [ 0.373 0.992 0.000 1.0 ]>
+                <[tmvector4f][ColorWaypoint]     [ 1.000 1.000 1.000 1.0 ]>
+                <[tmvector4f][ColorNextWaypoint] [ 1.000 0.314 0.141 1.0 ]>
+                <[tmvector4f][ColorRouteWaypoint][ 0.373 0.992 0.000 1.0 ]>
+                <[string8][InputHeading][HeadingAngleInput.Output]>
+                <[string8][InputZoom][GPSZoom.Output]>				
+            >				
          >
         <[pointer_list_tmsound][SoundObjects][]
 
