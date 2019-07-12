@@ -1,7 +1,7 @@
 ﻿<[file][][]
     <[object][][]
         <[int][Version][210]>
-        <[vec32array][ContactSpheres][ (-7.114 -0.0 -0.506 0.227 ) (1.039 1.76 -2.074 0.412) (1.039 -1.76 -2.074 0.412) ]>
+        <[vec32array][ContactSpheres][ (-7.114 -0.0 -0.506 0.232) (1.039 1.76 -2.074 0.412) (1.039 -1.76 -2.074 0.412) ]>
         <[string8][DisplayName][Antonov An-2]>
         <[string8][DescriptionTextEN][The Antonov An-2 (Russian nickname: "Annushka" or "Annie") is a Soviet mass-produced single-engine biplane utility/agricultural (hence its other nickname Kukuruznik, literally cropduster) aircraft designed and manufactured by the Antonov Design Bureau (now State Company) since 1946. 
 For Aerofly FS2 made by Krzysztof Kaniewski. Original 3D model made by Pedro van Leeuwen - modified by Mihaly Alberti and Stefan Mueller-Pfeiffer.]>
