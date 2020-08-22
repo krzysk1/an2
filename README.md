@@ -7,7 +7,6 @@ Extra liveries by amerrir, ppt, blackcat, texasstyle.
 
 This work is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License. http://creativecommons.org/licenses/by-nc/3.0/deed.en_US
 
-Tested only on Windows version of aeroflyFS version 1.2.0.9  
  Some features may not work as intended and this aircraft could crash your aeroflyFS. 
  Use it at your own risk!
 
