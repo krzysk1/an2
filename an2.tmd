@@ -3409,7 +3409,7 @@
                 <[string8][GeometryList][ An2Cockpit13
                  An2Cockpit460813 An2Cockpit469213  An2Cockpit477613
                  An2Cockpit1290313 An2Cockpit1292713 An2Cockpit610813 An2Cockpit18795613
-                An2Cockpit19297813 An2Cockpit19355413 An2Cockpit19384213 ]>
+                An2Cockpit19297813 An2Cockpit19355413 An2Cockpit19384213 An2Cockpit19000000 ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
@@ -4505,7 +4505,7 @@
                 <[string8][InputPitch][PitchIgnition.Output]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
-                <[string8][SoundFile][star1.wav]> // engine_cranking.wav
+                <[string8][SoundFile][star1.wav]>
                 <[bool][Internal][false]>
             >
 
@@ -4534,7 +4534,7 @@
                 <[string8][InputPitch][RPMPitchIdle.Output]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
-                <[string8][SoundFile][engine_idle.wav]>
+                <[string8][SoundFile][engine1.wav]>  //engine_idle
             >
             <[soundloop][RPMRunLoopInt][]
                 <[string8][InputVolume][RPMVolumeRun.Output]>
