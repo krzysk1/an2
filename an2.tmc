@@ -1,34 +1,35 @@
 ﻿<[file][][]
     <[object][][]
-        <[int][Version][210]>
+        <[int][Version][220]>
         <[vec32array][ContactSpheres][ (-7.114 -0.0 -0.506 0.232) (1.039 1.76 -2.074 0.412) (1.039 -1.76 -2.074 0.412) ]>
+        <[string8][ICAO][AN2]>
         <[string8][DisplayName][Antonov An-2]>
-        <[string8][DescriptionTextEN][The Antonov An-2 (Russian nickname: "Annushka" or "Annie") is a Soviet mass-produced single-engine biplane utility/agricultural (hence its other nickname Kukuruznik, literally cropduster) aircraft designed and manufactured by the Antonov Design Bureau (now State Company) since 1946. 
-For Aerofly FS2 made by Krzysztof Kaniewski. Original 3D model made by Pedro van Leeuwen - modified by Mihaly Alberti and Stefan Mueller-Pfeiffer.]>
+        <[string8][DisplayNameFull][Antonov An-2]>
+        <[localized_text_list][Descriptions][]
+            <[localized_text][][]
+                <[string8][Language][en]>
+                <[string8][Text][The Antonov An-2 (Russian nickname: "Annushka" or "Annie") is a Soviet mass-produced single-engine biplane utility/agricultural (hence its other nickname Kukuruznik, literally cropduster) aircraft designed and manufactured by the Antonov Design Bureau (now State Company) since 1946. For Aerofly FS2 made by Krzysztof Kaniewski. Original 3D model made by Pedro van Leeuwen - modified by Mihaly Alberti and Stefan Mueller-Pfeiffer.]>
+            >
+        >
 		<[float64][WingSpan][18.3]>
-		<[float64][Mass][4733]>
-		<[float64][MaximumSpeed][69.5]>
-		<[float64][MinimumSpeed][23.0]>
-        <[float64][ApproachSpeed][26.3]>
-        <[float64][CruiseSpeed]  [50.0]>
-		<[tmvector2d][NormalSpeedRange][ 23.0 58.0 ]>
-		<[tmvector2d][CautionSpeedRange][ 58.0 69.5 ]>
-		<[tmvector2d][FlapSpeedRange][ 24.0 45.5 ]>
+		<[float64][MaximumAirspeed][69.5]>
+		<[float64][MinimumAirspeed][23.0]>
+        <[float64][ApproachAirspeed][26.3]>
+        <[float64][CruiseAirspeed]  [50.0]>
+		<[tmvector2d][NormalAirspeedRange][ 23.0 58.0 ]>
+		<[tmvector2d][CautionAirspeedRange][ 58.0 69.5 ]>
+		<[tmvector2d][FlapAirspeedRange][ 24.0 45.5 ]>
         <[float64][MaximumAltitude][4920.0]>
         <[float64][CruiseAltitude] [1826.0]>
-        <[float64][QSpan][18.3]>
-        <[float64][QMass][5500.0]>
-        <[float64][QSpeed][69.5]>
-        <[float64][QPower][750000.0]>
-        <[float64][QThrust][0.0]>
-        <[float64][QRange][845000.0]>
-        <[float64][QRatio][0.0]>
-        <[float64][QBuild][55300]>
-        <[float64][QVirgin][1946]>
+        <[float64][MaximumTakeoffMass][5500.0]>
+        <[float64][EnginePower][750000.0]>
+        <[float64][MaximumRange][845000.0]>
+        <[uint][UnitsBuilt][55300]>
+        <[uint][EngineCount][1]>
+        <[uint][Year][1946]>
         <[tmvector2d][FlapSettings][ (0.0 0.0) (0.333 0.349) (0.666 0.524) (1.0 0.689) ]>
         <[string8][FlapQualifier][]>			
-		<[bool][Airplane][true]>
-		<[bool][Flaps][true]>
+        <[string8][Tags][ airplane piston general_aviation gear tailgear flaps ]>
 		<[string8][Pilot][]>
     >
 >
