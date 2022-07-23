@@ -7,12 +7,12 @@ Extra liveries by amerrir, ppt, blackcat, texasstyle.
 
 This work is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License. http://creativecommons.org/licenses/by-nc/3.0/deed.en_US
 
- Some features may not work as intended and this aircraft could crash your aeroflyFS. 
+ Some features may not work as intended and this aircraft could crash your AeroflyF S4. 
  Use it at your own risk!
 
 Installation
 
-1. Unzip file and move the folder "an2" to C:\Users\~\Documents\Aerofly FS2\aircraft.
+1. Unzip file and move the folder "an2" to C:\Users\~\Documents\Aerofly FS4\aircraft.
 
 Tips:
 
