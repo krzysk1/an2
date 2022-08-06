@@ -568,12 +568,12 @@
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepAngle][0.4]>
                 <[control_message][OnRotate][]
-                    <[string8][Message][Controls.Magnetos]>
+                    <[string8][Message][Controls.Magnetos1]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][1.0]>
                 >
                 //<[control_message][OnPush][]
-                //    <[string8][Message][Controls.Magnetos]>
+                //    <[string8][Message][Controls.Magnetos1]>
                 //    <[string8][Qualifiers][step]>
                 //    <[float64][Value][1.0]>
                 //>

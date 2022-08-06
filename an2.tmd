@@ -13,7 +13,7 @@
 
     <[modelmanager][][]
         <[pointer_list_tmuniverse][DynamicObjects][]
-		
+
             <[telemetry][Telemetry][]
                 <[string8][Body][Fuselage]>
                 <[tmvector3d][LookAtPosition][ 0.0 0.0 0.0 ]>
@@ -94,7 +94,7 @@
                 <[uint32][Type][0]>
                 <[string8][InputLock][1.0]>
             >
-			
+
             <[rigidbody][RightWing][]
                 <[float64][Mass][254.2]>
                 <[tmvector3d][InertiaLength][ 1.95 6.58 0.27 ]>
@@ -109,7 +109,7 @@
                 <[uint32][Type][0]>
                 <[string8][InputLock][1.0]>
             >
-			
+
             <[rigidbody][LeftUpperWing][]
                 <[float64][Mass][337.4]>
                 <[tmvector3d][InertiaLength][ 2.15 7.92 0.30 ]>
@@ -119,7 +119,7 @@
             <[multibody_joint][JointFuselageLeftUpperWing][]
                 <[string8][Body0][Fuselage]>
                 <[string8][Body1][LeftUpperWing]>
-                <[tmvector3d][X0][1.0 0.0 0.0]>				
+                <[tmvector3d][X0][1.0 0.0 0.0]>
                 <[tmvector3d][R0][ 0.20232 0.67056 1.342416 ]>
                 <[uint32][Type][0]>
                 <[string8][InputLock][1.0]>
@@ -133,7 +133,7 @@
             <[multibody_joint][JointFuselageRightUpperWing][]
                 <[string8][Body0][Fuselage]>
                 <[string8][Body1][RightUpperWing]>
-                <[tmvector3d][X0][1.0 0.0 0.0]>						
+                <[tmvector3d][X0][1.0 0.0 0.0]>
                 <[tmvector3d][R0][ 0.20232 -0.67056 1.342416 ]>
                 <[uint32][Type][0]>
                 <[string8][InputLock][1.0]>
@@ -170,7 +170,7 @@
             >
 
             // Gears
-			
+
             <[rigidbody][TailGear][]
                 <[float64][Mass][7.0]>
                 <[tmvector3d][InertiaLength][ 0.42672 0.170688 0.73152 ]>
@@ -243,7 +243,7 @@
                 <[float64][Radius][0.2323]>
                 <[float64][Width][0.2194]>
                 <[float64][RimRadius][0.11]>
-                <[float64][Inflation][451580.8]>				
+                <[float64][Inflation][451580.8]>
                 <[string8][Body][TailGear]>
                 <[tmvector3d][R0][-7.1137 -0.0 -0.5055]>
                 <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
@@ -254,7 +254,7 @@
                 <[float64][Radius][0.41245]>
                 <[float64][Width][0.26]>
                 <[float64][RimRadius][0.21]>
-                <[float64][Inflation][651580.8]>					
+                <[float64][Inflation][651580.8]>
                 <[string8][Body][LeftGear]>
                 <[tmvector3d][R0][1.0389 1.7661 -2.074]>
                 <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
@@ -267,7 +267,7 @@
                 <[float64][Radius][0.41245]>
                 <[float64][Width][0.26]>
                 <[float64][RimRadius][0.21]>
-                <[float64][Inflation][651580.8]>					
+                <[float64][Inflation][651580.8]>
                 <[string8][Body][RightGear]>
                 <[tmvector3d][R0][1.0389 -1.7602 -2.073]>
                 <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
@@ -606,7 +606,7 @@
             >
             // magnetos
             <[input_discrete_momentary][Magnetos][]
-                <[string8][Message][Controls.Magnetos]>
+                <[string8][Message][Controls.Magnetos1]>
                 <[tmvector2d][Range][ 0.0 3.0 ]>
                 <[float64][Value][3.0]>
                 <[string8][EventsUp][ SwitchSound.Trigger ]>
@@ -668,7 +668,7 @@
             >
             <[output_free][FlapLeverOutput][]
                 <[string8][Input][FlapLever.Output]>
-            >            
+            >
             <[event_sound][FlapLeverPullSound][]
             >
             <[event_sound][FlapLeverReleaseSound][]
@@ -684,7 +684,7 @@
                 <[string8][Events][ FlapLeverReleaseSound.Trigger ]>
                 <[float64][Value][0.0]>
                 <[float64][Threshold][0.1]>
-            > 			
+            >
             <[sender][SenderFlapPosition][]
                 <[string8][Input][FlapsMapping.Output]>
                 <[string8][Message][Aircraft.Flaps]>
@@ -698,8 +698,8 @@
                 <[string8][Input][0.6894]>
                 <[string8][Message][Aircraft.Flaps]>
                 <[string8][Qualifiers][maximum]>
-            >			
-			
+            >
+
             <[input_default][BrakeInput][]
                 <[string8][Message][Controls.WheelBrake]>
             >
@@ -728,6 +728,11 @@
             >
             <[output_free][ElevatorTrimInputOutput][]
                 <[string8][Input][ElevatorTrimInput.Output]>
+            >
+            <[sender][SenderPitchTrimPosition][]
+                <[string8][Input][ElevatorTrimInput.Output]>
+                <[string8][Message][Aircraft.PitchTrim]>
+                <[string8][Qualifiers][ normalized ]>
             >
             <[mixlinear][MixElevatorTrim][]
                 <[string8][Input0][ElevatorInput.Output]>
@@ -1135,7 +1140,7 @@
             <[sender][SenderAngleOfAttack][]
                 <[string8][Input][PitotTube.AngleOfAttack]>
                 <[string8][Message][Aircraft.AngleOfAttack]>
-            >			
+            >
             <[altimeter][Altimeter][]
                 <[string8][StaticPressure][PitotTube.StaticPressure]>
                 <[float64][AltimeterSetting][PressureSettingInput.Output]>
@@ -4631,7 +4636,7 @@
             >
             <[soundinput][FlapLeverReleaseSound][]
                 <[string8][InputID][FlapLeverReleaseSound.Output]>
-            >            
+            >
             <[sound_multi][SoundFlapLeverRelease][]
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
@@ -4640,7 +4645,7 @@
                 <[string8][InputPitch]  [1.2]>
                 <[string8][SoundFile][flap.wav]>
                 <[bool][External][false]>
-            >  
+            >
             // button and switches
             <[soundinput][ButtonSound][]
                 <[uint32][InputID][ButtonSound.Output]>
