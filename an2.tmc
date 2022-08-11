@@ -3,7 +3,7 @@
         <[int][Version][220]>
         <[vec32array][ContactSpheres][ (-7.114 -0.0 -0.506 0.232) (1.039 1.76 -2.074 0.412) (1.039 -1.76 -2.074 0.412) ]>
         <[string8][ICAO][AN2]>
-        <[string8][DisplayName][Antonov An-2]>
+        <[string8][DisplayName][An-2]>
         <[string8][DisplayNameFull][Antonov An-2]>
         <[localized_text_list][Descriptions][]
             <[localized_text][][]
