@@ -11,21 +11,21 @@
                 <[string8][Text][The Antonov An-2 (Russian nickname: "Annushka" or "Annie") is a Soviet mass-produced single-engine biplane utility/agricultural (hence its other nickname Kukuruznik, literally cropduster) aircraft designed and manufactured by the Antonov Design Bureau (now State Company) since 1946. For Aerofly FS2 made by Krzysztof Kaniewski. Original 3D model made by Pedro van Leeuwen - modified by Mihaly Alberti and Stefan Mueller-Pfeiffer.]>
             >
         >
-		<[float64][WingSpan][18.3]>
+		<[float64][WingSpan][18.2]>
 		<[float64][MaximumAirspeed][69.5]>
 		<[float64][MaximumSpeed][69.5]>		
 		<[float64][MinimumAirspeed][23.0]>
         <[float64][ApproachAirspeed][26.3]>
-        <[float64][CruiseAirspeed][50.0]>
+        <[float64][CruiseAirspeed][51.3]>
         <[float64][CruiseSpeed][70.0]>		
 		<[tmvector2d][NormalAirspeedRange][ 23.0 58.0 ]>
 		<[tmvector2d][CautionAirspeedRange][ 58.0 69.5 ]>
-		<[tmvector2d][FlapAirspeedRange][ 24.0 45.5 ]>
-        <[float64][MaximumAltitude][4920.0]>
-        <[float64][CruiseAltitude][1826.0]>
-        <[float64][MaximumTakeoffMass][5500.0]>
+		<[tmvector2d][FlapAirspeedRange][ 24.0 40.5 ]>
+        <[float64][MaximumAltitude][4160.0]>
+        <[float64][CruiseAltitude][800.0]>
+        <[float64][MaximumTakeoffMass][5250.0]>
         <[float64][EnginePower][750000.0]>
-        <[float64][MaximumRange][845000.0]>
+        <[float64][MaximumRange][1390000.0]>
         <[uint][UnitsBuilt][55300]>
         <[uint][EngineCount][1]>
         <[uint][Year][1946]>
