@@ -2624,24 +2624,13 @@
                 <[string8][GeometryList][ PilotBody ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][ShowInside][8]>
-            >
-            <[graphics_input][ThrottleInput_1][]
-                <[uint32][InputID][ServoThrottle.Output]>
+                <[uint32][ShowInside][ CameraCopilot ]>
             >
             // pilot head
-            <[graphics_input][AileronInput_2][]
-                <[uint32][InputID][ServoAileronPosition.Output]>
-                <[float64][Scaling][-1.0]>
-            >
-            <[graphics_input][RudderInput_3][]
-                <[uint32][InputID][ServoRudder.Output]>
-                <[float64][Scaling][1.023]>
-                <[float64][Offset][0.5]>
-            >
             <[graphics_input][ElevatorInput_4][]
                 <[uint32][InputID][ServoElevatorPosition.Output]>
-                <[float64][Scaling][0.5]>
+                <[float64][Scaling][0.1]>
+                <[float64][Offset][-0.8]>				
             >
             <[graphics_linear_interpolation][PilotMapping_604][]
                 <[string8][Input][ElevatorInput_4.Output]>
@@ -2650,8 +2639,12 @@
             <[graphics_rotation][PilotRotate_604][]
                 <[string8][Input][PilotMapping_604.Output]>
                 <[tmvector3d][Axis][ 0.0 -1.0 0.0 ]>
-                <[tmvector3d][Pivot][0.9726 0.4884 0.8378]>
+                <[tmvector3d][Pivot][0.9545 0.4753 0.8583]>
             >
+            <[graphics_input][AileronInput_2][]
+                <[uint32][InputID][ServoAileronPosition.Output]>
+                <[float64][Scaling][-1.0]>
+            >			
             <[graphics_linear_interpolation][PilotMapping_602][]
                 <[string8][Input][AileronInput_2.Output]>
                 <[tmvector2d][Map][(-1.0 0.0) (1 1.049641)]>
@@ -2659,9 +2652,14 @@
             <[graphics_rotation][PilotRotate_602][]
                 <[string8][Input][PilotMapping_602.Output]>
                 <[tmvector3d][Axis][ -0.06 0.0635 0.9962 ]>
-                <[tmvector3d][Pivot][0.9726 0.4884 0.8378]>
+                <[tmvector3d][Pivot][0.9545 0.4753 0.8583]>
                 <[string8][InputTransform][PilotRotate_604.Output]>
             >
+            <[graphics_input][RudderInput_3][]
+                <[uint32][InputID][ServoRudder.Output]>
+                <[float64][Scaling][1.023]>
+                <[float64][Offset][0.3]>
+            >			
             <[graphics_linear_interpolation][PilotMapping_600][]
                 <[string8][Input][RudderInput_3.Output]>
                 <[tmvector2d][Map][(0 0.0) (1 0.785398)]>
@@ -2669,7 +2667,7 @@
             <[graphics_rotation][PilotRotate_600][]
                 <[string8][Input][PilotMapping_600.Output]>
                 <[tmvector3d][Axis][ 0.0 0.0 -1.0 ]>
-                <[tmvector3d][Pivot][0.9726 0.4884 0.8378]>
+                <[tmvector3d][Pivot][0.9545 0.4753 0.8583]>
                 <[string8][InputTransform][PilotRotate_602.Output]>
             >
             <[rigidbodygraphics][PilotHead][]
@@ -2677,7 +2675,7 @@
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputTransform][PilotRotate_600.Output]>
-                <[uint32][ShowInside][8]>
+                <[uint32][ShowInside][ CameraCopilot ]>
             >
 
 
