@@ -37,7 +37,7 @@
                 <[float64][Dt][0.02]>
                 <[bool][InCockpit][true]>
             >
-            <[camera_head][CameraCopilot][]
+            <[camera_head][CameraCoPilot][]
                 <[string8][Tags][cockpit pilot right]>
                 <[string8][Body][Fuselage]>
                 <[tmvector3d][R0][ 0.9948 -0.3962 0.9205 ]>
@@ -1868,7 +1868,7 @@
                 <[tmvector3d][Axis][ 0.0 1.0 0.0 ]>
                 <[tmvector3d][Pivot][1.7666 0.1793 0.4731]>
             >
-            // Strobe lights switch
+            // strobe lights switch
             <[hingedbodygraphics][StrobeLightSwitch][]
                 <[string8][GeometryList][ AllSwitch484320 ]>
                 <[uint32][PositionID][Fuselage.R]>
@@ -2624,7 +2624,7 @@
                 <[string8][GeometryList][ PilotBody ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][ShowInside][ CameraCopilot ]>
+                <[uint32][ShowInside][ CameraCoPilot ]>
             >
             // pilot head
             <[graphics_input][ElevatorInput_4][]
@@ -2675,7 +2675,7 @@
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputTransform][PilotRotate_600.Output]>
-                <[uint32][ShowInside][ CameraCopilot ]>
+                <[uint32][ShowInside][ CameraCoPilot ]>
             >
 
 
