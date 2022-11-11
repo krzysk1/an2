@@ -246,7 +246,6 @@
                 <[float64][Inflation][451580.8]>
                 <[string8][Body][TailGear]>
                 <[tmvector3d][R0][-7.1137 0.0 -0.5055]>
-                <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
             >
             <[wheel][LeftWheelHull][]
                 <[float64][K][860000]>
@@ -257,7 +256,6 @@
                 <[float64][Inflation][651580.8]>
                 <[string8][Body][LeftGear]>
                 <[tmvector3d][R0][1.0389 1.7661 -2.074]>
-                <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
                 <[string8][InputBrake][LeftBrakeInput.Output]>
                 <[float64][BrakeStrength][0.15]>
             >
@@ -270,7 +268,6 @@
                 <[float64][Inflation][651580.8]>
                 <[string8][Body][RightGear]>
                 <[tmvector3d][R0][1.0389 -1.7602 -2.073]>
-                <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
                 <[string8][InputBrake][RightBrakeInput.Output]>
                 <[float64][BrakeStrength][0.15]>
             >
