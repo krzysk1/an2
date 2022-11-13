@@ -22,8 +22,8 @@
               <[float64][OptimumSpeed][31.4]>
               <[float64][MaximumSpeed][40.5]>
               <[bool][Landing][true]>
-              <[bool][TakeOff][true]>			  
-           >		   
+              <[bool][TakeOff][true]>
+           >
            <[copilot_flap_info][FlapApproach][]
               <[float64][FlapPosition][0.66]>
               <[float64][MinimumSpeed][20.5]>
@@ -51,7 +51,8 @@
         <[float64][RudderTakeOff][0.07]>
         <[float64][FlareHeightScaling][0.5]>
         <[float64][FlareExpectedNoseDrop][0.45]>
-        <[float64][StarterMaximumTime][5.0]>
+        <[float64][GainSideSlipRoll][0.6]>
+        <[float64][StarterMaximumTime][3.0]>
         <[float64][RotationSpeedNormalizedClimb] [1.0]>
         <[float64][RotationSpeedNormalizedCruise][0.923]>
     >
