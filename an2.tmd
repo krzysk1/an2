@@ -4,11 +4,10 @@
     //
     // Plane: Antonov AN-2
     //
-    // Original 3D design and sound files:
-    //        Adrian Fernandez Gomez (Alcala Simulacion)
-    // Original Aerofly FS 1 up to Aerofly FS 4 adaptation:
-    //         Krzysztof Kaniewski krzysk (at) wp.pl
+    // Original 3D design and sound files: Pedro van Leeuwen modified by Mihaly Alberti and Stefan Mueller-Pfeiffer
+    // Original Aerofly FS 1 up to Aerofly FS 4 adaptation: Krzysztof Kaniewski 
     //
+	// Licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License.
     //-------------------------------------
 
     <[modelmanager][][]
