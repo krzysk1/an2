@@ -10,11 +10,15 @@ This work is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unp
  Some features may not work as intended and this aircraft could crash your AeroflyF S4. 
  Use it at your own risk!
 
-Installation
+# Installation
 
 1. Unzip file and move the folder "an2" to C:\Users\~\Documents\Aerofly FS4\aircraft.
 
-Tips:
+# Uninstall
+
+1. Delete the folder "an2".
+
+# Tips
 
 Use Gear button to open/close door.
 
@@ -27,11 +31,11 @@ There are other liveries in 'liveries' folder:
 - SP-FLY_Milka
 - Yellow
 
+# Resources
+
 Aircraft Technical Data & Specifications: http://www.airliners.net/aircraft-data/antonov-an-22-antei/36
 
-========================================================================================================================
-
-Original readme.txt file
+# Original readme.txt file
 
 ---------------------------------------------------------------------------------------------------
 Antonov An-2 v3.0 for X-Plane v9.xx
