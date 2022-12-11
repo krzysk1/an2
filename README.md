@@ -1,7 +1,7 @@
 # an2
 The Antonov An-2 (Russian nickname: "Annushka" or "Annie") is a Soviet mass-produced single-engine biplane utility/agricultural (hence its other nickname Kukuruznik, literally cropduster, gained from its predecessor Po-2) aircraft designed and manufactured by the Antonov Design Bureau (now State Company) since 1946.(From Wikipedia, the free encyclopedia)
 
-This is free add-on for AeroflyFS developed by Krzysztof Kaniewski, 
+This is free add-on for AeroflyFS created by Krzysztof Kaniewski with the Aerofly FS4 SDK.  
 3D model by Pedro van Leeuwen - modified by Mihaly Alberti and Stefan Mueller-Pfeiffer downloaded from https://github.com/ksgy/Antonov-An-2
 Extra liveries by amerrir, ppt, blackcat, texasstyle.
 
@@ -12,7 +12,7 @@ This work is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unp
 
 # Installation
 
-1. Unzip file and move the folder "an2" to C:\Users\~\Documents\Aerofly FS4\aircraft.
+1. Unzip file and move the folder "an2" into the C:\Users\~\Documents\Aerofly FS 4\aircraft folder.
 
 # Uninstall
 

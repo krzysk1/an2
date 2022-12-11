@@ -4091,6 +4091,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][prop1.wav]>
                 <[bool][External][false]>
+                <[tmvector3d][R0][3.5 0.0 0.0]>					
             >
 
             // starter cranking
@@ -4113,6 +4114,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][star1.wav]>
                 <[bool][External][false]>
+                <[tmvector3d][R0][3.3 0.0 0.0]>					
             >
             <[sound_multi][IgnitionSoundExt][]
                 <[string8][InputTrigger][IgnitionSoundInput.Output]>
@@ -4122,6 +4124,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][star1.wav]>
                 <[bool][Internal][false]>
+                <[tmvector3d][R0][3.3 0.0 0.0]>					
             >
 
             // engine loop rpm_eng 1400.0
@@ -4150,6 +4153,7 @@
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][engn1.wav]>  //engine_idle
+                <[tmvector3d][R0][3.3 0.0 0.0]>						
             >
             <[soundloop][RPMRunLoopInt][]
                 <[string8][InputVolume][RPMVolumeRun.Output]>
@@ -4158,6 +4162,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][engn1.wav]>
                 <[bool][External][false]>
+                <[tmvector3d][R0][3.3 0.0 0.0]>						
             >
             <[soundloop][RPMRunLoopExt][]
                 <[string8][InputVolume][RPMVolumeRun.Output]>
@@ -4166,6 +4171,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][engn1.wav]>
                 <[bool][Internal][false]>
+                <[tmvector3d][R0][3.3 0.0 0.0]>					
             >
 
             // wheels
