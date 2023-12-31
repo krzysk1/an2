@@ -35,6 +35,6 @@
         <[uint][Year][1946]>
         <[tmvector2d][FlapSettings][ (0.0 0.0) (0.333 0.349) (0.666 0.524) (1.0 0.689) ]>
         <[string8][Tags][ airplane utility piston general_aviation gear taildragger flaps short_takeoff ]>
-		<[string8][Pilot][]>
+        <[string8][Pilot][pilot_edward]>
     >
 >

@@ -1,5 +1,5 @@
 # an2
-The Antonov An-2 (Russian nickname: "Annushka" or "Annie") is a Soviet mass-produced single-engine biplane utility/agricultural (hence its other nickname Kukuruznik, literally cropduster, gained from its predecessor Po-2) aircraft designed and manufactured by the Antonov Design Bureau (now State Company) since 1946.(From Wikipedia, the free encyclopedia)
+The Antonov AN-2 is a Soviet biplane that was designed in the 1940s for agricultural and utility purposes. It is one of the largest single-engine biplanes ever produced and has a distinctive appearance with its radial engine and large wings. The AN-2 can operate from unprepared fields and has excellent low-speed handling characteristics. It is still used in many countries for various roles such as crop dusting, firefighting, parachuting, and transport.
 
 This is free add-on for AeroflyFS created by Krzysztof Kaniewski with the Aerofly FS4 SDK.  
 3D model by Pedro van Leeuwen - modified by Mihaly Alberti and Stefan Mueller-Pfeiffer downloaded from https://github.com/ksgy/Antonov-An-2
