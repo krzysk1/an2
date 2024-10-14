@@ -2,7 +2,7 @@
     <[hints][][]
         // Antonov An-2
         <[float64][MaximumTakeOffMass][5250.0]>
-        <[float64][WingSpan][[18.2]>
+        <[float64][WingSpan][18.2]>
         <[float64][WingArea][71.50]>
         <[float64][HeightOffset][-2.074]>
         <[float64][ApproachSpeed]26.3]>
