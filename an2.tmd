@@ -246,7 +246,7 @@
                 <[float64][KineticFrictionCoefficient][0.7]>
                 <[bool][InstantCrash][true]>
             >
-			
+
             // Gears
 
             <[rigidbody][TailGear][]
@@ -3456,13 +3456,13 @@
             >
             <[graphics_linear_interpolation][CockpitMapping_1107][]
                 <[string8][Input][CockpitInput_26.Output]>
-                <[tmvector2d][Map][(-100.0 0.288677)
-									(-180.72 0.282569)
-									(-9.036 -1.236915)
+                <[tmvector2d][Map][ (-100.0 0.288677)
+									(-10.0 0.282569)
+									(-5.0 -1.236915)
 									(0.0 -2.792178)
-									(9.036 -4.384791)
-									(18.072 -5.954890)
-									100.0 -5.964140)]>
+									(5.0 -4.384791)
+									(10.0 -5.954890)
+									100.0 -5.964140) ]>
             >
             <[hingedbodygraphics][Cockpit_8988_13][]
                 <[string8][GeometryList][ An2Cockpit898813 ]>
@@ -4015,7 +4015,7 @@
                 <[string8][InputHeading][HeadingAngleInput.Output]>
                 <[string8][InputZoom][GPSZoom.Output]>
             >
-			
+
 		// Pilot
 
             <[rigidbodygraphics][PilotBody][]
@@ -4028,7 +4028,7 @@
             <[graphics_input][ElevatorInput_4][]
                 <[uint32][InputID][ServoElevatorPosition.Output]>
                 <[float64][Scaling][0.1]>
-                <[float64][Offset][-0.8]>				
+                <[float64][Offset][-0.8]>
             >
             <[graphics_linear_interpolation][PilotMapping_604][]
                 <[string8][Input][ElevatorInput_4.Output]>
@@ -4042,7 +4042,7 @@
             <[graphics_input][AileronInput_2][]
                 <[uint32][InputID][ServoAileronPosition.Output]>
                 <[float64][Scaling][-1.0]>
-            >			
+            >
             <[graphics_linear_interpolation][PilotMapping_602][]
                 <[string8][Input][AileronInput_2.Output]>
                 <[tmvector2d][Map][(-1.0 0.0) (1 1.049641)]>
@@ -4057,7 +4057,7 @@
                 <[uint32][InputID][ServoRudder.Output]>
                 <[float64][Scaling][1.023]>
                 <[float64][Offset][0.3]>
-            >			
+            >
             <[graphics_linear_interpolation][PilotHeadMapping][]
                 <[string8][Input][RudderInput_3.Output]>
                 <[tmvector2d][Map][(0 0.0) (1 0.785398)]>
@@ -4075,7 +4075,7 @@
                 <[string8][InputTransform][PilotHeadTransform.Output]>
                 <[uint32][ShowInside][ CameraCopilot CameraJumpSeat CameraLeftFuselageView CameraRightFuselageView ]>
             >
-			
+
             // Pilot
             <[graphics_human][Pilot][]
                 <[uint32][PositionID][Fuselage.R]>
@@ -6140,7 +6140,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][prop1.wav]>
                 <[bool][External][false]>
-                <[tmvector3d][R0][3.5 0.0 0.0]>					
+                <[tmvector3d][R0][3.5 0.0 0.0]>
             >
 
             // starter cranking
@@ -6163,7 +6163,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][star1.wav]>
                 <[bool][External][false]>
-                <[tmvector3d][R0][3.3 0.0 0.0]>					
+                <[tmvector3d][R0][3.3 0.0 0.0]>
             >
             <[sound_multi][IgnitionSoundExt][]
                 <[string8][InputTrigger][IgnitionSoundInput.Output]>
@@ -6173,7 +6173,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][star1.wav]>
                 <[bool][Internal][false]>
-                <[tmvector3d][R0][3.3 0.0 0.0]>					
+                <[tmvector3d][R0][3.3 0.0 0.0]>
             >
 
             // engine loop rpm_eng 1400.0
@@ -6202,7 +6202,7 @@
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][engn1.wav]>  //engine_idle
-                <[tmvector3d][R0][3.3 0.0 0.0]>						
+                <[tmvector3d][R0][3.3 0.0 0.0]>
             >
             <[soundloop][RPMRunLoopInt][]
                 <[string8][InputVolume][RPMVolumeRun.Output]>
@@ -6211,7 +6211,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][engn1.wav]>
                 <[bool][External][false]>
-                <[tmvector3d][R0][3.3 0.0 0.0]>						
+                <[tmvector3d][R0][3.3 0.0 0.0]>
             >
             <[soundloop][RPMRunLoopExt][]
                 <[string8][InputVolume][RPMVolumeRun.Output]>
@@ -6220,7 +6220,7 @@
                 <[uint32][VelocityID][Fuselage.V]>
                 <[string8][SoundFile][engn1.wav]>
                 <[bool][Internal][false]>
-                <[tmvector3d][R0][3.3 0.0 0.0]>					
+                <[tmvector3d][R0][3.3 0.0 0.0]>
             >
 
             // wheels
