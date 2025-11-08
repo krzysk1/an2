@@ -33,7 +33,22 @@ There are other liveries in 'liveries' folder:
 
 # Resources
 
+The source available at GitHub: https://github.com/ksgy/Antonov-An-2
+
+This work is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License.
+
+
 Aircraft Technical Data & Specifications: http://www.airliners.net/aircraft-data/antonov-an-22-antei/36
+
+Flight manual: https://www.skyshelf.eu/products/antonov-an-2-flight-manual-1983
+https://www.scribd.com/document/372062584/An-2-Manual-English
+
+Flight manual (Polish): https://aeroklub-czestochowa.org.pl/wp-content/uploads/2017/04/Strony-od-An-2_Instrukcja_uzytkowania_w_locie_SP-AOU_cz2.pdf
+
+https://aviaport33.narod.ru/files/RLE_An-2.pdf
+
+https://www.scribd.com/document/529045350/%D0%90n-2?utm_source=chatgpt.com
+
 
 # Original readme.txt file
 
