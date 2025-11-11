@@ -2222,8 +2222,8 @@
                 <[float64][MinimumVoltage][15.0]>
                 <[float64][RatedCurrent][2.5]>
             >
-            <[output][VHF1AudioOn][]
-                <[string8][Input][VHF1AudioSwitch.Output]>
+            <[output_free][RadioPanel1OnOutput][]
+                <[string8][Input][RadioPanel1On.Output]>
             >
             <[input_switch][VHF2AudioSwitch][]
                 <[string8][Message][Electrical.VHF2Audio]>
@@ -2238,8 +2238,8 @@
                 <[float64][MinimumVoltage][15.0]>
                 <[float64][RatedCurrent][2.5]>
             >
-            <[output][VHF2AudioOn][]
-                <[string8][Input][VHF2AudioSwitch.Output]>
+            <[output_free][RadioPanel2OnOutput][]
+                <[string8][Input][RadioPanel2On.Output]>
             >
             <[input_switch][IntercomAudioSwitch][]
                 <[string8][Message][Electrical.IntercomAudio]>
@@ -3320,7 +3320,7 @@
             <[output][ConverterOn][]
                 <[string8][Input][ConverterSwitch.Output]>
             >
-            <[input_discrete][ClutchStarterSwitch][]
+            <[input_discrete_momentary][ClutchStarterSwitch][]
                 <[string8][Message][Controls.ClutchStarter]>
                 <[string8][EventsUp][ SwitchSound.Trigger ]>
                 <[string8][EventsDown][ SwitchSound.Trigger ]>
@@ -4096,7 +4096,7 @@
             >
 
             <[rigidbodygraphics][Cockpit][]
-                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches PneumaticNeedle MiddleConsole ]>
+                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches PneumaticNeedle MiddleConsole ClockButton ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
@@ -4524,22 +4524,22 @@
                 <[string8][GeometryList][ VHF1AudioSwitch ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][InputID][VHF1AudioOn.Output]>
+                <[uint32][InputID][VHF1AudioSwitch.Output]>
                 <[tmvector3d][Axis][ 0.0 1.0 0.0 ]>
                 <[tmvector3d][Pivot][1.7824 -0.0053 0.8065]>
                 <[float64][Scaling][1.02765]>
-                <[float64][Offset][003142]>
+                <[float64][Offset][0.03142]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
             <[hingedbodygraphics][VHF2AudioSwitch][]
                 <[string8][GeometryList][ VHF2AudioSwitch ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][InputID][VHF2AudioOn.Output]>
+                <[uint32][InputID][VHF2AudioSwitch.Output]>
                 <[tmvector3d][Axis][ 0.0 1.0 0.0 ]>
                 <[tmvector3d][Pivot][1.7824 -0.0269 0.8065]>
                 <[float64][Scaling][1.02765]>
-                <[float64][Offset][003142]>
+                <[float64][Offset][0.03142]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
             <[hingedbodygraphics][IntercomAudioSwitch][]
@@ -4550,7 +4550,7 @@
                 <[tmvector3d][Axis][ 0.0 1.0 0.0 ]>
                 <[tmvector3d][Pivot][1.7824 -0.0490 0.8065]>
                 <[float64][Scaling][1.02765]>
-                <[float64][Offset][003142]>
+                <[float64][Offset][0.03142]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
             // pitot heat switch
@@ -5094,11 +5094,7 @@
             <[graphics_input][CHTinput][]
                 <[uint32][InputID][NeedleCylinderHeadTemperature.Output]>
                 <[float64][Offset][-273.15]>
-            >
-            <[graphics_linear_interpolation][OilPressureMapping][]
-                <[string8][Input][CockpitInput_23.Output]>
-                <[tmvector2d][Map][(0 0.785398) (1100.0 -0.785398)]>
-            >            
+            >      
             <[graphics_linear_interpolation][RightCHTMapping][]
                 <[string8][Input][CHTinput.Output]>
                 <[tmvector2d][Map][(-50.0 1.038995) (0.0 0.794998) (300.0 -0.771436)]>
@@ -5437,34 +5433,30 @@
             // artificial horizon adjust
             <[graphics_input][AttKnobInput][]
                 <[uint32][InputID][AttitudeIndicatorAdjust.Output]>
-                <[float64][Scaling][20]>
             >
             <[graphics_linear_interpolation][AttLineMapping][]
                 <[string8][Input][AttKnobInput.Output]>
-                <[tmvector2d][Map][(-20.0 0.0) (20.0 0.0464)]>
+                <[tmvector2d][Map][(-1.0 0.0) (1.0 0.0464)]>
             >
             <[graphics_translation][AttLineMoving][]
                 <[string8][Input][AttLineMapping.Output]>
                 <[tmvector3d][Axis][0.0 0.0 1.0]>
             >
             <[rigidbodygraphics][AttitudeHorizonLine][]
-                <[string8][GeometryList][ AttitudeCopilotHorizonLine AttitudeHorizonLine ]>
+                <[string8][GeometryList][ AttitudeHorizonLine AttitudeCopilotHorizonLine ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputTransform][AttLineMoving.Output]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
-            <[graphics_linear_interpolation][AttKnobMapping][]
-                <[string8][Input][AttKnobInput.Output]>
-                <[tmvector2d][Map][(-20 -10) (0 0.0) (20 10)]>
-            >
             <[hingedbodygraphics][AttitudeAdjustKnob][]
                 <[string8][GeometryList][ AttitudeKnob ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[string8][Input][AttKnobMapping.Output]>
+                <[uint32][InputID][AttitudeIndicatorAdjust.Output]>
                 <[tmvector3d][Axis][ 1.0 0.0 0.0 ]>
                 <[tmvector3d][Pivot][1.7731 0.5146 0.6242]>
+                <[float64][Scaling][10.0]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
 
@@ -5514,7 +5506,6 @@
             <[graphics_mapping_linear][HeadingKnobRotationMapping][]
                 <[string8][Input][DirectionalGyroAdjust.Output]>
                 <[float64][Scaling][10.0]>
-                <[float64][Offset][0.0]>
             >
             <[graphics_translation][HeadingKnobTranslation][]
                 <[string8][Input][HeadingKnobTranslationMapping.Output]>
@@ -5606,6 +5597,7 @@
                 <[uint32][InputID][HeadingAngle.Output]> // indicators/adf1_relative_bearing_deg
                 <[tmvector3d][Axis][ 0.9677 0.0 -0.252 ]>
                 <[tmvector3d][Pivot][1.7361 0.3778 0.5406]>
+                <[float64][Offset][1.570797]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
             // adf1_card_heading
@@ -5646,6 +5638,7 @@
                 <[uint32][InputID][HeadingAngle.Output]> // indicators/adf1_relative_bearing_deg
                 <[tmvector3d][Axis][ 0.9677 0.0 -0.252 ]>
                 <[tmvector3d][Pivot][1.6970 -0.2221 0.4716]>
+                <[float64][Offset][1.570797]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
             <[graphics_linear_interpolation][CockpitMapping_933][]
@@ -5681,6 +5674,7 @@
                 <[uint32][InputID][HeadingAngle.Output]> // indicators/adf1_relative_bearing_deg
                 <[tmvector3d][Axis][ 1.0 0.0 -0.0062 ]>
                 <[tmvector3d][Pivot][1.7446 -0.4966 0.6245]>
+                <[float64][Offset][1.570797]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
             // ADF faces nav2_ob
@@ -5752,15 +5746,39 @@
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
 
+            <[rigidbodygraphics][VHFDisplays][]
+                <[string8][GeometryList][ VHF1Display VHF2Display ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[string8][InputIllumination0][NaturalLighting.Output]>
+            >
+            <[movinggraphics][VHF1DisplayOff][]
+                <[string8][GeometryList][ VHF1DisplayOff ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][InputID][RadioPanel1On.Output]>
+                <[tmvector3d][Axis][0.0 0.0 1.0]>
+                <[float64][Scaling][-0.0002]>
+                <[string8][InputIllumination0][NaturalLighting.Output]>
+            >
+            <[movinggraphics][VHF2DisplayOff][]
+                <[string8][GeometryList][ VHF2DisplayOff ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][InputID][RadioPanel2On.Output]>
+                <[tmvector3d][Axis][1.0 0.0 0.0]>
+                <[float64][Scaling][0.0002]>
+                <[string8][InputIllumination0][NaturalLighting.Output]>
+            >
             // Iphone + GPS map
             <[rigidbodygraphics][Iphone][]
-                <[string8][GeometryList][ Iphone IphoneMont ]>
+                <[string8][GeometryList][ Iphone IphoneMount ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
             >
             <[rigidbodygraphics][IphoneDisplay][]
-                <[string8][GeometryList][ LcdPanel ]>
+                <[string8][GeometryList][ IphoneDisplay ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputIllumination0][NaturalLighting.Output]>
@@ -8155,7 +8173,7 @@
             >
             // avionics sound
             <[soundinput][AvionicsOnInput][]
-                <[uint32][InputID][VHF1AudioOn.Output]>
+                <[uint32][InputID][RadioPanel1On.Output]>
             >
             <[soundmapping][AvionicsVolume][]
                 <[string8][Input][AvionicsOnInput.Output]>
