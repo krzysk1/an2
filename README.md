@@ -49,6 +49,184 @@ https://aviaport33.narod.ru/files/RLE_An-2.pdf
 
 https://www.scribd.com/document/529045350/%D0%90n-2?utm_source=chatgpt.com
 
+# REFERENCE SPEEDS
+
+ airspeed_indicator_max = 160 kts
+ approach_speed = 62 kts
+ best_angle_climb_speed = 73 kts
+ best_glide = 70 kts
+ climb_speed = 78 kts
+ cruise_alt = 9850 ft
+ cruise_speed = 113 kts
+ flaps_up_stall_speed = 65 kts
+ full_flaps_stall_speed = 40 kts
+ max_flaps_extended = 70 kts
+ max_indicated_speed = 162 kts
+ max_mach = 0.313
+ normal_operating_speed = 105 kts
+ rotation_speed_min = 46 kts
+ spawn_altitude = 1500 ft
+ spawn_cruise_altitude = 1500 ft
+ spawn_descent_altitude = 500 ft
+ takeoff_speed = 49 kts
+
+ 0                     podejscie     140
+ 5    0.087266461924 climb
+ 25 0.436332309619  start
+ 30 0.523598771542  start  lądowanie  do 150    podejscie 125  ladowanie 85
+ 39.5 0.689405049197 lądowanie          do 130    podejscie 120 ladowanie 70
+
+ minimalna 70-85 z max klap
+
+# Airfoils
+
+        <[airfoil][NACA 16 (mod-n095)][]
+                <[float64][Cl0][0.2]>
+                <[float64][Cd0][0.0069]>
+                <[float64][Cm0][-0.05]>
+                <[float64][ClAlpha][5.443099]>
+                <[float64][CdAlpha][0.916733]>
+                <[float64][CmAlpha][0.0]>
+                <[float64][ClFlap][1.5]>
+                <[float64][CdFlap][0.005]>
+                <[float64][CmFlap][-0.2]>
+                <[float64][Cd0Base][0.005]>
+                <[float64][ClAlphaBase][2.445]>
+                <[float64][CdAlphaBase][1.83375]>
+                <[float64][CmAlphaBase][-0.45]>
+                <[float64][ClFlapBase][0.0]>
+                <[float64][AttachedCenter][0.0]>
+                <[float64][AttachedRange][0.593412]>
+                <[float64][StallRange][0.418879]>
+                <[float64][AttachedCenterFlap][-0.12]>
+        >
+
+        <[airfoil][NACA 4414][]
+                <[float64][Cl0][0.425]>
+                <[float64][Cd0][0.0079]>
+                <[float64][Cm0][-0.1]>
+                <[float64][ClAlpha][8.296429]>
+                <[float64][CdAlpha][0.572958]>
+                <[float64][CmAlpha][0.0]>
+                <[float64][ClFlap][1.5]>
+                <[float64][CdFlap][0.005]>
+                <[float64][CmFlap][-0.2]>
+                <[float64][Cd0Base][0.005]>
+                <[float64][ClAlphaBase][2.91135]>
+                <[float64][CdAlphaBase][2.183513]>
+                <[float64][CmAlphaBase][-0.45]>
+                <[float64][ClFlapBase][0.0]>
+                <[float64][AttachedCenter][0.0]>
+                <[float64][AttachedRange][0.418914]>
+                <[float64][StallRange][0.244381]>
+                <[float64][AttachedCenterFlap][-0.12]>
+        >
+
+        <[airfoil][NACA 4414mod][]
+                <[float64][Cl0][0.425]>
+                <[float64][Cd0][0.0079]>
+                <[float64][Cm0][-0.1]>
+                <[float64][ClAlpha][8.777714]>
+                <[float64][CdAlpha][0.572958]>
+                <[float64][CmAlpha][0.0]>
+                <[float64][ClFlap][1.5]>
+                <[float64][CdFlap][0.005]>
+                <[float64][CmFlap][-0.2]>
+                <[float64][Cd0Base][0.005]>
+                <[float64][ClAlphaBase][3.06405]>
+                <[float64][CdAlphaBase][2.298038]>
+                <[float64][CmAlphaBase][-0.45]>
+                <[float64][ClFlapBase][0.0]>
+                <[float64][AttachedCenter][0.0]>
+                <[float64][AttachedRange][0.488692]>
+                <[float64][StallRange][0.314159]>
+                <[float64][AttachedCenterFlap][-0.12]>
+        >
+
+        <[airfoil][thick][]
+                <[float64][Cl0][0.66]>
+                <[float64][Cd0][0.0064]>
+                <[float64][Cm0][-0.15]>
+                <[float64][ClAlpha][5.500395]>
+                <[float64][CdAlpha][0.8136]>
+                <[float64][CmAlpha][0.130218]>
+                <[float64][ClFlap][1.5]>
+                <[float64][CdFlap][0.005]>
+                <[float64][CmFlap][-0.2]>
+                <[float64][Cd0Base][0.005]>
+                <[float64][ClAlphaBase][2.7]>
+                <[float64][CdAlphaBase][2.025]>
+                <[float64][CmAlphaBase][-0.45]>
+                <[float64][ClFlapBase][0.0]>
+                <[float64][AttachedCenter][0.009599]>
+                <[float64][AttachedRange][0.441568]>
+                <[float64][StallRange][0.267035]>
+                <[float64][AttachedCenterFlap][-0.12]>
+        >
+
+        <[airfoil][TsAGI_R-PS_14][]
+                <[float64][Cl0][0.425]>
+                <[float64][Cd0][0.013]>
+                <[float64][Cm0][-0.1]>
+                <[float64][ClAlpha][6.417128]>
+                <[float64][CdAlpha][0.974028]>
+                <[float64][CmAlpha][0.0]>
+                <[float64][ClFlap][1.5]>
+                <[float64][CdFlap][0.005]>
+                <[float64][CmFlap][-0.2]>
+                <[float64][Cd0Base][0.005]>
+                <[float64][ClAlphaBase][2.73]>
+                <[float64][CdAlphaBase][2.0475]>
+                <[float64][CmAlphaBase][-0.45]>
+                <[float64][ClFlapBase][0.0]>
+                <[float64][AttachedCenter][0.0]>
+                <[float64][AttachedRange][0.558505]>
+                <[float64][StallRange][0.361283]>
+                <[float64][AttachedCenterFlap][-0.12]>
+        >
+
+
+        <[airfoil][zeroLDM-09][]
+                <[float64][Cl0][0.25]>
+                <[float64][Cd0][0.0065]>
+                <[float64][Cm0][-0.040385]>
+                <[float64][ClAlpha][5.84417]>
+                <[float64][CdAlpha][0.653172]>
+                <[float64][CmAlpha][0.055092]>
+                <[float64][ClFlap][1.5]>
+                <[float64][CdFlap][0.005]>
+                <[float64][CmFlap][-0.2]>
+                <[float64][Cd0Base][0.005]>
+                <[float64][ClAlphaBase][2.4]>
+                <[float64][CdAlphaBase][1.8]>
+                <[float64][CmAlphaBase][-0.45]>
+                <[float64][ClFlapBase][0.0]>
+                <[float64][AttachedCenter][0.0]>
+                <[float64][AttachedRange][0.523599]>
+                <[float64][StallRange][0.488692]>
+                <[float64][AttachedCenterFlap][-0.12]>
+        >
+
+        <[airfoil][zeroLDM-14][]
+                <[float64][Cl0][0.25]>
+                <[float64][Cd0][0.0065]>
+                <[float64][Cm0][-0.040385]>
+                <[float64][ClAlpha][5.84417]>
+                <[float64][CdAlpha][0.653172]>
+                <[float64][CmAlpha][0.055092]>
+                <[float64][ClFlap][1.5]>
+                <[float64][CdFlap][0.005]>
+                <[float64][CmFlap][-0.2]>
+                <[float64][Cd0Base][0.005]>
+                <[float64][ClAlphaBase][2.4]>
+                <[float64][CdAlphaBase][1.8]>
+                <[float64][CmAlphaBase][-0.45]>
+                <[float64][ClFlapBase][0.0]>
+                <[float64][AttachedCenter][0.0]>
+                <[float64][AttachedRange][0.523599]>
+                <[float64][StallRange][0.488692]>
+                <[float64][AttachedCenterFlap][-0.12]>
+        >		
 
 # Original readme.txt file
 
@@ -364,3 +542,6 @@ Please, do always include with the package/derivatives the 'X-Plane general Lice
 
 
 Installation: simply copy An-2 folder to X-Plane's aircraft folder
+
+
+--------------------------------------------------------------------------------

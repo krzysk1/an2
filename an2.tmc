@@ -9,35 +9,48 @@
             <[localized_text][element][0]
                 <[string8u][Language][en]>
                 <[string8][Text][The Antonov An-2 is a Soviet mass-produced single-engine biplane utility/agricultural (hence its other nickname Kukuruznik, literally cropduster) aircraft designed and manufactured by the Antonov Design Bureau (now State Company) since 1946. For Aerofly FS4 made by Krzysztof Kaniewski. Original 3D model made by Pedro van Leeuwen - modified by Mihaly Alberti and Stefan Mueller-Pfeiffer.]>
-			>
+            >
             <[localized_text][element][1]
                 <[string8u][Language][de]>
                 <[string8][Text][Die Antonow An-2 ist ein STOL-Mehrzweckflugzeug und mit über 18 m Spannweite der größte im Einsatz befindliche einmotorige Doppeldecker der Welt. Die An-2 wurde nach dem Zweiten Weltkrieg in der UdSSR entwickelt und wird in großer Stückzahl sowohl für zivile als auch für militärische Zwecke genutzt. Mit ihrer großen Flügelfläche ist die An-2 für Langsamflug und extrem kurze Start- und Landerollstrecken ausgelegt; das Fahrwerk erlaubt Starten und Landen auf unbefestigten Flächen. Für Aerofly FS4 von Krzysztof Kaniewski. 3d-Modell erstellt von Pedro van Leeuwen - geändert von Mihaly Alberti und Stefan Mueller-Pfeiffer.]>
-			>
+            >
             <[localized_text][element][2]
+                <[string8u][Language][fr]>
+                <[string8][Text][L'Antonov An-2 est un avion utilitaire/agricole (d'où son autre surnom Kukuruznik, littéralement « pulvérisateur ») biplan monomoteur de série soviétique, conçu et fabriqué par le bureau d'études Antonov (aujourd'hui société d'État) depuis 1946. Pour Aerofly FS4, réalisé par Krzysztof Kaniewski. Modèle 3D original réalisé par Pedro van Leeuwen - modifié par Mihaly Alberti et Stefan Mueller-Pfeiffer.]>
+            >
+            <[localized_text][element][3]
+                <[string8u][Language][es]>
+                <[string8][Text][El Antonov An-2 es un avión biplano monomotor de uso general y agrícola (de ahí su otro apodo, Kukuruznik, que literalmente significa «fumigador») fabricado en serie en la Unión Soviética, diseñado y fabricado por la Oficina de Diseño Antonov (ahora empresa estatal) desde 1946. Para Aerofly FS4, creado por Krzysztof Kaniewski. Modelo 3D original creado por Pedro van Leeuwen, modificado por Mihaly Alberti y Stefan Mueller-Pfeiffer.]>
+            >
+            <[localized_text][element][4]
+                <[string8u][Language][it]>
+                <[string8][Text][L'Antonov An-2 è un velivolo sovietico monomotore biplano di produzione di massa, utilizzato per scopi agricoli e di utilità (da cui il suo altro soprannome Kukuruznik, letteralmente “irroratore agricolo”), progettato e prodotto dall'Antonov Design Bureau (ora azienda statale) dal 1946. Per Aerofly FS4 realizzato da Krzysztof Kaniewski. Modello 3D originale realizzato da Pedro van Leeuwen - modificato da Mihaly Alberti e Stefan Mueller-Pfeiffer.]>
+            >
+            <[localized_text][element][5]
                 <[string8u][Language][pl]>
                 <[string8][Text][Antonov An-2 to radziecki jednosilnikowy dwupłatowy samolot użytkowy/rolniczy (stąd jego inny przydomek Kukuruznik, dosłownie woziwoda) zaprojektowany i produkowany przez Biuro Projektowe Antonowa (obecnie Przedsiębiorstwo Państwowe) od 1946 roku. Dla Aerofly FS4 wykonany przez Krzysztofa Kaniewskiego. Oryginalny model 3D wykonany przez Pedro van Leeuwen - zmodyfikowany przez Mihaly Alberti i Stefan Mueller-Pfeiffer.]>
-			>
+            >
         >
-		<[float64][WingSpan][18.2]>
-		<[float64][MaximumAirspeed][69.5]>
-		<[float64][MaximumSpeed][69.5]>
-		<[float64][MinimumAirspeed][23.0]>
-        <[float64][ApproachAirspeed][26.3]>
-        <[float64][CruiseAirspeed][51.3]>
-        <[float64][CruiseSpeed][70.0]>
-		<[vector2_float64][NormalAirspeedRange][ 23.0 58.0 ]>
-		<[vector2_float64][CautionAirspeedRange][ 58.0 69.5 ]>
-		<[vector2_float64][FlapAirspeedRange][ 24.0 40.5 ]>
-        <[float64][MaximumAltitude][4160.0]>
-        <[float64][CruiseAltitude][800.0]>
         <[float64][MaximumTakeoffMass][5250.0]>
-        <[float64][EnginePower][750000.0]>
-        <[float64][MaximumRange][1390000.0]>
-        <[uint32][UnitsBuilt][55300]>
-        <[uint32][EngineCount][1]>
-        <[uint32][Year][1946]>
-        <[list_vector2_float64][FlapSettings][ (0.0 0.0) (0.333 0.349) (0.666 0.524) (1.0 0.689) ]>
+        <[float64][WingSpan]          [18.2]>
+        <[uint32] [Year]              [1946]>
+        <[uint32] [UnitsBuilt]        [55300]>
+        <[uint32] [EngineCount]       [1]>
+        <[float64][EnginePower]       [750000.0]>
+        <[float64][MaximumAirspeed]   [69.5]>
+        <[float64][MaximumSpeed]      [69.5]>
+        <[float64][MinimumAirspeed]   [23.0]>
+        <[float64][ApproachAirspeed]  [26.3]>
+        <[float64][CruiseAirspeed]    [51.3]>
+        <[float64][CruiseSpeed]       [70.0]>
+        <[float64][MaximumAltitude]   [4400.0]>
+        <[float64][CruiseAltitude]    [3000.0]>
+        <[float64][MaximumRange]      [1390000.0]>
+        <[vector2_float64][FlapAirspeedRange]   [ 27.0 35.1 ]>
+        <[vector2_float64][NormalAirspeedRange] [ 27.0 60.7 ]>
+        <[vector2_float64][CautionAirspeedRange][ 60.7 81.0 ]>
+//        <[list_vector2_float64][FlapSettings][ (0.0 0.0) (0.5 0.349066) (0.75 0.523599) (1.0 0.698132) ]>
+        <[list_vector2_float64][FlapSettings][ (0.0 0.0) (0.20 0.2618) (0.40 0.3491) (0.60 0.4363) (0.8 0.5236) (1.0 0.6894) ]>
         <[string8][Tags][ airplane utility piston general_aviation gear tailgear flaps short_takeoff ]>
         <[string8][Pilot][pilot_edward]>
     >
