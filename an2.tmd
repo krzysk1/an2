@@ -280,19 +280,34 @@
                 <[uint32][Inputs][ ServoRudder.Output SideForceSteering.Output ]>
             >
 
-            <[rigidbody][LeftGear][]
-                <[float64][Mass][49.0]>
-                <[tmvector3d][InertiaLength][ 0.79248 0.280416 1.73736 ]>
-                <[tmvector3d][R0][0.809822 1.238256 -1.493622]>
+            <[rigidbody][LeftGearUpper][]
+                <[float64][Mass][24.0]>
+                <[tmvector3d][InertiaLength][ 0.9 0.3 1.2 ]>
+                <[tmvector3d][R0][0.6729 0.7146 -1.426]>
                 <[tmmatrix3d][B0][0.965926 0.0 0.258819 0.0 0.866025 0.5 -0.258819 -0.5 0.836516]>
             >
-            <[multibody_joint][JointFuselageLeftGear][]
+            <[multibody_joint][JointFuselageLeftGearUpper][]
                 <[string8][Body0][Fuselage]>
-                <[string8][Body1][LeftGear]>
+                <[string8][Body1][LeftGearUpper]>
                 <[tmvector3d][X0][1.0 0.0 0.0]>
                 <[tmvector3d][R0][ 1.069 0.04880 -0.8482 ]>
                 <[float64][Kp][0]>
                 <[float64][Kd][0]>
+                <[uint32][Type][0]>
+            >
+            <[rigidbody][LeftGear][]
+                <[float64][Mass][35.0]>
+                <[tmvector3d][InertiaLength][ 0.83 0.6 0.8 ]>
+                <[tmvector3d][R0][1.039 1.653 -2.074]>
+                <[tmmatrix3d][B0][1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0]>  // 0.0 0.9804 -0.1972
+            >
+            <[multibody_joint][JointLeftGearUpperLeftGear][]
+                <[string8][Body0][LeftGearUpper]>
+                <[string8][Body1][LeftGear]>
+                <[tmvector3d][X0][1.0 0.0 0.0]>
+                <[tmvector3d][R0][ 1.043 1.381 -2.005 ]>
+                <[float64][Kp][150000]>
+                <[float64][Kd][1300]>
                 <[uint32][Type][0]>
             >
             <[oleo_pneumatic_damper][LeftGearDamper][]
@@ -309,19 +324,34 @@
                 <[float64][DampingExtended][200.0]>
                 <[float64][DampingCompressed][40000.0]>
             >
-            <[rigidbody][RightGear][]
-                <[float64][Mass][49.0]>
-                <[tmvector3d][InertiaLength][ 0.79248 0.280416 1.73736 ]>
-                <[tmvector3d][R0][0.809822 -1.238256 -1.493622]>
+            <[rigidbody][RightGearUpper][]
+                <[float64][Mass][24.0]>
+                <[tmvector3d][InertiaLength][ 0.9 0.3 1.2 ]>
+                <[tmvector3d][R0][0.6729 -0.7146 -1.426]>
                 <[tmmatrix3d][B0][0.965926 0.0 0.258819 0.0 0.866025 -0.5 -0.258819 0.5 0.836516]>
             >
-            <[multibody_joint][JointFuselageRightGear][]
+            <[multibody_joint][JointFuselageRightGearUpper][]
                 <[string8][Body0][Fuselage]>
-                <[string8][Body1][RightGear]>
+                <[string8][Body1][RightGearUpper]>
                 <[tmvector3d][X0][1.0 0.0 0.0]>
                 <[tmvector3d][R0][ 1.069 -0.05235 -0.8482 ]>
                 <[float64][Kp][0]>
                 <[float64][Kd][0]>
+                <[uint32][Type][0]>
+            >
+            <[rigidbody][RightGear][]
+                <[float64][Mass][35.0]>
+                <[tmvector3d][InertiaLength][ 0.83 0.6 0.8 ]>
+                <[tmvector3d][R0][1.039 -1.653 -2.074]>
+                <[tmmatrix3d][B0][1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0]>
+            >
+            <[multibody_joint][JointRightGearUpperRightGear][]
+                <[string8][Body0][RightGearUpper]>
+                <[string8][Body1][RightGear]>
+                <[tmvector3d][X0][1.0 0.0 0.0]>
+                <[tmvector3d][R0][ 1.043 -1.381 -2.005 ]>
+                <[float64][Kp][150000]>
+                <[float64][Kd][1300]>
                 <[uint32][Type][0]>
             >
             <[oleo_pneumatic_damper][RightGearDamper][]
@@ -3549,8 +3579,13 @@
                 <[string8][InputTransform][externalRotate_386.Output]>
             >
             // main gear
+            <[rigidbodygraphics][LeftGearUpper][]
+                <[string8][GeometryList][ LeftGearUpper ]>
+                <[uint32][PositionID][LeftGearUpper.R]>
+                <[uint32][OrientationID][LeftGearUpper.Q]>
+            >
             <[rigidbodygraphics][LeftGear][]
-                <[string8][GeometryList][ LeftGear LeftGearAxis ]>
+                <[string8][GeometryList][ LeftGear ]>
                 <[uint32][PositionID][LeftGear.R]>
                 <[uint32][OrientationID][LeftGear.Q]>
             >
@@ -3574,8 +3609,13 @@
                 <[tmvector3d][Joint1][1.0846 1.5388 -2.0155]>
                 <[uint32][AttachTo][0]>
             >
+            <[rigidbodygraphics][RightGearUpper][]
+                <[string8][GeometryList][ RightGearUpper ]>
+                <[uint32][PositionID][RightGearUpper.R]>
+                <[uint32][OrientationID][RightGearUpper.Q]>
+            >
             <[rigidbodygraphics][RightGear][]
-                <[string8][GeometryList][ RightGear RightGearAxis ]>
+                <[string8][GeometryList][ RightGear ]>
                 <[uint32][PositionID][RightGear.R]>
                 <[uint32][OrientationID][RightGear.Q]>
             >
