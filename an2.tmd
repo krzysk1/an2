@@ -3716,7 +3716,7 @@
                 <[uint32][OrientationID][Fuselage.Q]>
             >
             <[hingedbodygraphics][PasscabinDoor][]
-                <[string8][GeometryList][ PassCabinDoor PassCabinDoorGlass ]>
+                <[string8][GeometryList][ PassCabinDoor PassCabinDoorInt PassCabinDoorGlass ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[uint32][InputID][ServoDoorSequence.Output]>
