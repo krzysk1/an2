@@ -16,6 +16,8 @@
             <[telemetry][Telemetry][]
                 <[string8][Body][Fuselage]>
             >
+            <[event_value][DEV0][]
+            >
 
             // Cameras
 
@@ -2461,6 +2463,29 @@
                 <[string8][Input][Clock.OutputLocalTime]>
             >
 
+            <[stopwatch][PilotStopwatch][]
+            >
+            <[output_free][PilotStopwatchOutput][]
+                <[string8][Input][PilotStopwatch.Output]>
+            >
+
+            <[input_discrete_cyclic][PilotClockMode][]
+                <[string8][Message][PilotClock.Select]>
+                <[string8][Range][ 0.0 2.0 ]>
+            >
+            <[output_free][PilotClockModeOutput][]
+                <[string8][Input][PilotClockMode.Output]>
+            >
+
+            <[input_event][PilotClockControl_Pressed][]
+                <[string8][Message][PilotClock.Control]>
+                <[string8][Events][ PilotClockControlSelect.Trigger ]>
+            >
+            <[event_demultiplexer][PilotClockControlSelect][]
+                <[string8][InputSelect][PilotClockMode.Output]>
+                <[string8][Events][ DEV0.Trigger DEV0.Trigger PilotStopwatch.Trigger  ]>
+            >
+
             <[integral][OperationTime][]
                 <[string8][Input][1.0]>
                 <[float64][Value][0.0]>
@@ -2519,9 +2544,8 @@
             // compass
             <[magnetic_compass][MagneticCompass][]
                 <[string8][Body][Fuselage]>
-                <[tmvector3d][R0][ 0.74746 0.00827 0.67339 ]>
+                <[tmvector3d][R0][ 1.734 -0.003 1.161 ]>
             >
-
             // heading
             <[input_switch][DirectionalGyroAutoManSwitch][]
                 <[string8][Message][Controls.DirectionalGyroAutoMan]>
@@ -4096,7 +4120,7 @@
             >
 
             <[rigidbodygraphics][Cockpit][]
-                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches PneumaticNeedle MiddleConsole ClockButton ]>
+                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches PneumaticNeedle MiddleConsole ClockButton CompassLine ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
@@ -5493,6 +5517,13 @@
                 <[string8][Input][CockpitMapping_1279.Output]>
                 <[tmvector3d][Axis][ 0.0 -1.0 0.0 ]>
                 <[tmvector3d][Pivot][1.6233 -0.0139 0.5177]>
+                <[string8][InputIllumination0][PanelLighting.Output]>
+            >
+			// magnetic compass
+            <[rigidbodygraphics][MagneticCompassCard][]
+                <[string8][GeometryList][ Compass ]>
+                <[uint32][PositionID][MagneticCompassCard.R]>
+                <[uint32][OrientationID][MagneticCompassCard.Q]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
             >
             // gyro compass
