@@ -834,7 +834,7 @@
             // autopilot itself
             <[autopilot][Autopilot][]
                 <[string8][Body][Fuselage]>
-                <[bool][HasIndependantFlightDirector][false]>  /////////////////sprawdzic
+                <[bool][HasIndependantFlightDirector][false]>
                 <[string8][InputEnable]             [AvionicsOn.Output]>
                 <[string8][InputElevator]           [ElevatorInput.Output]>
                 <[string8][InputAileron]            [AileronInput.Output]>
@@ -847,12 +847,6 @@
             >
             <[output][AutopilotActive][]
                 <[string8][Input][Autopilot.OutputAutopilotActive]>
-            >
-            <[output][AutopilotSelectedVerticalSpeedActive][]
-                <[string8][Input][Autopilot.OutputSelectedVerticalSpeedActive]>
-            >
-            <[output][AutopilotAltitudeAlert][]
-                <[string8][Input][Autopilot.OutputAltitudeAlert]>
             >
 
             <[electrical_load][AutopilotOn][]
@@ -871,20 +865,6 @@
                 <[string8][AddLoad][AvionicsBus.AddLoad]>
                 <[float64][MinimumVoltage][20.0]>
                 <[float64][RatedCurrent][10.0]>
-            >
-
-            // flight director
-            <[output][FlightDirectorActive][]
-                <[string8][Input][Autopilot.OutputFlightDirectorActive]>
-            >
-            <[output][FlightDirectorBank][]
-                <[string8][Input][Autopilot.OutputFlightDirectorBank]>
-            >
-            <[output][FlightDirectorPitch][]
-                <[string8][Input][Autopilot.OutputFlightDirectorPitch]>
-            >
-            <[output][AutopilotTrimMessage][]
-                <[string8][Input][0.0]>
             >
 
             // autopilot end
@@ -949,7 +929,6 @@
                 <[string8][Input][AileronTrimmed.Output]>
                 <[float64][Speed][15.0]>
                 <[float64][P0][0.0]>
-				<[float64][P0][0.0]>
 				<[float64][P1][0.383972]>
 				<[float64][P2][-0.139626]>
 			>
@@ -1362,33 +1341,6 @@
                 <[string8][Input][ServoOilShutters.Output]>
             >
 
-            <[input_lever][FuelCutLeverInput][]
-                <[tmvector2d][Range][ 0.0 1.0 ]>
-                <[uint][Positions][41]>
-                <[float64][Value][1.0]>
-                <[string8][Message][Controls.FuelShutOff]>
-            >
-            <[servoclassic][FuelCutLever][]
-                <[string8][Input][FuelCutLeverInput.Output]>
-                <[float64][Speed][5.0]>
-                <[float64][P0][0.0]>
-                <[float64][P1][1.0]>
-            >
-            <[output_free][FuelCutLeverOutput][]
-                <[string8][Input][FuelCutLever.Output]>
-            >
-            <[logic_greater][FuelShutOff][]
-                <[string8][Input0][FuelCutLever.Output]>
-                <[string8][Input1][0.2]>
-            >
-            <[product][MixtureCombined][]
-                <[string8][Inputs][ ServoMixture.Output FuelShutOff.Output ]>
-            >
-
-            <[input_button][PrimerPumpLeverInput][]
-                <[string8][Message][Controls.PrimerPump]>
-            >
-
             // magnetos
             <[input_discrete][Magnetos][]
                 <[string8][Message][Controls.Magnetos1]>
@@ -1537,75 +1489,87 @@
             <[output][ManifoldPressure][]
                 <[string8][Input][Engine.ManifoldPressure]>
             >
-            <[output][FuelFlow][]
+            // engine fuel flow
+//            <[linear_interpolation][FuelFlow][]
+//                <[string8][Input][DriveShaft.RotationSpeed]>
+//                <[tmvector2d][Map][ (0.0 0.0) (52.4 0.004206) (104.0 0.0052575) (209.4 0.011) (282.7 0.0178755) ]>
+//            >
+            <[first_order_low_pass][EngineFuelFlow][]
                 <[string8][Input][Engine.FuelFlow]>
+                <[float64][TimeConstant][0.05]>
+                <[float64][Value][0.0]>
             >
             <[needle][NeedleFuelPressure][]
-                <[string8][Input][Engine.FuelFlow]>
+                <[string8][Input][EngineFuelFlow.Output]>
                 <[string8][InputEnable][BatterySwitch.Output]>
                 <[float64][Speed][1.0]>
                 <[float64][Damping][1.0]>
             >
-
-            <[linear_interpolation][ExhaustGasTemperature0][]
-                <[string8][Input][DriveShaft.GetRotationSpeed]>
-                <[tmvector2d][Map][ (0.0 288.15) (52.4 673.15) (314.15 1139.6) ]>
+            // engine oil temperature
+            <[linear_interpolation][OilTemperatureInput][]
+                <[string8][Input][DriveShaft.RotationSpeed]>
+                <[tmvector2d][Map][ (0.0 288.15) (52.4 310.9) (104.0 324.8) (200.4 349.8) (230.7 360.9) ]>
             >
+            <[servoclassic][EngineOilTemperature][]
+                <[string8][Input][OilTemperatureInput.Output]>
+                <[float64][Speed][0.5]>
+                <[float64][P0][0.0]>
+                <[float64][P1][1.0]>
+                <[float64][P2][0.0]>
+                <[float64][P3][0.0]>
+                <[float64][Position][323.0]>
+            >
+            <[needle][NeedleOilTemperature][]
+                <[string8][Input][EngineOilTemperature.Output]>
+                <[string8][InputEnable][BatterySwitch.Output]>
+                <[float64][Speed][5.0]>
+                <[float64][Damping][1.0]>
+            >
+           // engine oil pressure
+            <[linear_interpolation][EngineOilPressure][]
+                <[string8][Input][EngineOilTemperature.Output]>
+                <[tmvector2d][Map][ (0.0 0.0) (288.15 0.0) (310.9 689476.0) (324.8 517107.0) (349.8 448159.4) (360.9 413685.6) ]> // 60 psi = 4.2186 kg/cm² = 4.137 bar
+            >
+            <[needle][NeedleOilPressure][]
+                <[string8][Input][EngineOilPressure.Output]>
+                <[string8][InputEnable][BatterySwitch.Output]>
+                <[float64][Speed][5.0]>
+                <[float64][Damping][1.0]>
+            >
+
+            <[logic_greater][EngineOilPressureLow][]
+                <[string8][Input0][137895.2]> // = 20 psi = 0.07031 kg/cm²  = 1.378952 bar
+                <[string8][Input1][EngineOilPressure.Output]>
+            >
+            <[logic_greater][EngineOilPressureHigh][]
+                <[string8][Input0][EngineOilPressure.Output]>
+                <[string8][Input1][792897.4]> // = 115 psi = 8.08565 kg/cm² = 7.928974 bar
+            >
+            <[logic_or][OilPressureWarning][]
+                <[string8][Inputs][ EngineOilPressureHigh.Output EngineOilPressureLow.Output ]>
+            >
+            <[output_free][OilPressureWarningOutput][]
+                <[string8][Input][OilPressureWarning.Output]>
+            >
+            <[sender][SenderWarningOilPressure][]
+                <[string8][Input][OilPressureWarning.Output]>
+                <[string8][Message][Warnings.LowOilPressure]>
+            >
+            // cylinder head temperature
             <[linear_interpolation][CylinderHeadTemperature0][]
                 <[string8][Input][DriveShaft.GetRotationSpeed]>
                 <[tmvector2d][Map][ (0.0 288.15) (52.4 373.15) (104.0 413.15) (314.15 473.15) ]>
-            >
-            <[first_order_low_pass][ExhaustGasTemperature][]
-                <[string8][Input][ExhaustGasTemperature0.Output]>
-                <[float64][TimeConstant][6.0]>
-                <[float64][Value][750.0]>
             >
             <[first_order_low_pass][CylinderHeadTemperature][]
                 <[string8][Input][CylinderHeadTemperature0.Output]>
                 <[float64][TimeConstant][30.0]>
                 <[float64][Value][373.15]>
             >
-            <[needle][NeedleExhaustGasTemperature][]
-                <[string8][Input][ExhaustGasTemperature.Output]>
-                <[string8][InputEnable][BatterySwitch.Output]>
-                <[float64][Speed][5.0]>
-                <[float64][Damping][1.0]>
-            >
             <[needle][NeedleCylinderHeadTemperature][]
                 <[string8][Input][CylinderHeadTemperature.Output]>
                 <[string8][InputEnable][BatterySwitch.Output]>
                 <[float64][Speed][5.0]>
-                <[float64][Damping][1.0]>
-            >
-
-            // oil temperature
-            <[constant][InputOilTemperature][]
-                <[string8][Input][323.0]>
-            >
-            <[needle][NeedleInputOilTemperature][]
-                <[string8][Input][InputOilTemperature.Output]>
-                <[string8][InputEnable][BatterySwitch.Output]>
-                <[float64][Speed][5.0]>
-                <[float64][Damping][1.0]>
-            >
-            <[constant][OutputOilTemperature][]
-                <[string8][Input][353.0]>
-            >
-            <[needle][NeedleOutputOilTemperature][]
-                <[string8][Input][OutputOilTemperature.Output]>
-                <[string8][InputEnable][BatterySwitch.Output]>
-                <[float64][Speed][5.0]>
-                <[float64][Damping][1.0]>
-            >
-
-            <[constant][OilPressure][]
-                <[string8][Input][8600.0]>
-            >
-            <[needle][NeedleOilPressure][]
-                <[string8][Input][OilPressure.Output]>
-                <[string8][InputEnable][BatterySwitch.Output]>
-                <[float64][Speed][5.0]>
-                <[float64][Damping][1.0]>
+                <[float64][Damping][1.0]>c
             >
 
             // starter
@@ -1679,8 +1643,6 @@
 
 
             // fuel system start
-            // fuel Overall 190 l (140 kg) (50.2 US Gal) in two tanks in wings
-			// oil  16 l (13 kg) (16.9 U.S. qt) in tank on fire-wall
 
             <[fuel_tank][LeftFuelTank][]
                 <[string8][Body][LeftWing]>
@@ -1787,13 +1749,11 @@
                 <[string8][Input][FuelSelectorRight.Output]>
             >
 
-            <[servoclassic][FuelPumpPosition][]
+            <[servoclassic][PrimerPosition][]
                 <[string8][Input][PrimerInput.Output]>
                 <[float64][Speed][0.25]>
                 <[float64][P0][0.0]>
                 <[float64][P1][1.0]>
-                <[float64][P2][0.0]>
-                <[float64][P3][0.0]>
                 <[float64][Position][0.0]>
             >
             <[fuel_pump][AuxiliaryFuelPump][]
@@ -1802,7 +1762,7 @@
                 <[string8][AddFlow0][FuelReservoirTank.AddFlow]>
                 <[string8][AddFlow1][FuelAux.AddFlow]>
                 <[float64][MaximumFlow][0.02]>
-                <[string8][Input][FuelPumpPosition.Output]>
+                <[string8][Input][PrimerPosition.Output]>
             >
             <[fuel_valve][FuelCutoff][]
                 <[string8][InputPressure0][FuelAux.OutputPressure]>
@@ -1818,9 +1778,8 @@
                 <[string8][AddFlow0][FuelStrainer.AddFlow]>
                 <[string8][AddFlow1][FuelEngine.AddFlow]>
                 <[float64][MaximumFlow][0.02]>
-                <[string8][Input][1.0]>
+                <[string8][Input][FuelPumpSwitch.Output]>
             >
-
             <[fuel_engine][EngineFuelControl][]
                 <[string8][InputPressure][FuelEngine.OutputPressure]>
                 <[string8][AddFlow][FuelEngine.AddFlow]>
@@ -1828,6 +1787,11 @@
             >
 
             // primer fuel pump
+
+            // <[input_button][PrimerInput][]
+                // <[string8][Message][Controls.Primer]>
+            // >
+
             <[input_lever][PrimerInput][]
                 <[string8][Message][Controls.Primer]>
                 <[tmvector2d][Range][ 0.0 1.0 ]>
@@ -1854,12 +1818,7 @@
                 <[float64][Threshold][0.8]>
             >
 
-            // fuel system end
-
-
-
-
-            // fuel system start 2
+            // fuel system start  cont.
 
 
             <[input_switch][FuelPumpSwitch][]
@@ -1900,8 +1859,33 @@
                 <[float64][Damping][0.8]>
             >
 
-            // electricity start
+            <[input_lever][FuelShutOffLeverInput][]
+                <[tmvector2d][Range][ 0.0 1.0 ]>
+                <[uint][Positions][41]>
+                <[float64][Value][1.0]>
+                <[string8][Message][Controls.FuelShutOff]>
+            >
+            <[servoclassic][FuelShutOffLever][]
+                <[string8][Input][FuelShutOffLeverInput.Output]>
+                <[float64][Speed][5.0]>
+                <[float64][P0][0.0]>
+                <[float64][P1][1.0]>
+            >
+            <[output_free][FuelShutOffLeverOutput][]
+                <[string8][Input][FuelShutOffLever.Output]>
+            >
+            <[logic_greater][FuelShutOff][]
+                <[string8][Input0][FuelShutOffLever.Output]>
+                <[string8][Input1][0.2]>
+            >
+            <[product][MixtureCombined][]
+                <[string8][Inputs][ ServoMixture.Output FuelShutOff.Output ]>
+            >
 
+            // fuel system end
+
+
+            // electricity start
 
             // battery bus start
 
@@ -4169,7 +4153,7 @@
             >
 
             <[rigidbodygraphics][Cockpit][]
-                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches PneumaticNeedle MiddleConsole CompassLine ]>
+                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches PneumaticNeedle MiddleConsole CompassLine EmegencyExitHandles ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
@@ -4336,6 +4320,14 @@
                 <[string8][InputTransform][yokeRotate_822.Output]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
             >
+            <[movinggraphics][LeftBrakeHandle][]
+                <[string8][GeometryList][ LeftBrakeHandle ]>
+                <[uint32][InputID][BrakePressureNeedle.Output]>
+                <[tmvector3d][Axis][1.0 0.0 0.0]>
+                <[float64][Scaling][-0.015]>
+                <[string8][Graphics][LeftYoke]>
+                <[string8][InputIllumination0][InstrumentsLighting.Output]>
+            >
 
             <[graphics_input][RightYokeHidden][]
                 <[uint32][InputID][RightYokeHidden.Output]>
@@ -4391,6 +4383,14 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputTransform][yokeRotate_822c.Output]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
+            >
+            <[movinggraphics][RightBrakeHandle][]
+                <[string8][GeometryList][ RightBrakeHandle ]>
+                <[uint32][InputID][BrakePressureNeedle.Output]>
+                <[tmvector3d][Axis][1.0 0.0 0.0]>
+                <[float64][Scaling][-0.015]>
+                <[string8][Graphics][RightYoke]>
+                <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
 
             // allswitch
@@ -4570,7 +4570,7 @@
                 <[string8][GeometryList][ PrimerLever ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][InputID][PrimerPumpLeverInput.Output]>
+                <[uint32][InputID][PrimerInput.Output]>
                 <[tmvector3d][Axis][0.0 0.0 -1.0]>
                 <[float64][Scaling][0.0243]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
@@ -4679,7 +4679,7 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][GeometryList][ MarkerWhiteLight ]>
                 <[string8][InputID][InnerMarker.Output]>
-                <[tmvector3d][Axis][1.0 0.0 0.0]>
+                <[tmvector3d][Axis][0.999790 0.0 -0.020513]>
                 <[float64][Scaling][-0.0002]>
                 <[float64][Offset][0.0002]>
                 <[string8][InputLuminance][InnerMarkerLight.Output]>
@@ -4696,7 +4696,7 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][GeometryList][ MarkerYellowLight ]>
                 <[string8][InputID][MiddleMarker.Output]>
-                <[tmvector3d][Axis][1.0 0.0 0.0]>
+                <[tmvector3d][Axis][0.999790 0.0 -0.020513]>
                 <[float64][Scaling][-0.0002]>
                 <[float64][Offset][0.0002]>
                 <[string8][InputLuminance][MiddleMarkerLight.Output]>
@@ -4713,7 +4713,7 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][GeometryList][ MarkerBlueLight ]>
                 <[string8][InputID][OuterMarker.Output]>
-                <[tmvector3d][Axis][1.0 0.0 0.0]>
+                <[tmvector3d][Axis][0.999790 0.0 -0.020513]>
                 <[float64][Scaling][-0.0002]>
                 <[float64][Offset][0.0002]>
                 <[string8][InputLuminance][OuterMarkerLight.Output]>
@@ -4724,6 +4724,17 @@
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[uint32][InputID][GeneratorWarning.Output]>
+                <[tmvector3d][Axis][1.0 0.0 0.0]>
+                <[float64][Scaling][-0.0002]>
+                <[float64][Offset][0.0002]>
+                <[string8][InputIllumination0][NaturalLighting.Output]>
+            >
+			// oil low pressure warning
+            <[movinggraphics][OilLowPressureWarning][]
+                <[string8][GeometryList][ OilLowPressureWarning ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][InputID][OilPressureWarning.Output]>
                 <[tmvector3d][Axis][1.0 0.0 0.0]>
                 <[float64][Scaling][-0.0002]>
                 <[float64][Offset][0.0002]>
@@ -4892,12 +4903,12 @@
                 <[float64][Offset][0.595332]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
             >
-            // fuel cut lever
-            <[hingedbodygraphics][FuelCutLever][]
+            // fuel shutoff lever
+            <[hingedbodygraphics][FuelShutOffLever][]
                 <[string8][GeometryList][ FuelCutLever ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][InputID][FuelCutLever.Output]>
+                <[uint32][InputID][FuelShutOffLever.Output]>
                 <[tmvector3d][Axis][ 0.0 -1.0 0.0 ]>
                 <[tmvector3d][Pivot][1.4982 -0.093 0.4473]>
                 <[float64][Scaling][-0.595332]>
@@ -4927,7 +4938,6 @@
                 <[float64][Offset][0.350637]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
             >
-
 			// trimer levers
             <[hingedbodygraphics][PitchTrimSwitch][]
                 <[string8][GeometryList][ ElevatorTrimSwitch ]>
@@ -4959,22 +4969,19 @@
                 <[float64][Scaling][-0.350637]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
             >
-
-
             // wunderbaum
-            <[graphics_input][WunderbaumInput_0][]
+            <[graphics_input][WunderbaumInput][]
                 <[uint32][InputID][SideslipAngle.Output]>
-                <[float64][Scaling][4]>
             >
-            <[graphics_linear_interpolation][WunderbaumMapping_809][]
-                <[string8][Input][WunderbaumInput_0.Output]>
-                <[tmvector2d][Map][(-1.0 -0.436332) (1.0 0.436332)]>
+            <[graphics_linear_interpolation][WunderbaumMapping][]
+                <[string8][Input][WunderbaumInput.Output]>
+                <[tmvector2d][Map][(-0.436332 -0.436332) (0.436332 0.436332)]>
             >
             <[hingedbodygraphics][Wunderbaum][]
                 <[string8][GeometryList][ Wunderbaum ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[string8][Input][WunderbaumMapping_809.Output]>
+                <[string8][Input][WunderbaumMapping.Output]>
                 <[tmvector3d][Axis][ 1.0 0.0 0.0 ]>
                 <[tmvector3d][Pivot][1.7543 -0.0162 1.2095]>
             >
@@ -5023,19 +5030,19 @@
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
             // carb temp needle
-            <[graphics_input][CockpitInput_17][]
+            <[graphics_input][CarbTemperatureInput][]
                 <[uint32][InputID][OutsideAirTemperature.Output]>
                 <[float64][Offset][-273.15]>
             >
-            <[graphics_linear_interpolation][CockpitMapping_991][]
-                <[string8][Input][CockpitInput_17.Output]>
-                <[tmvector2d][Map][(-80.0 0.836885) (-5.0 0.811055) (0.0 0.410327) (15.0 -0.789413) (80.0 -0.789413)]>
+            <[graphics_linear_interpolation][CarbTemperatureMapping][]
+                <[string8][Input][CarbTemperatureInput.Output]>
+                <[tmvector2d][Map][(-80.0 0.836885) (-50.0 0.811055) (0.0 0.410327) (150.0 -0.789413) ]>
             >
-            <[hingedbodygraphics][CarbTempNeedle][]
+            <[hingedbodygraphics][CarbTemperatureNeedle][]
                 <[string8][GeometryList][ CarbTempNeedle ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[string8][Input][CockpitMapping_991.Output]>
+                <[string8][Input][CarbTemperatureMapping.Output]>
                 <[tmvector3d][Axis][ -0.9689 0.0 0.2473 ]>
                 <[tmvector3d][Pivot][1.7454 0.4077 0.4247]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
@@ -5044,7 +5051,7 @@
                 <[string8][GeometryList][ CarbTempNeedleCopilot ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[string8][Input][CockpitMapping_991.Output]>
+                <[string8][Input][CarbTemperatureMapping.Output]>
                 <[tmvector3d][Axis][ -1.0 0.0 0.0019 ]>
                 <[tmvector3d][Pivot][1.7822 -0.3300 0.6009]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
@@ -5121,13 +5128,13 @@
                 <[tmvector3d][Pivot][1.7486 0.4860 0.4386]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
-            // oil_temperature_deg_C
-            <[graphics_input][CockpitInput_21][]
-                <[uint32][InputID][NeedleOutputOilTemperature.Output]>
-                <[float64][Offset][-273.15]>
+            // oil temperature
+            <[graphics_input][OilTemperatureInput][]
+                <[uint32][InputID][NeedleOilTemperature.Output]>
+                <[string8][Offset][-273.15]>
             >
             <[graphics_linear_interpolation][OilTemperatureMapping][]
-                <[string8][Input][CockpitInput_21.Output]>
+                <[string8][Input][OilTemperatureInput.Output]>
                 <[tmvector2d][Map][(-150.0 1.582316) (0.0 1.589821) (150.0 0.017977)]>
             >
             <[hingedbodygraphics][OilTemperatureNeedle][]
@@ -5158,12 +5165,12 @@
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
             // oil pressure psi
-            <[graphics_input][CockpitInput_23][]
+            <[graphics_input][OilPressureInput][]
                 <[uint32][InputID][NeedleOilPressure.Output]>
             >
             <[graphics_linear_interpolation][OilPressureMapping][]
-                <[string8][Input][CockpitInput_23.Output]>
-                <[tmvector2d][Map][(0 0.785398) (1100.0 -0.785398)]>
+                <[string8][Input][OilPressureInput.Output]>
+                <[tmvector2d][Map][(0 0.785398) (1470998 -0.785398)]> // max 15 kg/cm2 = 213.345 psi
             >
             <[hingedbodygraphics][OilPressureNeedle][]
                 <[string8][GeometryList][ OilPressureNeedle ]>
@@ -5174,7 +5181,7 @@
                 <[tmvector3d][Pivot][1.7607 0.3018 0.4243]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
-            // cylinder head temperature needles
+            // cylinder head temperature
             <[graphics_input][CHTinput][]
                 <[uint32][InputID][NeedleCylinderHeadTemperature.Output]>
                 <[float64][Offset][-273.15]>
@@ -5402,14 +5409,14 @@
             <[graphics_input][Stopwatch][]
                 <[uint32][InputID][Stopwatch.Output]>
             >
-            <[graphics_sec_to_hms][PilotWatch][]
+            <[graphics_sec_to_hms][StopwatchTime][]
                 <[string8][Input][Stopwatch.Output]>
             >
             <[hingedbodygraphics][StopwatchSeconds][]
                 <[string8][GeometryList][ OperationTimeHours ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[string8][Input][PilotWatch.Seconds60]>
+                <[string8][Input][StopwatchTime.Seconds60]>
                 <[float64][Scaling][0.104667]>
                 <[tmvector3d][Axis][ 1.0 0.0 0.0 ]>
                 <[tmvector3d][Pivot][1.7820 -0.2810 0.7227]>
@@ -5419,7 +5426,7 @@
                 <[string8][GeometryList][ OperationTimeMinutes ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[string8][Input][PilotWatch.Minutes60]>
+                <[string8][Input][StopwatchTime.Minutes60]>
                 <[float64][Scaling][0.104667]>
                 <[tmvector3d][Axis][ 1.0 0.0 0.0 ]>
                 <[tmvector3d][Pivot][1.7820 -0.2810 0.7625]>

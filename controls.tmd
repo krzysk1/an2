@@ -688,7 +688,7 @@
                 <[string8][InputTransform][PrimerLeverTranslation.Output]>				
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Controls.PrimerPump]>
+                    <[string8][Message][Controls.Primer]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][-1.0]>
                 >
