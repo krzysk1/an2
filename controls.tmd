@@ -831,7 +831,7 @@
             <[control_cylinder][EmergencyLocationSwitch][]
                 <[string8][Type][switch toggle]>
                 <[vector3_float64][R0][ 1.19 0.6818 0.2481 ]>
-                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
@@ -843,10 +843,10 @@
                 <[float64][Length][0.03]>
             >
             // fuel pump switch	
-            <[control_cylinder][ Fuel PumpSwitch][]
+            <[control_cylinder][FuelPumpSwitch][]
                 <[string8][Type][switch toggle]>
                 <[vector3_float64][R0][ 1.278 0.6813 0.2464 ]>
-                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
@@ -948,7 +948,7 @@
             <[control_sphere][IphoneGpsHide][]
                 <[string8][Type][button]>
                 <[vector3_float64][R0][1.78 0.03 0.99]>
-                <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[control_message][OnPush][]
                     <[string8][Message][GPS.Hide]>
@@ -975,12 +975,26 @@
                 <[float64][StepDistance][0.001]>
                 <[string8][InputTransform][DoorTransform.Output]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Doors.LeftHandle]>
+                    <[string8][Message][Doors.Handle]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][0.005]>
                 >
                 <[vector3_float64][Dimensions][0.14 0.05 0.07]>
-            >					
+            >
+            <[control_cylinder][DoorSwitchBase][]
+                <[string8][Type][switch toggle base]>
+                <[vector3_float64][R0][ 1.572 0.06085 0.5065 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+					<[string8][Message][Doors.Handle]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][-1.0]>
+                >
+                <[float64][Radius][0.006]>
+                <[float64][Length][0.02]>
+            >			
         >
     >
 >

@@ -1263,7 +1263,7 @@
             >
             <[servoclassic][ServoThrottle][]
                 <[string8][Input][ThrottleInput.Output]>
-                <[float64][Speed][1.0]>
+                <[float64][Speed][3.0]>
                 <[float64][P0][0.0]>
                 <[float64][P1][1.0]>
             >
@@ -1283,7 +1283,7 @@
             >
             <[servolinear][ServoMixture][]
                 <[string8][Input][MixtureInput.Output]>
-                <[float64][OutputSpeed][2.0]>
+                <[float64][OutputSpeed][5.0]>
                 <[float64][Position][1.0]>
                 <[float64array][InputPosition][ 0.0 1.0 ]>
                 <[float64array][OutputPosition][ 0.25 1.0 ]>
@@ -1300,7 +1300,7 @@
             >
             <[servoclassic][ServoPropRPM][]
                 <[string8][Input][PropSpeedInput.Output]>
-                <[float64][Speed][2.0]>
+                <[float64][Speed][5.0]>
                 <[float64][P0][0.0]>
                 <[float64][P1][1.0]>
             >
@@ -1324,7 +1324,7 @@
             >
             <[servoclassic][ServoHeating][]
                 <[string8][Input][EngineHeatInput.Output]>
-                <[float64][Speed][1.0]>
+                <[float64][Speed][5.0]>
                 <[float64][P0][0.0]>
                 <[float64][P1][1.0]>
             >
@@ -1340,7 +1340,7 @@
             >
             <[servoclassic][ServoCowling][]
                 <[string8][Input][CowlingFlapsInput.Output]>
-                <[float64][Speed][1.0]>
+                <[float64][Speed][5.0]>
                 <[float64][P0][0.0]>
                 <[float64][P1][1.0]>
             >
@@ -1356,7 +1356,7 @@
             >
             <[servoclassic][ServoOilShutters][]
                 <[string8][Input][OilShuttersInput.Output]>
-                <[float64][Speed][1.0]>
+                <[float64][Speed][5.0]>
                 <[float64][P0][0.0]>
                 <[float64][P1][1.0]>
             >
@@ -1498,7 +1498,7 @@
             <[engine2][Engine][]
                 <[string8][InputThrottle]    [ThrottleInput.Output]>
                 <[string8][InputMixture]     [MixtureCombined.Output]>
-      //          <[string8][InputFuelPressure][EngineFuelControl.OutputPressure]>				
+      //          <[string8][InputFuelPressure][EngineFuelControl.OutputPressure]>
                 <[string8][InputLeftMagneto] [LeftMagneto.Output]>
                 <[string8][InputRightMagneto][RightMagneto.Output]>
                 <[string8][RotationSpeed]    [DriveShaft.RotationSpeed]>
@@ -1620,7 +1620,7 @@
             >
             <[output][ClutchStarterOn][]
                 <[string8][Input][ClutchStarterSwitch.Output]>
-            >			
+            >
             <[input_button][ButtonStarter][]
                 <[string8][Message][Controls.Starter1]>
                 <[string8][Events][ ButtonSound.Trigger ]>
@@ -1857,7 +1857,7 @@
             >
 
             // fuel system end
-			
+
 
 
 
@@ -1939,7 +1939,7 @@
             >
             <[set_proxy][DriveShaftProxy][]
                 <[string8][AddOutput][DriveShaft.AddTorque]>
-            >			
+            >
             <[output][MainGeneratorCurrent][]
                 <[string8][Input][MainGenerator.OutputCurrent]>
             >
@@ -1950,7 +1950,7 @@
             <[output_free][GeneratorWarningOutput][]
                 <[string8][Input][GeneratorWarning.Output]>
             >
-			
+
             // alternator bus end
 
 
@@ -3337,7 +3337,7 @@
             >
             <[output_free][GPSHiddenOutput][]
                 <[string8][Input][GPSHidden.Output]>
-            >			
+            >
             // navigation instruments end
 
             // external lights start
@@ -3451,7 +3451,7 @@
 
             // door
             <[input_lever][DoorInput][]
-                <[string8][Message][Doors.LeftHandle]>
+                <[string8][Message][Doors.Handle]>
                 <[string8][Value][0.0]>
             >
             <[servolinear][ServoDoorSequence][]
@@ -4921,7 +4921,7 @@
                 <[float64][Offset][0.0002]>
                 <[string8][InputIllumination0][NaturalLighting.Output]>
             >
-			
+
         // Middle console
 
 			// trimmer in zero signal lamps
@@ -6053,14 +6053,14 @@
                 <[float64][Scaling][0.0002]>
                 <[string8][InputIllumination0][NaturalLighting.Output]>
             >
-            // Iphone + GPS map			
+            // Iphone + GPS map
             <[movinggraphics][Iphone][]
                 <[string8][GeometryList][ Iphone IphoneMount ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[uint32][InputID][GPSHidden.Output]>
                 <[tmvector3d][Axis][-0.701 0.0 0.701]>
-                <[float64][Scaling][-0.25]>				
+                <[float64][Scaling][-0.25]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
             >
             <[movinggraphics][IphoneDisplay][]
@@ -6069,7 +6069,7 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[uint32][InputID][GPSHidden.Output]>
                 <[tmvector3d][Axis][-0.701 0.0 0.701]>
-                <[float64][Scaling][-0.25]>				
+                <[float64][Scaling][-0.25]>
                 <[string8][InputIllumination0][NaturalLighting.Output]>
             >
             <[texture_animation][DisplayTexture][]
