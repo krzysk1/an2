@@ -1498,6 +1498,7 @@
             <[engine2][Engine][]
                 <[string8][InputThrottle]    [ThrottleInput.Output]>
                 <[string8][InputMixture]     [MixtureCombined.Output]>
+      //          <[string8][InputFuelPressure][EngineFuelControl.OutputPressure]>				
                 <[string8][InputLeftMagneto] [LeftMagneto.Output]>
                 <[string8][InputRightMagneto][RightMagneto.Output]>
                 <[string8][RotationSpeed]    [DriveShaft.RotationSpeed]>
@@ -1609,7 +1610,116 @@
                 <[float64][Damping][1.0]>
             >
 
+            // starter
+            <[input_discrete_momentary][ClutchStarterSwitch][]
+                <[string8][Message][Controls.Starter1]>
+                <[string8][EventsUp][ SwitchSound.Trigger ]>
+                <[string8][EventsDown][ SwitchSound.Trigger ]>
+                <[tmvector2d][Range][ -1.0 1.0 ]>
+                <[float64][Value][0.0]>
+            >
+            <[output][ClutchStarterOn][]
+                <[string8][Input][ClutchStarterSwitch.Output]>
+            >			
+            <[input_button][ButtonStarter][]
+                <[string8][Message][Controls.Starter1]>
+                <[string8][Events][ ButtonSound.Trigger ]>
+                <[string8][EventsRelease][ ButtonSound.Trigger ]>
+            >
+            <[input_active][StarterButtonPushed][]
+                <[string8][Message][Controls.Starter1]>
+            >
+            <[output_free][StarterButtonPushedOutput][]
+                <[string8][Input][StarterButtonPushed.Output]>
+            >
+            <[electrical_bus][StarterBus][]
+                <[float64][Voltage][24.0]>
+                <[float64][RatedVoltage][28.5]>
+            >
+            <[logic_greater][StarterActive][]
+                <[string8][Input0][StarterBus.Output]>
+                <[string8][Input1][6.0]>
+            >
+            <[output_free][StarterActiveOutput][]
+                <[string8][Input][StarterActive.Output]>
+            >
+
+            <[product][StarterEnabled][]
+                <[string8][Inputs][ StarterButtonPushed.Output  ]>  //IgnitionSwitch.Output AirPressureOn.Output
+            >
+
+            <[electrical_switch][StarterSwitch][]
+                <[string8][InputEnable][StarterEnabled.Output]>
+                <[string8][InputVoltage0][MainBus.Output]>
+                <[string8][InputVoltage1][StarterBus.Output]>
+                <[string8][AddLoad0]     [MainBus.AddLoad]>
+                <[string8][AddLoad1]     [StarterBus.AddLoad]>
+                <[string8][Resistance][0.0005]>
+            >
+            <[logic_invert][StarterNotActive][]
+                <[string8][Input][StarterButtonPushed.Output]>
+            >
+            <[electrical_load][StarterLoad][]
+                <[string8][InputEnable][StarterNotActive.Output]>
+                <[string8][InputVoltage][StarterBus.Output]>
+                <[string8][AddLoad][StarterBus.AddLoad]>
+                <[float64][MinimumVoltage][24.0]>
+                <[float64][RatedCurrent][10.0]>
+            >
+            <[electrical_starter][Starter][]
+                <[string8][InputVoltage][StarterBus.Output]>
+                <[string8][AddLoad]     [StarterBus.AddLoad]>
+                <[float64][RatedRotationSpeed][20.0]>
+                <[float64][RatedVoltage][28.0]>
+                <[float64][RatedCurrent][160.0]>
+                <[string8][InputRotationSpeed][DriveShaft.RotationSpeed]>
+                <[string8][AddTorque]         [DriveShaftProxy2.SetValue]>
+            >
+            <[set_proxy][DriveShaftProxy2][]
+                <[string8][AddOutput][DriveShaft.AddTorque]>
+            >
+
+
             // fuel system start
+            // fuel Overall 190 l (140 kg) (50.2 US Gal) in two tanks in wings
+			// oil  16 l (13 kg) (16.9 U.S. qt) in tank on fire-wall
+
+            <[fuel_tank][LeftFuelTank][]
+                <[string8][Body][LeftWing]>
+                <[float64][Capacity][95.0]>
+                <[float64][Mass][70.0]>
+                <[tmvector3d][R0][ -0.02 1.56 0.67 ]>
+                <[tmvector3d][X0][  0.85 0.00 0.00 ]>
+                <[tmvector3d][Y0][  0.00 0.00 0.13 ]>
+                <[tmvector3d][R1][ -0.02 0.66 0.65 ]>
+                <[tmvector3d][X1][  0.85 0.00 0.00 ]>
+                <[tmvector3d][Y1][  0.00 0.00 0.13 ]>
+                <[tmvector3d][Outlet0][ 0.40 0.66 0.65 ]>
+            >
+            <[fuel_tank][RightFuelTank][]
+                <[string8][Body][RightWing]>
+                <[float64][Capacity][95.0]>
+                <[float64][Mass][70.0]>
+                <[tmvector3d][R0][ -0.02 -0.66 0.65 ]>
+                <[tmvector3d][X0][  0.85 0.00 0.00 ]>
+                <[tmvector3d][Y0][  0.00 0.00 0.13 ]>
+                <[tmvector3d][R1][ -0.02 -1.56 0.67 ]>
+                <[tmvector3d][X1][  0.85 0.00 0.00 ]>
+                <[tmvector3d][Y1][  0.00 0.00 0.13 ]>
+                <[tmvector3d][Outlet0][ 0.40 -0.66 0.65 ]>
+            >
+            <[needle][FuelTankLevelLeft][]
+                <[string8][Input][LeftFuelTank.OutputFuelMass]>
+                <[float64][Speed][4.5]>
+                <[float64][Damping][1.0]>
+            >
+            <[needle][FuelTankLevelRight][]
+                <[string8][Input][RightFuelTank.OutputFuelMass]>
+                <[float64][Speed][4.5]>
+                <[float64][Damping][1.0]>
+            >
+
+            // fuel selector
             <[input_discrete][FuelSelectorInput][]
                 <[string8][Message][Controls.FuelSelector]>
                 <[tmvector2d][Range][ 0.0 3.0 ]>
@@ -1626,6 +1736,133 @@
             <[output_free][FuelSelectorOutput][]
                 <[string8][Input][FuelSelector.Output]>
             >
+
+            // fuel consumption
+            <[logic_range][FuelSelectorOpen][]
+                <[string8][Input][FuelSelector.Output]>
+                <[tmvector2d][Range][ -1.5 1.5 ]>
+            >
+            <[logic_range][FuelSelectorLeft][]
+                <[string8][Input][FuelSelector.Output]>
+                <[tmvector2d][Range][ -1.5 0.5 ]>
+            >
+            <[logic_range][FuelSelectorRight][]
+                <[string8][Input][FuelSelector.Output]>
+                <[tmvector2d][Range][ -0.5 1.5 ]>
+            >
+
+            <[fuel_rail][FuelReservoirTank][]
+                <[float64][DesignFlow][0.1]>
+                <[float64][Pressure][107000.0]>
+            >
+            <[fuel_rail][FuelAux][]
+                <[float64][DesignFlow][0.05]>
+                <[float64][Pressure][107000.0]>
+            >
+            <[fuel_rail][FuelStrainer][]
+                <[float64][DesignFlow][0.05]>
+                <[float64][Pressure][107000.0]>
+            >
+            <[fuel_rail][FuelEngine][]
+                <[float64][DesignFlow][0.05]>
+                <[float64][Pressure][127000.0]>
+            >
+
+            <[fuel_valve][LeftTankConnection][]
+                <[string8][InputPressure0][LeftFuelTank.OutputPressure0]>
+                <[string8][InputPressure1][FuelReservoirTank.OutputPressure]>
+                <[string8][AddFlow0][LeftFuelTank.AddFlow]>
+                <[string8][AddFlow1][FuelReservoirTank.AddFlow]>
+                <[tmvector3d][R0][ 0.4  0.66 0.66 ]>
+                <[tmvector3d][R1][ 1.0  0.0 -0.2 ]>
+                <[float64][MaximumFlow][0.04]>
+                <[string8][Input][FuelSelectorLeft.Output]>
+            >
+            <[fuel_valve][RightTankConnection][]
+                <[string8][InputPressure0][RightFuelTank.OutputPressure0]>
+                <[string8][InputPressure1][FuelReservoirTank.OutputPressure]>
+                <[string8][AddFlow0][RightFuelTank.AddFlow]>
+                <[string8][AddFlow1][FuelReservoirTank.AddFlow]>
+                <[tmvector3d][R0][ 0.4  -0.66 0.66 ]>
+                <[tmvector3d][R1][ 1.0  0.0 -0.2 ]>
+                <[float64][MaximumFlow][0.04]>
+                <[string8][Input][FuelSelectorRight.Output]>
+            >
+
+            <[servoclassic][FuelPumpPosition][]
+                <[string8][Input][PrimerInput.Output]>
+                <[float64][Speed][0.25]>
+                <[float64][P0][0.0]>
+                <[float64][P1][1.0]>
+                <[float64][P2][0.0]>
+                <[float64][P3][0.0]>
+                <[float64][Position][0.0]>
+            >
+            <[fuel_pump][AuxiliaryFuelPump][]
+                <[string8][InputPressure0][FuelReservoirTank.OutputPressure]>
+                <[string8][InputPressure1][FuelAux.OutputPressure]>
+                <[string8][AddFlow0][FuelReservoirTank.AddFlow]>
+                <[string8][AddFlow1][FuelAux.AddFlow]>
+                <[float64][MaximumFlow][0.02]>
+                <[string8][Input][FuelPumpPosition.Output]>
+            >
+            <[fuel_valve][FuelCutoff][]
+                <[string8][InputPressure0][FuelAux.OutputPressure]>
+                <[string8][InputPressure1][FuelStrainer.OutputPressure]>
+                <[string8][AddFlow0][FuelAux.AddFlow]>
+                <[string8][AddFlow1][FuelStrainer.AddFlow]>
+                <[float64][MaximumFlow][0.02]>
+                <[string8][Input][FuelSelectorOpen.Output]>
+            >
+            <[fuel_pump][EngineFuelPump][]
+                <[string8][InputPressure0][FuelStrainer.OutputPressure]>
+                <[string8][InputPressure1][FuelEngine.OutputPressure]>
+                <[string8][AddFlow0][FuelStrainer.AddFlow]>
+                <[string8][AddFlow1][FuelEngine.AddFlow]>
+                <[float64][MaximumFlow][0.02]>
+                <[string8][Input][1.0]>
+            >
+
+            <[fuel_engine][EngineFuelControl][]
+                <[string8][InputPressure][FuelEngine.OutputPressure]>
+                <[string8][AddFlow][FuelEngine.AddFlow]>
+                <[string8][InputFuelFlow][Engine.FuelFlow]>
+            >
+
+            // primer fuel pump
+            <[input_lever][PrimerInput][]
+                <[string8][Message][Controls.Primer]>
+                <[tmvector2d][Range][ 0.0 1.0 ]>
+                <[uint32][Positions][21]>
+                <[float64][Value][0.0]>
+            >
+            <[output_free][PrimerInputOutput][]
+                <[string8][Input][PrimerInput.Output]>
+            >
+            <[event_sound][PrimerPullSound][]
+            >
+            <[event_sound][PrimerPushSound][]
+            >
+            <[event_edge_rising][Primer_PullSound][]
+                <[string8][Input][PrimerInput.Output]>
+                <[string8][Events][ PrimerPullSound.Trigger ]>
+                <[float64][Value][0.0]>
+                <[float64][Threshold][0.2]>
+            >
+            <[event_edge_falling][Primer_PushSound][]
+                <[string8][Input][PrimerInput.Output]>
+                <[string8][Events][ PrimerPushSound.Trigger ]>
+                <[float64][Value][0.0]>
+                <[float64][Threshold][0.8]>
+            >
+
+            // fuel system end
+			
+
+
+
+            // fuel system start 2
+
 
             <[input_switch][FuelPumpSwitch][]
                 <[string8][Message][Controls.FuelPump]>
@@ -1702,11 +1939,18 @@
             >
             <[set_proxy][DriveShaftProxy][]
                 <[string8][AddOutput][DriveShaft.AddTorque]>
-            >
+            >			
             <[output][MainGeneratorCurrent][]
                 <[string8][Input][MainGenerator.OutputCurrent]>
             >
-
+            <[logic_greater][GeneratorWarning][]
+                <[string8][Input0][12.0]>
+                <[string8][Input1][AlternatorBus.Output]>
+            >
+            <[output_free][GeneratorWarningOutput][]
+                <[string8][Input][GeneratorWarning.Output]>
+            >
+			
             // alternator bus end
 
 
@@ -3087,6 +3331,13 @@
             <[output_free][GPSZoomOutput][]
                 <[string8][Input][GPSZoom.Output]>
             >
+            <[input_binary][GPSHidden][]
+                <[string8][Message][GPS.Hide]>
+                <[float64][Value][0.0]>
+            >
+            <[output_free][GPSHiddenOutput][]
+                <[string8][Input][GPSHidden.Output]>
+            >			
             // navigation instruments end
 
             // external lights start
@@ -3343,16 +3594,6 @@
             >
             <[output][ConverterOn][]
                 <[string8][Input][ConverterSwitch.Output]>
-            >
-            <[input_discrete_momentary][ClutchStarterSwitch][]
-                <[string8][Message][Controls.ClutchStarter]>
-                <[string8][EventsUp][ SwitchSound.Trigger ]>
-                <[string8][EventsDown][ SwitchSound.Trigger ]>
-                <[tmvector2d][Range][ -1.0 1.0 ]>
-                <[float64][Value][0.0]>
-            >
-            <[output][ClutchStarterOn][]
-                <[string8][Input][ClutchStarterSwitch.Output]>
             >
 
             // animations end
@@ -3795,7 +4036,7 @@
                 <[uint32][InputID][DoorInputOpen.Output]>
                 <[tmvector3d][Axis][-0.199368 0.0 0.979925]>
                 <[float64][Scaling][0.0002]>
-                <[string8][InputIllumination0][InstrumentsLighting.Output]>
+                <[string8][InputIllumination0][NaturalLighting.Output]>
             >
 
             // external lights
@@ -4669,7 +4910,18 @@
                 <[float64][Offset][0.0002]>
                 <[string8][InputLuminance][OuterMarkerLight.Output]>
             >
-
+			// generator warning lamp
+            <[movinggraphics][GeneratorWarningLamp][]
+                <[string8][GeometryList][ GeneratorLamp ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][InputID][GeneratorWarning.Output]>
+                <[tmvector3d][Axis][1.0 0.0 0.0]>
+                <[float64][Scaling][-0.0002]>
+                <[float64][Offset][0.0002]>
+                <[string8][InputIllumination0][NaturalLighting.Output]>
+            >
+			
         // Middle console
 
 			// trimmer in zero signal lamps
@@ -5801,17 +6053,23 @@
                 <[float64][Scaling][0.0002]>
                 <[string8][InputIllumination0][NaturalLighting.Output]>
             >
-            // Iphone + GPS map
-            <[rigidbodygraphics][Iphone][]
+            // Iphone + GPS map			
+            <[movinggraphics][Iphone][]
                 <[string8][GeometryList][ Iphone IphoneMount ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][InputID][GPSHidden.Output]>
+                <[tmvector3d][Axis][-0.701 0.0 0.701]>
+                <[float64][Scaling][-0.25]>				
                 <[string8][InputIllumination0][PanelLighting.Output]>
             >
-            <[rigidbodygraphics][IphoneDisplay][]
+            <[movinggraphics][IphoneDisplay][]
                 <[string8][GeometryList][ IphoneDisplay ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][InputID][GPSHidden.Output]>
+                <[tmvector3d][Axis][-0.701 0.0 0.701]>
+                <[float64][Scaling][-0.25]>				
                 <[string8][InputIllumination0][NaturalLighting.Output]>
             >
             <[texture_animation][DisplayTexture][]

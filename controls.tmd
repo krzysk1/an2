@@ -5,7 +5,8 @@
     //   wzdłuż   <[matrix3_float64][B0][ 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 1.0 ]>
     //   stick    <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
     //   w poprzek <[matrix3_float64][B0][ 0.0 -1.0 0.0  1.0 0.0 0.0  0.0 0.0 1.0 ]>    
-    
+ 
+ 
 			// yokes
             <[control_input][ElevatorTravel][]
                 <[uint32][InputID][ServoElevatorPosition.Output]>
@@ -442,7 +443,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Electric.Alternator]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -457,7 +458,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Electric.MasterBattery]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -472,7 +473,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.ParkingBrake]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -487,7 +488,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Inverter1]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -501,7 +502,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Inverter2]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -635,7 +636,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.IcingCenterWindowHeat]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -649,7 +650,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.IcingRightWindowHeat]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -663,7 +664,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.IcingLeftWindowHeat]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -718,7 +719,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Electrical.VHF1Audio]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -732,7 +733,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Electrical.VHF2Audio]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -746,7 +747,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Electrical.IntercomAudio]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -761,7 +762,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.PitotHeat]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -776,7 +777,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Electrical.Converter]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -789,7 +790,7 @@
                 <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Controls.ClutchStarter]>
+                    <[string8][Message][Controls.Starter1]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][-1.0]>
                 >
@@ -937,7 +938,24 @@
                     <[string8][Qualifiers][step]>
                     <[float64][Value][0.2]>
                 >
+                <[control_message][OnPush][]
+                    <[string8][Message][GPS.Hide]>
+                    <[string8][Qualifiers][toggle]>
+                    <[float64][Value][1.0]>
+                >				
                 <[vector3_float64][Dimensions][0.01 0.11 0.063]>
+            >
+            <[control_sphere][IphoneGpsHide][]
+                <[string8][Type][button]>
+                <[vector3_float64][R0][1.78 0.03 0.99]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[control_message][OnPush][]
+                    <[string8][Message][GPS.Hide]>
+                    <[string8][Qualifiers][toggle]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.005]>
             >			
 			// door handle
             <[control_input][DoorAngle][]
