@@ -421,7 +421,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][AntiIce.CarburetorHeat]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -540,7 +540,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Lighting.Taxi]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -555,7 +555,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Lighting.Navigation]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -570,7 +570,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Lighting.Strobe]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -585,7 +585,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Lighting.Beacon]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -600,7 +600,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Lighting.RightLanding]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
@@ -614,7 +614,7 @@
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Lighting.LeftLanding]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
