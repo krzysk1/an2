@@ -1,17 +1,12 @@
 <[file][][]
     <[modelmanager][][]
-        <[pointer_list_tmcontrol][ControlObjects][]
+        <[pointer_list_tmcontrol][ControlObjects][] 
 
-    //   wzdłuż   <[matrix3_float64][B0][ 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 1.0 ]>
-    //   stick    <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
-    //   w poprzek <[matrix3_float64][B0][ 0.0 -1.0 0.0  1.0 0.0 0.0  0.0 0.0 1.0 ]>    
- 
- 
             // yokes
             <[control_input][ElevatorTravel][]
                 <[uint32][InputID][ServoElevatorPosition.Output]>
-                <[float64][Scaling][-0.3141595]>
-                <[float64][Offset][0.2094395]>
+                <[float64][Scaling][-0.31416]>
+                <[float64][Offset][-0.10472]>
             > 
             <[control_input][AileronTravel][]
                 <[uint32][InputID][ServoAileronPosition.Output]>
@@ -44,7 +39,7 @@
                 <[string8][InputTransform][LeftYokeTransform.Output]>
                 <[vector3_float64][Direction2][ 0.0 0.0 -1.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
-                <[float64][StepDistance][0.0005]>
+                <[float64][StepDistance][0.002]>
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Pitch.Input]>
                     <[string8][Qualifiers][step]>
@@ -65,7 +60,7 @@
                 <[string8][InputTransform][LeftYokeTransform.Output]>
                 <[vector3_float64][Direction2][ 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
-                <[float64][StepDistance][0.0005]>
+                <[float64][StepDistance][0.002]>
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Pitch.Input]>
                     <[string8][Qualifiers][step]>
@@ -102,7 +97,7 @@
                 <[string8][InputTransform][RightYokeTransform.Output]>
                 <[vector3_float64][Direction2][ 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
-                <[float64][StepDistance][0.00005]>
+                <[float64][StepDistance][0.0002]>
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Pitch.Input]>
                     <[string8][Qualifiers][step]>
@@ -123,7 +118,7 @@
                 <[string8][InputTransform][RightYokeTransform.Output]>
                 <[vector3_float64][Direction2][ 0.0 0.0 -1.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
-                <[float64][StepDistance][0.00005]>
+                <[float64][StepDistance][0.0002]>
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Pitch.Input]>
                     <[string8][Qualifiers][step]>
@@ -138,7 +133,7 @@
                 <[float64][Length][0.11]>
             >
      
-            <[control_cylinder][YokeHideLeft][]
+            <[control_sphere][YokeHideLeft][]
                 <[string8][Type][button]>
                 <[vector3_float64][R0][1.525 0.4481 0.1066]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
@@ -149,9 +144,8 @@
                     <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.07]>
-                <[float64][Length][0.14]>
             >
-            <[control_cylinder][YokeHideRight][]
+            <[control_sphere][YokeHideRight][]
                 <[string8][Type][button]>
                 <[vector3_float64][R0][1.525 -0.4053 0.1066]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
@@ -162,7 +156,6 @@
                     <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.07]>
-                <[float64][Length][0.14]>
             >     
      
             // flaps lever
@@ -333,8 +326,8 @@
             <[control_cylinder][CoollingFlapsLever][]
                 <[string8][Type][lever]>
                 <[vector3_float64][R0][ 1.391 -0.1019 0.4666 ]>
-                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
-                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[matrix3_float64][B0][ -0.296399 0.0 0.955064  0.0 1.0 0.0  -0.955064 0.0 -0.296399 ]>
+                <[vector3_float64][Direction][ 0.955064 0.0 -0.296399 ]>
                 <[float64][StepDistance][0.0001]>
                 <[string8][InputTransform][CoollingFlapsLeverTransform.Output]>
                 <[control_message][OnStep][]
@@ -360,8 +353,8 @@
             <[control_cylinder][OilShuttersLever][]
                 <[string8][Type][lever]>
                 <[vector3_float64][R0][ 1.393 -0.06525 0.4669 ]>
-                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
-                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[matrix3_float64][B0][ -0.296399 0.0 0.955064  0.0 1.0 0.0  -0.955064 0.0 -0.296399 ]>
+                <[vector3_float64][Direction][ 0.955064 0.0 -0.296399 ]>
                 <[float64][StepDistance][0.0001]>
                 <[string8][InputTransform][OilShuttersLeverTransform.Output]>
                 <[control_message][OnStep][]
@@ -376,7 +369,7 @@
             <[control_cylinder][RudderTrimSwitch][]
                 <[string8][Type][switch]>
                 <[vector3_float64][R0][ 1.404 -0.03045 0.4706 ]>
-                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[matrix3_float64][B0][ -0.296399 0.0 0.955064  0.0 1.0 0.0  -0.955064 0.0 -0.296399 ]>
                 <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
                 <[float64][StepDistance][0.00001]>
                 <[control_message][OnStep][]
@@ -390,8 +383,8 @@
             <[control_cylinder][PitchTrimSwitch][]
                 <[string8][Type][switch]>
                 <[vector3_float64][R0][ 1.393 0.07765 0.4672 ]>
-                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
-                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[matrix3_float64][B0][ -0.296399 0.0 0.955064  0.0 1.0 0.0  -0.955064 0.0 -0.296399 ]>
+                <[vector3_float64][Direction][ 0.955064 0.0 -0.296399 ]>
                 <[float64][StepDistance][0.00001]>
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Trim]>
@@ -404,7 +397,7 @@
             <[control_cylinder][AileronTrimSwitch][]
                 <[string8][Type][switch]>
                 <[vector3_float64][R0][ 1.381 -0.0304 0.4631 ]>
-                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[matrix3_float64][B0][ -0.296399 0.0 0.955064  0.0 1.0 0.0  -0.955064 0.0 -0.296399 ]>
                 <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
                 <[float64][StepDistance][0.00001]>
                 <[control_message][OnStep][]
@@ -421,7 +414,7 @@
             // carb heat switch
             <[control_cylinder][CarburetorHeater][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.692 -0.0306 0.5474 ]>
+                <[vector3_float64][R0][ 1.702 -0.0306 0.5474 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -436,7 +429,7 @@
             // generator switch
             <[control_cylinder][GeneratorSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.692 0.1204 0.5474 ]>
+                <[vector3_float64][R0][ 1.702 0.1204 0.5474 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -451,7 +444,7 @@
             // battery switch
             <[control_cylinder][BatterySwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.692 0.096 0.5474 ]>
+                <[vector3_float64][R0][ 1.702 0.096 0.5474 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -466,7 +459,7 @@
             // parking brake switch
             <[control_cylinder][ParkingBrakeSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.692 -0.0976 0.5474 ]>
+                <[vector3_float64][R0][ 1.702 -0.0976 0.5474 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -481,7 +474,7 @@
             // power inverter switches
             <[control_cylinder][Inverter1Switch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.692 0.0325 0.5474 ]>
+                <[vector3_float64][R0][ 1.702 0.0325 0.5474 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -495,7 +488,7 @@
             >
             <[control_cylinder][Inverter2SwitchSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.692 0.0651 0.5474 ]>
+                <[vector3_float64][R0][ 1.702 0.0651 0.5474 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -510,8 +503,8 @@
             // fuel tank selector
             <[control_cylinder][FuelTankSelector][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.23 0.6818 0.2596 ]>
-                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][R0][ 1.235 0.6818 0.2596 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0 -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
@@ -520,12 +513,12 @@
                     <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.01]>
-                <[float64][Length][0.02]>
+                <[float64][Length][0.01]>
             >     
             // autopilot mode switch     
             <[control_cylinder][AutopilotModeSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7844 -0.0293 0.6304 ]>
+                <[vector3_float64][R0][ 1.775 -0.0293 0.6304 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -540,7 +533,7 @@
             // taxi light switch
             <[control_cylinder][TaxiLightSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7666 0.1593 0.4730 ]>
+                <[vector3_float64][R0][ 1.756 0.1593 0.4730 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -555,7 +548,7 @@
             // navigation lights switch
             <[control_cylinder][NavigationLightSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7666 0.1793 0.4731 ]>
+                <[vector3_float64][R0][ 1.756 0.1793 0.4731 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -570,7 +563,7 @@
             // strobe lights switch     
             <[control_cylinder][StrobeLightSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7521 0.1788 0.41531 ]>
+                <[vector3_float64][R0][ 1.742 0.1788 0.41531 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -585,7 +578,7 @@
             // beacon lights switch     
             <[control_cylinder][BeaconLightSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7521 0.1593 0.4154 ]>
+                <[vector3_float64][R0][ 1.742 0.1593 0.4154 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -600,7 +593,7 @@
             // landing light switches 
             <[control_cylinder][RightLandingLightSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7816 0.1593 0.5308 ]>
+                <[vector3_float64][R0][ 1.77 0.1593 0.5308 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -614,7 +607,7 @@
             >     
             <[control_cylinder][LeftLandingLight2Switch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7816 0.1789 0.5310 ]>
+                <[vector3_float64][R0][ 1.77 0.1789 0.5310 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -629,7 +622,7 @@
             // ice window heat switch
             <[control_cylinder][IceCenterWindowHeatSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 0.9939 0.7062 0.2476 ]>
+                <[vector3_float64][R0][ 0.9939 0.7062 0.2576 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -643,7 +636,7 @@
             >
             <[control_cylinder][IceRightWindowHeatSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 0.9939 0.7263 0.2476 ]>
+                <[vector3_float64][R0][ 0.9939 0.7263 0.2576 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -657,7 +650,7 @@
             >
             <[control_cylinder][IceLeftWindowHeatSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 0.9939 0.7470 0.2476 ]>
+                <[vector3_float64][R0][ 0.9939 0.7470 0.2576 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -697,7 +690,7 @@
             // engine magneto switch
             <[control_cylinder][Magnetos][]
                 <[string8][Type][knob]>
-                <[vector3_float64][R0][1.7895 0.2754 0.7796]>  
+                <[vector3_float64][R0][1.784 0.2754 0.7796]>  
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepAngle][0.4]>
@@ -712,7 +705,7 @@
             // avionics power switches
             <[control_cylinder][COM1AudioSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7824 -0.0053 0.8065 ]>
+                <[vector3_float64][R0][ 1.773 -0.0053 0.8065 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -726,7 +719,7 @@
             >
             <[control_cylinder][COM2AudioSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7824 -0.0269 0.8065 ]>
+                <[vector3_float64][R0][ 1.773 -0.0269 0.8065 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -740,7 +733,7 @@
             >
             <[control_cylinder][IntercomAudioSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7824 -0.0490 0.8065 ]>
+                <[vector3_float64][R0][ 1.773 -0.0490 0.8065 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -770,7 +763,7 @@
             // pitot heat switch
             <[control_cylinder][PitotHeatSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7824 0.1173 0.7113 ]>
+                <[vector3_float64][R0][ 1.775 0.1173 0.7113 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -785,7 +778,7 @@
             // A/C Converter 
             <[control_cylinder][ConverterSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7839 0.0889 0.6421 ]>
+                <[vector3_float64][R0][ 1.775 0.0889 0.6421 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -800,7 +793,7 @@
             // clutch/starter switch
             <[control_cylinder][ClutchStarterSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.7935 0.2129 0.7815 ]>
+                <[vector3_float64][R0][ 1.782 0.2129 0.7815 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -815,7 +808,7 @@
             // autopilot altitude mode switch
             <[control_cylinder][AutopilotAltitudeModeSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.6389 0.1041 0.5229 ]>
+                <[vector3_float64][R0][ 1.6389 0.1041 0.5320 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -830,7 +823,7 @@
             // autopilot heading mode switch
             <[control_cylinder][AutopilotHeadingModeSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.6233 -0.0139 0.5177 ]>
+                <[vector3_float64][R0][ 1.6233 -0.0139 0.5268 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -845,7 +838,7 @@
             // ELT - emergency location transmitter 
             <[control_cylinder][EmergencyLocationSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.19 0.6818 0.2481 ]>
+                <[vector3_float64][R0][ 1.19 0.6818 0.2563 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -860,7 +853,7 @@
             // fuel pump switch    
             <[control_cylinder][FuelPumpSwitch][]
                 <[string8][Type][switch toggle]>
-                <[vector3_float64][R0][ 1.278 0.6813 0.2464 ]>
+                <[vector3_float64][R0][ 1.278 0.6813 0.2563 ]>
                 <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
                 <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
@@ -876,7 +869,7 @@
             <[control_cylinder][PressureSetting][]
                 <[string8][Type][knob]>
                 <[vector3_float64][R0][ 1.761 0.651 0.5044 ]>
-                <[matrix3_float64][B0][ 0.964205 0.0 -0.265156 1.0 0.0 -0.265156 0.0 0.964205 ]>
+                <[matrix3_float64][B0][ 0.964205 0.0 -0.265156  0.0 1.0 0.0  0.265156 0.0 0.964205 ]>
                 <[vector3_float64][Direction][ 0.964205 0.0 -0.265156 ]>
                 <[float64][StepAngle][0.02]>
                 <[control_message][OnRotate][]
@@ -885,7 +878,7 @@
                     <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.006]>
-                <[float64][Length][0.003]>
+                <[float64][Length][0.016]>
             >
             // directional gyro adjust
             <[control_cylinder][DirectionalGyroAdjust][]
@@ -1017,7 +1010,7 @@
             <[control_box][MapZoomKnob][]
                 <[string8][Type][knob]>
                 <[vector3_float64][R0][1.805 0.09515 0.9914]>
-                <[matrix3_float64][B0][ 0.965926  0.0 -0.258819  0.0  1.0 0.0 0.258819  0.0  0.965926 ]>
+                <[matrix3_float64][B0][ 0.965926 -0.258819 0.0  0.0 1.0 0.0  0.0 0.258819 0.965926 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepAngle][0.3]>
                 <[control_message][OnRotate][]
@@ -1071,8 +1064,8 @@
             <[control_cylinder][DoorSwitchBase][]
                 <[string8][Type][switch toggle base]>
                 <[vector3_float64][R0][ 1.572 0.06085 0.5065 ]>
-                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
-                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[matrix3_float64][B0][ -0.296399 0.0 0.955064  0.0 1.0 0.0  -0.955064 0.0 -0.296399 ]>
+                <[vector3_float64][Direction][ -0.296399 0.0 0.955064 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
                     <[string8][Message][Doors.Handle]>
@@ -1086,6 +1079,11 @@
     >
 >
 
+
+//   wzdłuż   <[matrix3_float64][B0][ 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 1.0 ]>
+//   stick    <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+//   w poprzek <[matrix3_float64][B0][ 0.0 -1.0 0.0  1.0 0.0 0.0  0.0 0.0 1.0 ]>   
+	
 // UpperFlapCircuitBreaker  15A
 // Flap ControlCircuitBreaker15A
 // LowerFlapsCircuitBreaker 15A
@@ -1133,4 +1131,3 @@
 // Right Wiper 5A
 // Fuel Residue System 5A
 // Emerg. Exit  5A
-

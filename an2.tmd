@@ -907,10 +907,10 @@
                         <[string8][Input][ServoElevator.Output]>
             >
             <[servoclassic][ServoElevatorPosition][]
-                        <[string8][Input][ElevatorInput.Output]>
-                        <[float64][Speed][10.0]>
-                        <[float64][P0][0.0]>
-                        <[float64][P1][-1.0]>
+				<[string8][Input][ElevatorInput.Output]>
+				<[float64][Speed][10.0]>
+				<[float64][P0][0.0]>
+                <[float64][P1][-1.0]>
             >
             <[output_free][ServoElevatorPositionOutput][]
                         <[string8][Input][ServoElevatorPosition.Output]>
@@ -933,13 +933,13 @@
                 <[float64][P2][-0.139626]>
             >
             <[mixlinear][MixLeftAileron][]
-           <[string8][Input0][ServoFlaps2.Output]>
-           <[string8][Input1][ServoLeftAileron.Output]>
-           <[float64][Weight0][0.4]>
-           <[float64][Weight1][1.0]>
+                <[string8][Input0][ServoFlaps2.Output]>
+                <[string8][Input1][ServoLeftAileron.Output]>
+                <[float64][Weight0][0.4]>
+                <[float64][Weight1][1.0]>
             >
             <[output][MixLeftAileronOutput][]
-                        <[string8][Input][MixLeftAileron.Output]>
+                <[string8][Input][MixLeftAileron.Output]>
             >
             <[servoclassic][ServoRightAileron][]
                 <[string8][Input][AileronTrimmed.Output]>
@@ -949,22 +949,22 @@
                 <[float64][P2][-0.139626]>
             >
             <[mixlinear][MixRightAileron][]
-           <[string8][Input0][ServoFlaps2.Output]>
-           <[string8][Input1][ServoRightAileron.Output]>
-           <[float64][Weight0][0.4]>
-           <[float64][Weight1][1.0]>
+                <[string8][Input0][ServoFlaps2.Output]>
+                <[string8][Input1][ServoRightAileron.Output]>
+                <[float64][Weight0][0.4]>
+                <[float64][Weight1][1.0]>
             >
             <[output_free][MixRightAileronOutput][]
-                        <[string8][Input][MixRightAileron.Output]>
+                <[string8][Input][MixRightAileron.Output]>
             >
             <[servoclassic][ServoAileronPosition][]
-                        <[string8][Input][AileronInput.Output]>
-                        <[float64][Speed][10.0]>
-                        <[float64][P0][0.0]>
-                        <[float64][P1][1.0]>
+                <[string8][Input][AileronInput.Output]>
+                <[float64][Speed][10.0]>
+                <[float64][P0][0.0]>
+                <[float64][P1][1.0]>
             >
             <[output_free][ServoAileronPositionOutput][]
-                        <[string8][Input][ServoAileronPosition.Output]>
+                <[string8][Input][ServoAileronPosition.Output]>
             >
             <[sender][SenderAileronPosition][]
                 <[string8][Input][AileronInput.Output]>
@@ -990,13 +990,13 @@
                 <[string8][Message][Aircraft.Rudder]>
             >
             <[servoclassic][ServoRudderPosition][]
-                        <[string8][Input][RudderInput.Output]>
-                        <[float64][Speed][10.0]>
-                        <[float64][P0][0.0]>
-                        <[float64][P1][1.0]>
+                <[string8][Input][RudderInput.Output]>
+                <[float64][Speed][10.0]>
+                <[float64][P0][0.0]>
+                <[float64][P1][1.0]>
             >
             <[output_free][ServoRudderPositionOutput][]
-                        <[string8][Input][ServoRudderPosition.Output]>
+                <[string8][Input][ServoRudderPosition.Output]>
             >
 
             // pitch trim
@@ -1263,7 +1263,7 @@
                 <[float64][OutputSpeed][5.0]>
                 <[float64][Position][1.0]>
                 <[float64array][InputPosition][ 0.0 1.0 ]>
-                <[float64array][OutputPosition][ 0.25 1.0 ]>
+                <[float64array][OutputPosition][ 0.1 1.0 ]>
             >
             <[output_free][ServoMixtureOutput][]
                 <[string8][Input][ServoMixture.Output]>
@@ -1489,18 +1489,13 @@
             <[output][ManifoldPressure][]
                 <[string8][Input][Engine.ManifoldPressure]>
             >
-            // engine fuel flow
-//            <[linear_interpolation][FuelFlow][]
-//                <[string8][Input][DriveShaft.RotationSpeed]>
-//                <[tmvector2d][Map][ (0.0 0.0) (52.4 0.004206) (104.0 0.0052575) (209.4 0.011) (282.7 0.0178755) ]>
-//            >
-            <[first_order_low_pass][EngineFuelFlow][]
-                <[string8][Input][Engine.FuelFlow]>
-                <[float64][TimeConstant][0.05]>
-                <[float64][Value][0.0]>
-            >
+            // fuel pressure
+           <[linear_interpolation][FuelFlow][]
+               <[string8][Input][DriveShaft.RotationSpeed]>
+               <[tmvector2d][Map][ (0.0 0.0) (52.4 0.004206) (104.0 0.0052575) (209.4 0.011) (282.7 0.0178755) ]>
+           >
             <[needle][NeedleFuelPressure][]
-                <[string8][Input][EngineFuelFlow.Output]>
+                <[string8][Input][FuelFlow.Output]>
                 <[string8][InputEnable][BatterySwitch.Output]>
                 <[float64][Speed][1.0]>
                 <[float64][Damping][1.0]>
@@ -1515,8 +1510,6 @@
                 <[float64][Speed][0.5]>
                 <[float64][P0][0.0]>
                 <[float64][P1][1.0]>
-                <[float64][P2][0.0]>
-                <[float64][P3][0.0]>
                 <[float64][Position][323.0]>
             >
             <[needle][NeedleOilTemperature][]
@@ -1572,7 +1565,7 @@
                 <[string8][Input][CylinderHeadTemperature.Output]>
                 <[string8][InputEnable][BatterySwitch.Output]>
                 <[float64][Speed][5.0]>
-                <[float64][Damping][1.0]>c
+                <[float64][Damping][1.0]>
             >
 
             // starter
@@ -1586,11 +1579,16 @@
             <[output][ClutchStarterOn][]
                 <[string8][Input][ClutchStarterSwitch.Output]>
             >
-            <[input_active][StarterButtonPushed][]
+            <[logic_greater][StarterButtonPushed][]
+                <[string8][Input0][ClutchStarterSwitch.Output]>
+                <[string8][Input1][0.5]>
+            >
+            <[input_active][StarterButton2Pushed][]
                 <[string8][Message][Controls.Starter1]>
             >
-            <[output_free][StarterButtonPushedOutput][]
-                <[string8][Input][StarterButtonPushed.Output]>
+            <[sender][SenderStarter1][]
+                <[string8][Input][StarterButton2Pushed.Output]>
+                <[string8][Message][Aircraft.Starter1]>
             >
             <[electrical_bus][StarterBus][]
                 <[float64][Voltage][24.0]>
@@ -1605,7 +1603,7 @@
             >
 
             <[product][StarterEnabled][]
-                <[string8][Inputs][ StarterButtonPushed.Output ]>  //IgnitionSwitch.Output AirPressureOn.Output
+                <[string8][Inputs][ StarterButtonPushed.Output ]>  // IgnitionSwitch.Output AirPressureOn.Output
             >
 
             <[electrical_switch][StarterSwitch][]
@@ -1614,7 +1612,7 @@
                 <[string8][InputVoltage1][StarterBus.Output]>
                 <[string8][AddLoad0]     [MainBus.AddLoad]>
                 <[string8][AddLoad1]     [StarterBus.AddLoad]>
-                <[string8][Resistance][0.0005]>
+                <[string8][Resistance][0.0004]>
             >
             <[logic_invert][StarterNotActive][]
                 <[string8][Input][StarterButtonPushed.Output]>
@@ -1638,7 +1636,6 @@
             <[set_proxy][DriveShaftProxy2][]
                 <[string8][AddOutput][DriveShaft.AddTorque]>
             >
-
 
             // fuel system start
 
@@ -2543,7 +2540,7 @@
                 <[float64][InputValue][1000.0]>
             >
             <[transponder][Transponder][]
-                //<[string8][InputEnable][TransponderOn.Output]>
+                <[string8][InputEnable][TransponderOn.Output]>
             >
             <[output][SQUAWK1Code][]
                 <[string8][Input][Transponder.OutputStandby]>
@@ -2714,7 +2711,7 @@
             >
             <[input_default][AttitudeIndicatorAdjustInput][]
                 <[string8][Message][AttitudeIndicatorAdjust]>
-                <[tmvector2d][Range][ -1.0 1.0 ]>
+                <[tmvector2d][Range][ -0.25 0.25 ]>
                 <[uint][Positions][21]>
                 <[float64][Value][0.0]>
             >
@@ -5152,14 +5149,13 @@
                 <[tmvector3d][Pivot][1.7502 0.3272 0.4439]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
-            // fuel pressure psi
+            // fuel pressure
             <[graphics_input][FuelPressureInput][]
                 <[uint32][InputID][NeedleFuelPressure.Output]>
-                <[string8][Scaling][25000.0]>
             >
             <[graphics_linear_interpolation][FuelPressureMapping][]
                 <[string8][Input][FuelPressureInput.Output]>
-                <[tmvector2d][Map][(0 0.785398) (88.5 -0.785398)]>
+                <[tmvector2d][Map][(0 0.785398) (0.0178755 -0.785398)]>
             >
             <[hingedbodygraphics][FuelPressureNeedle][]
                 <[string8][GeometryList][ FuelPressureNeedle ]>
@@ -5903,7 +5899,7 @@
                 <[string8][GeometryList][ XpdrDisplay ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
-                <[uint32][InputID][RadioPanel1On.Output]>
+                <[uint32][InputID][TransponderOn.Output]>
                 <[tmvector3d][Axis][0.0 0.0 1.0]>
                 <[float64][Scaling][0.001]>
                 <[string8][InputIllumination0][NaturalLighting.Output]>
@@ -5927,6 +5923,115 @@
 
             // Pilot animation
 
+            <[graphics_flasher][HeadFlasher70][]
+                <[string8][InputTime][UniversalTime.Output]>
+                <[string8][Function][Triangle]>
+                <[float64][Period][150.493]>
+                <[float64][Minimum][0]>
+                <[float64][Maximum][70.0]>
+            >
+            <[graphics_flasher][HeadFlasher110][]
+                <[string8][InputTime][UniversalTime.Output]>
+                <[string8][Function][Triangle]>
+                <[float64][Period][150.493]>
+                <[float64][Minimum][0]>
+                <[float64][Maximum][110.0]>
+            >
+            <[graphics_linear_interpolation][PilotAnimationMapping_517][]
+                <[string8][Input][HeadFlasher70.Output]>
+                <[tmvector2d][Map][(0.0 0.0) (4.0 0.025831) (8.0 0.0) (12.0 0.024609) (16.0 0.101927) (20.0 0.000698) (24.0 0.238237) (31.7 0.0) (32.0 0.094422) (35.0 0.070686) (35.4 0.020944) (44.0 0.0) (48.0 0.0) (52.0 0.0) (56.0 0.0)]>
+            >
+            <[graphics_rotation][PilotAnimationRotate_517][]
+                <[string8][Input][PilotAnimationMapping_517.Output]>
+                <[tmvector3d][Axis][ -1.0 0.0 0.0 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+            >
+            <[graphics_linear_interpolation][PilotAnimationMapping_535][]
+                <[string8][Input][HeadFlasher70.Output]>
+                <[tmvector2d][Map][(0.0 0.0) (4.0 -0.006632) (8.0 0.0) (12.0 -0.009599) (16.0 -0.106116) (20.0 -0.000873) (24.0 0.227765) (31.7 0.028449) (32.0 -0.199317) (35.0 -0.142244) (35.4 -0.013788) (44.0 0.0) 0(48.0 -0.268606) (52.0 -0.000698) (56.0 0.0)]>
+            >
+            <[graphics_rotation][PilotAnimationRotate_535][]
+                <[string8][Input][PilotAnimationMapping_535.Output]>
+                <[tmvector3d][Axis][ 0.0 0.0 1.0 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+                <[string8][InputTransform][PilotAnimationRotate_517.Output]>
+            >
+            <[graphics_linear_interpolation][PilotAnimationMapping_553][]
+                <[string8][Input][HeadFlasher70.Output]>
+                <[tmvector2d][Map][(0.0 0.0) (4.0 0.002618) (8.0 0.0) (12.0 -0.040666) (16.0 -0.241903) (20.0 0.0) (24.0 0.044680) (31.7 0.000349) (32.0 -0.445757) (35.0 -0.441045) (35.4 -0.000175) (44.0 0.0) (48.0 0.0) (52.0 0.0) (56.0 0.0)]>
+            >
+            <[graphics_rotation][PilotAnimationRotate_553][]
+                <[string8][Input][PilotAnimationMapping_553.Output]>
+                <[tmvector3d][Axis][ 0.0 -1.0 0.0 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+                <[string8][InputTransform][PilotAnimationRotate_535.Output]>
+            >
+            <[graphics_linear_interpolation][PilotAnimationMapping_572][]
+                <[string8][Input][HeadFlasher110.Output]>
+                <[tmvector2d][Map][(1.0 0.0) (15.5 0.025831) (16.0 0.006283) (24.0 0.040666) (24.4 0.030020) (40.0 0.0) (48.0 0.141546) (56.0 0.0) (70.0 -0.006109) (72.0 0.003840) (74.0 0.028623) (75.0 0.0) (96.0 0.0) (102.0 0.0)]>
+            >
+            <[graphics_rotation][PilotAnimationRotate_572][]
+                <[string8][Input][PilotAnimationMapping_572.Output]>
+                <[tmvector3d][Axis][ -1.0 0.0 0.0 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+                <[string8][InputTransform][PilotAnimationRotate_553.Output]>
+            >
+            <[graphics_linear_interpolation][PilotAnimationMapping_589][]
+                <[string8][Input][HeadFlasher110.Output]>
+                <[tmvector2d][Map][(1.0 0.0) (15.5 0.002618) (16.0 0.610865) (24.0 0.656244) (24.4 0.017279) (40.0 0.0) (48.0 -0.162665) (56.0 0.0) (70.0 0.001396) (72.0 -0.436332) (74.0 -0.491136) (75.0 0.0) (96.0 0.0) (102.0 0.0)]>
+            >
+            <[graphics_rotation][PilotAnimationRotate_589][]
+                <[string8][Input][PilotAnimationMapping_589.Output]>
+                <[tmvector3d][Axis][ 0.0 0.0 1.0 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+                <[string8][InputTransform][PilotAnimationRotate_572.Output]>
+            >
+            <[graphics_linear_interpolation][PilotAnimationMapping_606][]
+                <[string8][Input][HeadFlasher110.Output]>
+                <[tmvector2d][Map][(1.0 0.0) (15.5 0.006632) (16.0 -0.001047) (24.0 0.032987) (24.4 0.042062) (40.0 0.0) (48.0 -0.141372) (56.0 0.0) (70.0 -0.027751) (72.0 0.0) (74.0 0.014137) (75.0 0.0) (96.0 0.014312) (102.0 0.0)]>
+            >
+            <[graphics_rotation][PilotAnimationRotate_606][]
+                <[string8][Input][PilotAnimationMapping_606.Output]>
+                <[tmvector3d][Axis][ 0.0 -1.0 0.0 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+                <[string8][InputTransform][PilotAnimationRotate_589.Output]>
+            >
+
+            <[graphics_input][Roll_AHARS_deg_pilot_Input][]
+                <[uint32][InputID][BankAngle.Output]>
+                <[float64][Scaling][57.295778]>
+            >
+            <[graphics_linear_interpolation][PilotAnimationMapping_626][]
+                <[string8][Input][Roll_AHARS_deg_pilot_Input.Output]>
+                <[tmvector2d][Map][(-180.0 0.0) (-90.0 -0.355) (-45.0 -0.355) (0.0 0.0) (45.0 0.355873) (90.0 0.355873) (180.0 0.0)]>
+            >
+            <[graphics_rotation][PilotAnimationRotate_626][]
+                <[string8][Input][PilotAnimationMapping_626.Output]>
+                <[tmvector3d][Axis][ -1.0 0.0 0.0 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+                <[string8][InputTransform][PilotAnimationRotate_606.Output]>
+            >
+            <[graphics_linear_interpolation][PilotAnimationMapping_636][]
+                <[string8][Input][Roll_AHARS_deg_pilot_Input.Output]>
+                <[tmvector2d][Map][(-180.0 0.0) (-90.0 0.715760) (-45.0 0.715760) (0.0 0.0) (45.0 -0.715411) (90.0 -0.715411) (180.0 0.0)]>
+            >
+            <[graphics_rotation][PilotAnimationRotate_636][]
+                <[string8][Input][PilotAnimationMapping_636.Output]>
+                <[tmvector3d][Axis][ 0.0 0.0 1.0 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+                <[string8][InputTransform][PilotAnimationRotate_626.Output]>
+            >
+            <[graphics_linear_interpolation][PilotAnimationMapping_646][]
+                <[string8][Input][Roll_AHARS_deg_pilot_Input.Output]>
+                <[tmvector2d][Map][(-180.0 0.0) (-90.0 -0.102276) (-45.0 -0.102276) (0.0 0.0) (45.0 -0.104894) (90.0 -0.104894) (180.0 0.0)]>
+            >
+            <[graphics_rotation][PilotAnimationRotate_646][]
+                <[string8][Input][PilotAnimationMapping_646.Output]>
+                <[tmvector3d][Axis][ 0.0 -1.0 0.0 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+                <[string8][InputTransform][PilotAnimationRotate_636.Output]>
+            >
+
             <[graphics_input][ElevatorInputPilot][]
                 <[uint32][InputID][ServoElevatorPosition.Output]>
                 <[float64][Scaling][0.1]>
@@ -5939,7 +6044,8 @@
             <[graphics_rotation][PilotRotate_604][]
                 <[string8][Input][PilotMapping_604.Output]>
                 <[tmvector3d][Axis][ 0.0 -1.0 0.0 ]>
-                <[tmvector3d][Pivot][1.0116 0.5088 0.9644 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
+                <[string8][InputTransform][PilotAnimationRotate_646.Output]>
             >
             <[graphics_input][AileronInputPilot][]
                 <[uint32][InputID][ServoAileronPosition.Output]>
@@ -5952,7 +6058,7 @@
             <[graphics_rotation][PilotRotate_602][]
                 <[string8][Input][PilotMapping_602.Output]>
                 <[tmvector3d][Axis][ -0.06 0.0635 0.9962 ]>
-                <[tmvector3d][Pivot][1.0116 0.5088 0.9644 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
                 <[string8][InputTransform][PilotRotate_604.Output]>
             >
             <[graphics_input][RudderInputPilot][]
@@ -5965,7 +6071,7 @@
             <[graphics_rotation][PilotHeadTransform][]
                 <[string8][Input][PilotHeadMapping.Output]>
                 <[tmvector3d][Axis][ 0.0 0.0 -1.0 ]>
-                <[tmvector3d][Pivot][1.0116 0.5088 0.9644 ]>
+                <[tmvector3d][Pivot][1.0116 0.5088 0.9644]>
                 <[string8][InputTransform][PilotRotate_602.Output]>
             >
 
