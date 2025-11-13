@@ -1,0 +1,119 @@
+<[file][][]
+    <[modelmanager][][]
+        <[pointer_list_tmuniverse][DynamicObjects][]
+
+// CRUISE
+
+// Engine parameters:
+// RPM  1400-1600
+// Manifold pressure     6-8
+// CHT  150-215
+// Oil T     60-85
+// Oil pressure 4-5
+// Fuel pressure  0.25-0.35
+// Carb heat AS REQ
+// Flaps     UP
+
+            // 2200 rpm
+            <[input_lever][ThrottleInput][]
+                <[float64][Value][0.4]>
+            >
+            <[input_lever][PropSpeedInput][]
+                <[float64][Value][0.8]>
+            >
+            <[multibody_joint][PropellerJoint][]
+                <[float64][Velocity][200.0]>
+            >
+            <[input_lever][MixtureInput][]
+                <[float64][Value][1.0]>
+            >
+            <[input_lever][FuelShutOffLeverInput][]
+                <[float64][Value][1.0]>
+            >
+
+            // trim
+            <[input_default][PitchTrim][]
+                <[float64][Value][-0.08]>
+            >
+            <[input_default][AileronTrim][]
+                <[float64][Value][0.008]>
+            >
+
+            // flaps up
+            <[input_lever][FlapsInput][]
+                <[float64][Value][0.0]>
+            >
+            <[servoclassic][ServoFlaps][]
+                <[float64][Position][0.0]>
+            >
+            <[servoclassic][ServoFlaps2][]
+                <[float64][Position][0.0]>
+            >
+
+            // lights
+            <[input_switch][NavigationLightSwitch][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][BeaconLightSwitch][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][LeftLandingLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][RightLandingLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][TaxiLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+
+            // switches
+            <[input_switch][SwitchMasterBattery][]
+                <[float64][Value][1.0]> // Generator     ON
+            >
+            <[input_switch][SwitchMasterAlternator][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][SwitchAvionicsMaster][]
+                <[float64][Value][1.0]>
+            >
+            <[input_discrete][Magnetos][]
+                <[float64][Value][3.0]>
+            >
+            <[input_switch][ParkingBrakeInput][]
+                <[float64][Value][0.0]>
+            >
+            <[input_lever][CowlingFlapsInput][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][PitotHeatSwitch][]
+                <[float64][Value][1.0]> // Pitot heat if required ON
+            >
+            <[input_switch][Inverter1Switch][]
+                <[float64][Value][1.0]> // Inverter  ON
+            >
+            <[input_switch][Inverter2Switch][]
+                <[float64][Value][1.0]> // Inverter  ON
+            >
+            <[input_switch][AttitudeCageInput][]
+                <[float64][Value][1.0]>
+            >
+            <[input_discrete][TransponderMode][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][ConverterSwitch][]
+                <[float64][Value][1.0]>
+            >
+
+            <[input_switch][COM1AudioSwitch][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][COM2AudioSwitch][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][IntercomAudioSwitch][]
+                <[float64][Value][1.0]>
+            >
+        >
+    >
+>

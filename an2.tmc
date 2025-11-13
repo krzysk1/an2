@@ -31,7 +31,7 @@
                 <[string8][Text][Antonov An-2 to radziecki jednosilnikowy dwupłatowy samolot użytkowy/rolniczy (stąd jego inny przydomek Kukuruznik, dosłownie woziwoda) zaprojektowany i produkowany przez Biuro Projektowe Antonowa (obecnie Przedsiębiorstwo Państwowe) od 1946 roku. Dla Aerofly FS4 wykonany przez Krzysztofa Kaniewskiego. Oryginalny model 3D wykonany przez Pedro van Leeuwen - zmodyfikowany przez Mihaly Alberti i Stefan Mueller-Pfeiffer.]>
             >
         >
-        <[float64][MaximumTakeoffMass][5250.0]>
+        <[float64][MaximumTakeoffMass][4250.0]>
         <[float64][WingSpan]          [18.2]>
         <[uint32] [Year]              [1946]>
         <[uint32] [UnitsBuilt]        [55300]>
@@ -49,7 +49,6 @@
         <[vector2_float64][FlapAirspeedRange]   [ 27.0 35.1 ]>
         <[vector2_float64][NormalAirspeedRange] [ 27.0 60.7 ]>
         <[vector2_float64][CautionAirspeedRange][ 60.7 81.0 ]>
-//        <[list_vector2_float64][FlapSettings][ (0.0 0.0) (0.5 0.349066) (0.75 0.523599) (1.0 0.698132) ]>
         <[list_vector2_float64][FlapSettings][ (0.0 0.0) (0.20 0.2618) (0.40 0.3491) (0.60 0.4363) (0.8 0.5236) (1.0 0.6894) ]>
         <[string8][Tags][ airplane utility piston general_aviation gear tailgear flaps short_takeoff ]>
         <[string8][Pilot][pilot_edward]>

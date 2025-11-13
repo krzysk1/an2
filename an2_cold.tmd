@@ -1,0 +1,270 @@
+<[file][][]
+    <[modelmanager][][]
+        <[pointer_list_tmuniverse][DynamicObjects][]
+
+// COOLING DOWN and SHUT DOWN
+
+// Parking brake      SET
+// Set throttle to      IDLE
+// Engine cowling latches  OPEN
+// Taxi light   OFF
+// Landing lights      OFF
+// Navigation Lights      OFF
+// Let CHT cool down < 130  OK
+// Avionics switch      OFF
+// Inverter   OFF
+// Generator   OFF
+// For a few seconds 1200 RPM, then 800 RPM
+// Mixture control      FORWARD
+// Rotating beacon      OFF
+// Cowl flaps   CLOSED
+// Controls and ailerons     LOCKED
+// Battery switch      OFF
+// All switches      OFF
+
+// PREFLIGHT INSPECTION
+
+// Parking brake      SET
+// All switches          OFF
+// Magneto switch      0 (OFF)
+// Engine cowling latches     CLOSED
+
+            // engine
+            <[input_lever][ThrottleInput][]
+                <[float64][Value][0.0]> // Set throttle to  IDLE
+            >
+            <[input_lever][PropSpeedInput][]
+                <[float64][Value][0.0]>
+            >
+            <[multibody_joint][PropellerJoint][]
+                <[float64][Velocity][1.0]>
+            >
+            <[input_lever][MixtureInput][]
+                <[float64][Value][0.0]> // Mixture control  FORWARD
+            >
+            <[input_lever][FuelShutOffLeverInput][]
+                <[float64][Value][0.0]> // Mixture control  FORWARD
+            >
+
+            // trim
+            <[input_default][PitchTrim][]
+                <[float64][Value][0.0]>
+            >
+
+            // flaps up
+            <[input_lever][FlapsInput][]
+                <[float64][Value][0.0]>
+            >
+            <[servoclassic][ServoFlaps][]
+                <[float64][Position][0.0]>
+            >
+            <[servoclassic][ServoFlaps2][]
+                <[float64][Position][0.0]>
+            >
+
+            // lights
+            <[input_switch][StrobeLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][NavigationLightSwitch][]
+                <[float64][Value][0.0]> // Navigation Lights  OFF
+            >
+            <[input_switch][BeaconLightSwitch][]
+                <[float64][Value][0.0]> // Rotating beacon  OFF
+            >
+            <[input_switch][LeftLandingLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][RightLandingLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][TaxiLightSwitch][]
+                <[float64][Value][0.0]> // Taxi light   OFF
+            >
+
+            // switches
+            <[input_switch][SwitchMasterBattery][]
+                <[float64][Value][0.0]> // Battery switch      OFF
+            >
+            <[input_switch][SwitchMasterAlternator][]
+                <[float64][Value][0.0]> // Generator   OFF
+            >
+            <[input_switch][FuelPumpSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][SwitchAvionicsMaster][]
+                <[float64][Value][0.0]> // Avionics switch  OFF
+            >
+            <[input_discrete][Magnetos][]
+                <[float64][Value][0.0]> // Magneto switch  0 (OFF)
+            >
+            <[input_switch][ParkingBrakeInput][]
+                <[float64][Value][1.0]> // Parking brake  SET
+            >
+            <[input_lever][CowlingFlapsInput][]
+                <[float64][Value][0.0]>    // Cowl flaps   CLOSED
+            >
+            <[input_switch][Inverter1Switch][]
+                <[float64][Value][0.0]> // Inverter   OFF
+            >
+            <[input_switch][Inverter2Switch][]
+                <[float64][Value][0.0]> // Inverter   OFF
+            >
+            <[input_switch][PitotHeatSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][AttitudeCageInput][]
+                <[float64][Value][0.0]>
+            >
+            <[input_discrete][TransponderMode][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][ConverterSwitch][]
+                <[float64][Value][0.0]>
+            >
+
+            <[input_switch][COM1AudioSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][COM2AudioSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][IntercomAudioSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_binary][GPSHidden][]
+                <[float64][Value][.0]>
+            >
+            <[input_discrete][FuelSelectorInput][]
+                <[float64][Value][.0]>
+            >
+        >
+    >
+>
+
+
+            <[input_active][StarterButtonPushed][]
+            <[input_binary][GPSHidden][]
+            <[input_binary][LeftYokeHidden][]
+            <[input_binary][RightYokeHidden][]
+            <[input_binary][TailGearLockInput][]
+            <[input_button][ADF1ADFModeButton][]
+            <[input_button][ADF1BFOModeButton][]
+            <[input_button][ADF1FrequencySwapButton][]
+            <[input_button][ADF1SetResetButton][]
+            <[input_button][ADF1TimeSelectButton][]
+            <[input_button][ClockControl_Pressed][]
+            <[input_button][LeftYokePushToTalkButton][]
+            <[input_button][NAV1FrequencySwapButton][]
+            <[input_button][NAV2FrequencySwapButton][]
+            <[input_button][SwitchMasterAlternatorOff][]
+            <[input_button][TransponderIdentButton][]
+            <[input_button_rocker][AileronTrimSwitch][]
+            <[input_button_rocker][PitchTrimSwitch][]
+            <[input_button_rocker][RudderTrimSwitch][]
+            <[input_control][AileronInput][]
+            <[input_control][ElevatorInput][]
+            <[input_cyclic][DirectionalGyroAdjust][]
+            <[input_cyclic][HSISelectedCourse][]
+            <[input_cyclic][NAV1SelectedCourse][]
+            <[input_cyclic][NAV2SelectedCourse][]
+            <[input_cyclic][SelectedHeadingInput][]
+            <[input_default][ADFVolume][]
+            <[input_default][AileronTrimInput][]
+            <[input_default][AttitudeIndicatorAdjustInput][]
+            <[input_default][FlapsInput][]
+            <[input_default][LeftBrakeInput][]
+            <[input_default][NAV1Volume][]
+            <[input_default][NAV2Volume][]
+            <[input_default][PitchTrim][]
+            <[input_default][PressureSettingInput][]
+            <[input_default][RightBrakeInput][]
+            <[input_default][RudderInput][]
+            <[input_default][RudderTrimInput][]
+            <[input_discrete][DirectionalGyroAdjustSwitch][]
+            <[input_discrete][FuelSelectorInput][]
+            <[input_discrete][GPSZoom][]
+            <[input_discrete][Magnetos][]
+            <[input_discrete][MarkerSensitivitySwitch][]
+            <[input_discrete][TransponderMode][]
+            <[input_discrete_momentary][ClutchStarterSwitch][]
+            <[input_event][DirectionalGyro_Adjusted][]
+            <[input_knob][ADF1StandbyFrequencyKnobLarge][]
+            <[input_knob][ADF1StandbyFrequencyKnobSmall][]
+            <[input_knob][NAV1StandbyFrequencyKnobLarge][]
+            <[input_knob][NAV1StandbyFrequencyKnobSmall][]
+            <[input_knob][NAV2StandbyFrequencyKnobLarge][]
+            <[input_knob][NAV2StandbyFrequencyKnobSmall][]
+            <[input_knob][TransponderKnob1000][]
+            <[input_knob][TransponderKnob100][]
+            <[input_knob][TransponderKnob10][]
+            <[input_knob][TransponderKnob1][]
+            <[input_lever][CowlingFlapsInput][]
+            <[input_lever][DoorInput][]
+            <[input_lever][EngineHeatInput][]
+            <[input_lever][FuelShutOffLeverInput][]
+            <[input_lever][MixtureInput][]
+            <[input_lever][OilShuttersInput][]
+            <[input_lever][PrimerInput][]
+            <[input_lever][PropSpeedInput][]
+            <[input_lever][ThrottleInput][]
+            <[input_pair][ADF1FrequencyInput][]
+            <[input_pair][NAV1FrequencyInput][]
+            <[input_pair][NAV2FrequencyInput][]
+            <[input_switch][AttitudeCageInput][]
+            <[input_switch][AutopilotAltitudeModeSwitch][]
+            <[input_switch][AutopilotHeadingModeSwitch][]
+            <[input_switch][BeaconLightSwitch][]
+            <[input_switch][COM1AudioSwitch][]
+            <[input_switch][COM2AudioSwitch][]
+            <[input_switch][CarburetorHeaterSwitch][]
+            <[input_switch][CenterWindowHeatSwitch][]
+            <[input_switch][ConverterSwitch][]
+            <[input_switch][EmergencyLocationTransmitterSwitch][]
+            <[input_switch][FuelPumpSwitch][]
+            <[input_switch][IntercomAudioSwitch][]
+            <[input_switch][Inverter1Switch][]
+            <[input_switch][Inverter2Switch][]
+            <[input_switch][LeftLandingLightSwitch][]
+            <[input_switch][LeftWindowHeatSwitch][]
+            <[input_switch][NavigationLightSwitch][]
+            <[input_switch][ParkingBrakeInput][]
+            <[input_switch][ParkingBrakeSwitch][]
+            <[input_switch][PitotHeatSwitch][]
+            <[input_switch][RightLandingLightSwitch][]
+            <[input_switch][RightWindowHeatSwitch][]
+            <[input_switch][StrobeLightSwitch][]
+            <[input_switch][SwitchAileronTrimming][]
+            <[input_switch][SwitchAntiCollissionLight][]
+            <[input_switch][SwitchAvionicsMaster][]
+            <[input_switch][SwitchCargoLight][]
+            <[input_switch][SwitchCentralUfoLights][]
+            <[input_switch][SwitchCockpitLights][]
+            <[input_switch][SwitchCruiseIndicatorLight][]
+            <[input_switch][SwitchElevatorTrimming][]
+            <[input_switch][SwitchEmergencyExit][]
+            <[input_switch][SwitchEngineCowlings][]
+            <[input_switch][SwitchFireExtEquipment][]
+            <[input_switch][SwitchFireProtectSystem][]
+            <[input_switch][SwitchFlapControl][]
+            <[input_switch][SwitchFuelResidueSystem][]
+            <[input_switch][SwitchFuselageLight][]
+            <[input_switch][SwitchLeftUfoLights][]
+            <[input_switch][SwitchLeftVentilation][]
+            <[input_switch][SwitchLeftWiper][]
+            <[input_switch][SwitchLowerFlap][]
+            <[input_switch][SwitchMasterAlternator][]
+            <[input_switch][SwitchMasterBattery][]
+            <[input_switch][SwitchOilCoolerShutters][]
+            <[input_switch][SwitchPassengerLights][]
+            <[input_switch][SwitchRadioAltimeter][]
+            <[input_switch][SwitchRadioCompass][]
+            <[input_switch][SwitchRightUfoLights][]
+            <[input_switch][SwitchRightVentilation][]
+            <[input_switch][SwitchRightWiper][]
+            <[input_switch][SwitchRudderTrimming][]
+            <[input_switch][SwitchUpperFlap][]
+            <[input_switch][SwitchVentilationSystem][]
+            <[input_switch][SwitchWheelBrakeRelease][]
+            <[input_switch][SwitchWipers][]
+            <[input_switch][TaxiLightSwitch][]

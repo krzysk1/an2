@@ -1,0 +1,156 @@
+<[file][][]
+    <[modelmanager][][]
+        <[pointer_list_tmuniverse][DynamicObjects][]
+
+
+// BEFORE TAXI
+
+// Pax and cargo doors  CLOSED
+// Avionics switch      ON
+// Inverter   ON
+// All necessary switches  ON
+// Flaps upper and lower  OPERATIVE
+// Engine control lever positions CORRECT
+// Indications of engine gauges     NORMAL
+// Fuel quantity      CHECKED
+// Navigation instruments  SET
+// Navigation Lights      ON
+
+// TAXI
+
+// Taxi light   ON
+// Pitot heat if required  ON
+// All necessary switches  ON
+// Brakes   CHECKED
+
+// BEFORE TAKE-OFF
+
+// Voltage and Load meter  CHECK
+// Navigation instruments and Com's SET
+// Carburetor heater      OFF
+// Mixture control      BACKWARD
+// Altimeters   SET
+// Elevator trim UP: 1 sec
+// If heavy for 2-3 sec
+// Rudder trim RIGHT for 1 seconds
+// Flaps       TAKE-OFF
+// Flight controls      FREE
+// Artificial horizon  CHECK
+// Transponder   ON
+// Engine gauges      ALL GREEN
+// Cowl flaps   OPEN
+// Lights       AS REQ
+// Pax seat belts      FASTENED
+// Take-off time      RECORDED
+// Parking brake      OFF
+
+// TAKE-OFF
+// Taxi light   OFF
+// Landing lights      ON
+
+            // engine
+            <[input_lever][ThrottleInput][]
+                <[float64][Value][0.0]>
+            >
+            <[input_lever][PropSpeedInput][]
+                <[float64][Value][1.0]>
+            >
+            <[multibody_joint][PropellerJoint][]
+                <[float64][Velocity][78.53]>
+            >
+            <[input_lever][MixtureInput][]
+                <[float64][Value][1.0]> // Mixture control  BACKWARD
+            >
+            <[input_lever][FuelShutOffLeverInput][]
+                <[float64][Value][1.0]> // Mixture control  BACKWARD
+            >
+
+            // trim
+            <[input_default][PitchTrim][]
+                <[float64][Value][0.1]> //Elevator trim UP: 1 sec
+            >
+            <[input_default][RudderTrim][]
+                <[float64][Value][0.1]> //Rudder trim RIGHT for 1 seconds
+            >
+
+            // flaps up
+            <[input_lever][FlapsInput][]
+                <[float64][Value][0.2]> // Flaps  TAKE-OFF
+            >
+            <[servoclassic][ServoFlaps][]
+                <[float64][Position][0.2618]>
+            >
+            <[servoclassic][ServoFlaps2][]
+                <[float64][Position][0.2618]>
+            >
+
+            // lights
+            <[input_switch][NavigationLightSwitch][]
+                <[float64][Value][1.0]> // Navigation Lights  ON
+            >
+            <[input_switch][BeaconLightSwitch][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][LeftLandingLightSwitch][]
+                <[float64][Value][1.0]> // Landing lights  ON
+            >
+            <[input_switch][RightLandingLightSwitch][]
+                <[float64][Value][1.0]> // Landing lights      ON
+            >
+            <[input_switch][TaxiLightSwitch][]
+                <[float64][Value][0.0]> // // Taxi light   OFF
+            >
+
+            // switches
+            <[input_switch][SwitchMasterBattery][]
+                <[float64][Value][1.0]> // Generator   ON
+            >
+            <[input_switch][SwitchMasterAlternator][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][SwitchAvionicsMaster][]
+                <[float64][Value][1.0]>
+            >
+            <[input_discrete][Magnetos][]
+                <[float64][Value][3.0]>
+            >
+            <[input_switch][ParkingBrakeInput][]
+                <[float64][Value][0.0]> //Parking brake  OFF
+            >
+            <[input_lever][CowlingFlapsInput][]
+                <[float64][Value][1.0]> // Cowl flaps OPEN
+            >
+            <[input_switch][CarburetorHeaterSwitch][]
+                <[float64][Value][0.0]> // Carburetor heater OFF
+            >
+            <[input_switch][PitotHeatSwitch][]
+                <[float64][Value][1.0]> // Pitot heat if required  ON
+            >
+            <[input_switch][Inverter1Switch][]
+                <[float64][Value][1.0]> // Inverter   ON
+            >
+            <[input_switch][Inverter2Switch][]
+                <[float64][Value][1.0]> // Inverter   ON
+            >
+            <[input_switch][AttitudeCageInput][]
+                <[float64][Value][1.0]> // Navigation instruments and Com's SET
+            >
+            <[input_discrete][TransponderMode][]
+                <[float64][Value][2.0]> // Transponder   ON
+            >
+            <[input_switch][ConverterSwitch][]
+                <[float64][Value][1.0]>
+            >
+
+            <[input_switch][COM1AudioSwitch][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][COM2AudioSwitch][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][IntercomAudioSwitch][]
+                <[float64][Value][1.0]>
+            >
+        >
+    >
+>

@@ -1,0 +1,105 @@
+<[file][][]
+    <[modelmanager][][]
+        <[pointer_list_tmuniverse][DynamicObjects][]
+
+// BEFORE STARTING
+
+// Magneto switch      0 (OFF)
+// Flight controls      FREE OF MOVEMENTS
+// Parking brake      SET
+// Battery switch      ON
+// Fuel gages   CHECK QTY
+// Rotating beacon      ON
+// Elevator Trim Tabs  NEUTRAL
+// Aileron Trim Tabs  NEUTRAL
+// Rudder Trim Tabs      NEUTRAL
+// Cowl flaps   CHECK DEFL
+
+            // engine
+            <[input_lever][ThrottleInput][]
+                <[float64][Value][0.0]>
+            >
+            <[input_lever][PropSpeedInput][]
+                <[float64][Value][1.0]> // Propeller control  FORWARD
+            >
+            <[multibody_joint][PropellerJoint][]
+                <[float64][Velocity][1.0]>
+            >
+            <[input_lever][MixtureInput][]
+                <[float64][Value][1.0]> // Mixture control  BACKWARD
+            >
+            <[input_lever][FuelShutOffLeverInput][]
+                <[float64][Value][1.0]> // Mixture control  BACKWARD
+            >
+
+            // trim
+            <[input_default][PitchTrim][]
+                <[float64][Value][0.0]> // Elevator Trim Tabs  NEUTRAL
+            >
+            <[input_default][AileronTrim][]
+                <[float64][Value][0.0]> // Aileron Trim Tabs  NEUTRAL
+            >
+            <[input_default][RudderTrim][]
+                <[float64][Value][0.0]> // Rudder Trim Tabs  NEUTRAL
+            >
+
+            // lights
+            <[input_switch][NavigationLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][BeaconLightSwitch][]
+                <[float64][Value][1.0]>
+            >
+            <[input_switch][LeftLandingLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][RightLandingLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][TaxiLightSwitch][]
+                <[float64][Value][0.0]>
+            >
+
+            // switches
+            <[input_switch][SwitchMasterBattery][]
+                <[float64][Value][1.0]> // Battery switch  ON
+            >
+            <[input_switch][SwitchMasterAlternator][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][SwitchAvionicsMaster][]
+                <[float64][Value][0.0]>
+            >
+            <[input_discrete][Magnetos][]
+                <[float64][Value][0.0]> // Magneto switch  0 (OFF)
+            >
+            <[input_switch][ParkingBrakeInput][]
+                <[float64][Value][1.0]> // Parking brake  SET
+            >
+            <[input_lever][CowlingFlapsInput][]
+                <[float64][Value][1.0]> // Cowl flaps   CHECK DEFL
+            >
+            <[input_switch][Inverter1Switch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][Inverter1Switch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][CarburetorHeaterSwitch][]
+                <[float64][Value][0.0]> //Carburetor heater  OFF
+            >
+            <[input_switch][AttitudeCageInput][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][COM1AudioSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][COM2AudioSwitch][]
+                <[float64][Value][0.0]>
+            >
+            <[input_switch][IntercomAudioSwitch][]
+                <[float64][Value][0.0]>
+            >
+        >
+    >
+>
