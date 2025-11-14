@@ -122,7 +122,9 @@
             <[input_switch][ConverterSwitch][]
                 <[float64][Value][0.0]>
             >
-
+            <[input_lever][EngineHeatInput][]
+                <[float64][Value][0.0]>
+            >			
             <[input_switch][COM1AudioSwitch][]
                 <[float64][Value][0.0]>
             >

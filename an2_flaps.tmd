@@ -89,10 +89,10 @@
 
             // trim landing
             <[input_default][PitchTrim][]
-                <[float64][Value][-0.360101747359642]>
+                <[float64][Value][-0.36]>
             >
             <[servoclassic][ServoElevator][]
-                <[float64][Position][-0.0118076504152001]>
+                <[float64][Position][-0.0118]>
             >
         >
     >
