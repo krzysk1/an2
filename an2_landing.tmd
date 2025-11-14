@@ -96,7 +96,7 @@
             >
             <[input_lever][EngineHeatInput][]
                 <[float64][Value][1.0]> // Carburetor heater ON If OAT<-15
-            >			
+            >
             <[input_switch][Inverter1Switch][]
                 <[float64][Value][1.0]> // Inverter   ON
             >

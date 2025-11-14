@@ -280,7 +280,7 @@
                 <[float64][StepDistance][0.0001]>
                 <[string8][InputTransform][EngineHeatLeverTransform.Output]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Controls.EngineHeat]>
+                    <[string8][Message][AntiIce.EngineHeat]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][0.03]>
                 >
@@ -410,8 +410,38 @@
             > 
      
             // Switches
-     
-            // carb heat switch
+			
+            // fuel meter circuit breaker
+            <[control_cylinder][FuelMeterSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.702 0.0027 0.5474 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.FuelMeter]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >			
+            // mixture circuit breaker
+            <[control_cylinder][MixtureSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.702 -0.0648 0.5474 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.Mixture]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >     
+            // carb heat circuit breaker
             <[control_cylinder][CarburetorHeater][]
                 <[string8][Type][switch toggle]>
                 <[vector3_float64][R0][ 1.702 -0.0306 0.5474 ]>
@@ -419,7 +449,7 @@
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
-                    <[string8][Message][AntiIce.CarburetorHeat]>
+                    <[string8][Message][Electrical.CarburetorHeat]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][1.0]>
                 >
@@ -471,7 +501,7 @@
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
             >
-            // power inverter switches
+            // power inverter circuit breakers
             <[control_cylinder][Inverter1Switch][]
                 <[string8][Type][switch toggle]>
                 <[vector3_float64][R0][ 1.702 0.0325 0.5474 ]>
@@ -479,7 +509,7 @@
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Controls.Inverter1]>
+                    <[string8][Message][Electrical.Inverter1]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][1.0]>
                 >
@@ -493,7 +523,7 @@
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Controls.Inverter2]>
+                    <[string8][Message][Electrical.Inverter2]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][1.0]>
                 >
@@ -795,16 +825,31 @@
                 <[string8][Type][switch toggle]>
                 <[vector3_float64][R0][ 1.782 0.2129 0.7815 ]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
-                <[vector3_float64][Direction][ 0.0 1.0 0.0 ]>
+                <[vector3_float64][Direction][ 0.0 -1.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Starter1]>
                     <[string8][Qualifiers][step]>
-                    <[float64][Value][-1.0]>
+                    <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
             >
+            // ignition master circuit breaker
+            <[control_cylinder][SwitchIgnitionMaster][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.784 0.3246 0.7787 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.Ignition]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >			
             // autopilot altitude mode switch
             <[control_cylinder][AutopilotAltitudeModeSwitch][]
                 <[string8][Type][switch toggle]>

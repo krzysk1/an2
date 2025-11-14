@@ -90,7 +90,7 @@
             >
             <[input_lever][EngineHeatInput][]
                 <[float64][Value][0.0]> //Carburetor heater  OFF
-            >			
+            >
             <[input_switch][AttitudeCageInput][]
                 <[float64][Value][0.0]>
             >

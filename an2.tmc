@@ -43,7 +43,7 @@
         <[float64][ApproachAirspeed]  [26.3]>
         <[float64][CruiseAirspeed]    [51.3]>
         <[float64][CruiseSpeed]       [70.0]>
-        <[float64][MaximumAltitude]   [4400.0]>
+        <[float64][MaximumAltitude]   [4160.0]>
         <[float64][CruiseAltitude]    [3000.0]>
         <[float64][MaximumRange]      [1390000.0]>
         <[vector2_float64][FlapAirspeedRange]   [ 27.0 35.1 ]>

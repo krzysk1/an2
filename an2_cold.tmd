@@ -124,7 +124,7 @@
             >
             <[input_lever][EngineHeatInput][]
                 <[float64][Value][0.0]>
-            >			
+            >
             <[input_switch][COM1AudioSwitch][]
                 <[float64][Value][0.0]>
             >
@@ -138,6 +138,15 @@
                 <[float64][Value][.0]>
             >
             <[input_discrete][FuelSelectorInput][]
+                <[float64][Value][.0]>
+            >
+            <[input_switch][FuelMeterSwitch][]
+                <[float64][Value][.0]>
+            >
+            <[input_switch][MixtureSwitch][]
+                <[float64][Value][.0]>
+            >
+            <[input_switch][SwitchIgnitionMaster][]
                 <[float64][Value][.0]>
             >
         >

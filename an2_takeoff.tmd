@@ -120,11 +120,11 @@
                 <[float64][Value][1.0]> // Cowl flaps OPEN
             >
             <[input_switch][CarburetorHeaterSwitch][]
-                <[float64][Value][0.0]> // Carburetor heater OFF
+                <[float64][Value][1.0]> // Carburetor heater OFF
             >
             <[input_lever][EngineHeatInput][]
                 <[float64][Value][0.0]> // Carburetor heater OFF
-            >			
+            >
             <[input_switch][PitotHeatSwitch][]
                 <[float64][Value][1.0]> // Pitot heat if required  ON
             >
