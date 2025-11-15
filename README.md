@@ -1,4 +1,6 @@
 # an2
+Antonov An-2 for Aerofly FS4
+
 The Antonov AN-2 is a Soviet biplane that was designed in the 1940s for agricultural and utility purposes. It is one of the largest single-engine biplanes ever produced and has a distinctive appearance with its radial engine and large wings. The AN-2 can operate from unprepared fields and has excellent low-speed handling characteristics. It is still used in many countries for various roles such as crop dusting, firefighting, parachuting, and transport.
 
 This is free add-on for AeroflyFS created by Krzysztof Kaniewski with the Aerofly FS4 SDK.  
@@ -9,6 +11,9 @@ This work is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unp
 
  Some features may not work as intended and this aircraft could crash your AeroflyF S4. 
  Use it at your own risk!
+ 
+ Report any issues you notice on GitHub - I will solve them as much as possible
+ 
 
 # Installation
 
@@ -18,18 +23,6 @@ This work is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unp
 
 1. Delete the folder "an2".
 
-# Tips
-
-Use Gear button to open/close door.
-
-There are other liveries in 'liveries' folder:
-- 1465 Polish AF
-- Baltic bear
-- Bush Ex-Mil
-- HA-ABD
-- Interflug
-- SP-FLY_Milka
-- Yellow
 
 # Resources
 
@@ -48,6 +41,15 @@ Flight manual (Polish): https://aeroklub-czestochowa.org.pl/wp-content/uploads/2
 https://aviaport33.narod.ru/files/RLE_An-2.pdf
 
 https://www.scribd.com/document/529045350/%D0%90n-2?utm_source=chatgpt.com
+
+There are other liveries
+- 1465 Polish AF
+- Baltic bear
+- Bush Ex-Mil
+- HA-ABD
+- Interflug
+- SP-FLY_Milka
+- Yellow
 
 # REFERENCE SPEEDS
 
@@ -80,7 +82,7 @@ https://www.scribd.com/document/529045350/%D0%90n-2?utm_source=chatgpt.com
 
 # CHECKLIST
  
- PREFLIGHT INSPECTION
+**PREFLIGHT INSPECTION**
 
 Parking brake					SET
 All switches					OFF
@@ -90,7 +92,7 @@ Engine cowling latches				CLOSED
 
 
 
-BEFORE STARTING
+**BEFORE STARTING**
 
 Magneto switch					0 (OFF)
 Flight controls					FREE OF MOVEMENTS
@@ -106,7 +108,7 @@ Cowl flaps						CHECK DEFL
 
 
 
-ENGINE START
+**ENGINE START**
 
 Propeller control					FORWARD
 Mixture control					BACKWARD
@@ -128,7 +130,7 @@ Inverter						ON
 
 
 
-ENGINE WARM UP
+**ENGINE WARM UP**
 
 Throttle 800 RPM until Oil Temp rises
 Throttle 1200 RPM until CHT >100		OK
@@ -138,7 +140,7 @@ After CHT>120 set throttle back to 1200
 
 
 
-BEFORE TAXI
+**BEFORE TAXI**
 
 Pax and cargo doors				CLOSED
 Avionics switch					ON
@@ -156,7 +158,7 @@ Block time						RECORDED
 
 
 
-TAXI
+**TAXI**
 
 Taxi light						ON
 Pitot heat if required				ON
@@ -166,7 +168,7 @@ Brakes						CHECKED
 
 
 
-BEFORE TAKE-OFF
+**BEFORE TAKE-OFF**
 
 Voltage and Load meter				CHECK
 Navigation instruments and Com's		SET
@@ -190,7 +192,7 @@ Parking brake					OFF
 
 
 
-TAKE-OFF
+**TAKE-OFF**
 
 Taxi light						OFF
 Landing lights					ON
@@ -205,7 +207,7 @@ Flaps up above 150ft				UP
 
 
 
-CLIMB
+**CLIMB**
 
 RPM							1800
 Mixture control <90%				SET
@@ -218,7 +220,7 @@ Lights						CONSIDERED
 
 
 
-CRUISE
+**CRUISE**
 
 Engine parameters:
 RPM							1400-1600
@@ -233,7 +235,7 @@ Flaps							UP
 
 
 
-DESCENT
+**DESCENT**
 
 Maintain RPM at 180 Km/h			1800
 Maintain CHT at					> 120
@@ -244,7 +246,7 @@ Flaps							AS REQ
 
 
 
-FINAL:
+**FINAL:**
 
 Throttle MP						< 5
 Propeller						FULL PITCH
@@ -255,7 +257,7 @@ Landing lights					ON
 
 
 
-CLEAR OF RUNWAY
+**CLEAR OF RUNWAY**
 
 Landing lights					OFF
 Taxi light						ON
@@ -267,7 +269,7 @@ Engine cowling latches				OPEN
 
 
 
-COOLING DOWN and SHUT DOWN
+**COOLING DOWN and SHUT DOWN**
 
 Parking brake					SET
 Set throttle to					IDLE
