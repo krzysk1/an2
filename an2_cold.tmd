@@ -135,20 +135,23 @@
                 <[float64][Value][0.0]>
             >
             <[input_binary][GPSHidden][]
-                <[float64][Value][.0]>
+                <[float64][Value][0.0]>
             >
             <[input_discrete][FuelSelectorInput][]
-                <[float64][Value][.0]>
+                <[float64][Value][0.0]>
             >
             <[input_switch][FuelMeterSwitch][]
-                <[float64][Value][.0]>
+                <[float64][Value][0.0]>
             >
             <[input_switch][MixtureSwitch][]
-                <[float64][Value][.0]>
+                <[float64][Value][0.0]>
             >
             <[input_switch][SwitchIgnitionMaster][]
-                <[float64][Value][.0]>
+                <[float64][Value][0.0]>
             >
+            <[input_lever][AirValveInput][]
+                <[float64][Value][0.0]>
+            >			
         >
     >
 >

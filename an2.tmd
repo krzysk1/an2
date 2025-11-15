@@ -942,9 +942,9 @@
                         <[string8][Input][ServoElevator.Output]>
             >
             <[servoclassic][ServoElevatorPosition][]
-				<[string8][Input][ElevatorInput.Output]>
-				<[float64][Speed][10.0]>
-				<[float64][P0][0.0]>
+                <[string8][Input][ElevatorInput.Output]>
+                <[float64][Speed][10.0]>
+                <[float64][P0][0.0]>
                 <[float64][P1][-1.0]>
             >
             <[output_free][ServoElevatorPositionOutput][]
@@ -1453,7 +1453,7 @@
                 <[string8][SpeedControl][PropellerSpeedMapping.Output]>
              //   <[string8][InputPitch]  [1.0]>
              //   <[string8][InputFeather][PropellerFeathered.Output]>
-                <[float64][PitchSpeed]  [0.2]>			 
+                <[float64][PitchSpeed]  [0.2]>
                 <[float64][PitchMinimum][0.052]>
                 <[float64][PitchMaximum][1.152]>
              //   <[float64][PitchFeather][1.326]>
@@ -1485,8 +1485,8 @@
             // Dry weight: 560kg
             <[engine2][Engine][]
                 <[string8][InputThrottle]    [ThrottleInput.Output]>
-                <[string8][InputMixture]     [MixtureCombined.Output]>
-      //          <[string8][InputFuelPressure][EngineFuelControl.OutputPressure]>
+                <[string8][InputMixture]     [MixtureInput.Output]>
+                <[string8][InputFuelPressure][EngineFuelControl.OutputPressure]>
                 <[string8][InputLeftMagneto] [LeftMagneto.Output]>
                 <[string8][InputRightMagneto][RightMagneto.Output]>
                 <[string8][RotationSpeed]    [DriveShaft.RotationSpeed]>
@@ -1609,7 +1609,7 @@
                 <[float64][Damping][1.0]>
             >
 
-			// starter
+            // starter
 
             // starter switches
             <[input_switch][SwitchIgnitionMaster][]
@@ -1636,7 +1636,7 @@
                 <[string8][Input][ClutchStarterSwitch.Output]>
             >
 
-			// flywheel starter
+            // flywheel starter
             <[logic_greater][FlywheelSwitchOn][]
                 <[string8][Input0][ClutchStarterSwitch.Output]>
                 <[string8][Input1][0.5]>
@@ -1662,7 +1662,7 @@
                 <[string8][Input][FlywheelSpeed.Output]>
             >
 
-			// engine starter
+            // engine starter
             // <[input_active][StarterButton2Pushed][]
                 // <[string8][Message][Controls.Starter1]>
             // >
@@ -1681,7 +1681,7 @@
                 <[string8][Input][StarterEnabled.Output]>
             >
 
-			// starter bus
+            // starter bus
             <[electrical_bus][StarterBus][]
                 <[float64][Voltage][24.0]>
                 <[float64][RatedVoltage][28.5]>
@@ -1713,11 +1713,11 @@
             >
 
             // fuel system start
-			// max 1200l avgas with 0.780 kg per l avgas
+            // max 1200l avgas with 0.780 kg per l avgas
             <[fuel_tank][LeftFuelTank][]
                 <[string8][Body][LeftUpperWing]>
-                <[float64][Capacity][600.0]>
-                <[float64][Mass][468.0]>
+                <[float64][Capacity][468.0]>
+                <[float64][Mass][268.0]>
                 <[tmvector3d][R0][ -0.12 1.56 1.55 ]>
                 <[tmvector3d][X0][  0.85 0.00 0.00 ]>
                 <[tmvector3d][Y0][  0.00 0.00 0.13 ]>
@@ -1728,8 +1728,8 @@
             >
             <[fuel_tank][RightFuelTank][]
                 <[string8][Body][RightUpperWing]>
-                <[float64][Capacity][600.0]>
-                <[float64][Mass][468.0]>
+                <[float64][Capacity][468.0]>
+                <[float64][Mass][248.0]>
                 <[tmvector3d][R0][ -0.12 -0.66 1.55 ]>
                 <[tmvector3d][X0][  0.85 0.00 0.00 ]>
                 <[tmvector3d][Y0][  0.00 0.00 0.13 ]>
@@ -1738,15 +1738,43 @@
                 <[tmvector3d][Y1][  0.00 0.00 0.13 ]>
                 <[tmvector3d][Outlet0][ 0.40 -0.66 1.55 ]>
             >
-            <[needle][FuelTankLevelLeft][]
-                <[string8][Input][LeftFuelTank.OutputFuelMass]>
-                <[float64][Speed][4.5]>
-                <[float64][Damping][1.0]>
+
+            <[sum][TotalFuelMass][]
+                <[string8][Inputs][ LeftFuelTank.OutputFuelMass RightFuelTank.OutputFuelMass ]>
             >
-            <[needle][FuelTankLevelRight][]
-                <[string8][Input][RightFuelTank.OutputFuelMass]>
-                <[float64][Speed][4.5]>
-                <[float64][Damping][1.0]>
+            <[product][TotalFuelLevel][]
+                <[string8][Inputs][ TotalFuelMass.Output 1.282 ]>
+            >
+            <[needle][NeedleFuelLevel][]
+                <[string8][Input][TotalFuelLevel.Output]>
+                <[string8][InputEnable][FuelMeterOn.Output]>
+                <[float64][Speed][20.0]>
+                <[float64][Damping][0.8]>
+            >
+
+            // fuel warnings
+
+            // below 50L (39kg with a density of 780kg/m^3)
+            <[logic_greater][LeftFuelLow][]
+                <[string8][Input0][39.0]>
+                <[string8][Input1][LeftFuelTank.OutputFuelMass]>
+            >
+            <[logic_and][LeftLowFuelWarning][]
+                <[string8][Inputs][ LeftFuelLow.Output FuelMeterOn.Output ]>
+            >
+            <[output_free][LeftLowFuelWarningOutput][]
+                <[string8][Input][LeftLowFuelWarning.Output]>
+            >
+
+            <[logic_greater][RightFuelLow][]
+                <[string8][Input0][39.0]>
+                <[string8][Input1][RightFuelTank.OutputFuelMass]>
+            >
+            <[logic_and][RightLowFuelWarning][]
+                <[string8][Inputs][ RightFuelLow.Output FuelMeterOn.Output ]>
+            >
+            <[output_free][RightLowFuelWarningOutput][]
+                <[string8][Input][RightLowFuelWarning.Output]>
             >
 
             // fuel selector
@@ -1759,7 +1787,7 @@
             >
             <[servoclassic][FuelSelector][]
                 <[string8][Input][FuelSelectorInput.Output]>
-                <[float64][Speed][8.0]>
+                <[float64][Speed][5.0]>
                 <[float64][P0][0.0]>
                 <[float64][P1][1.0]>
             >
@@ -1767,7 +1795,6 @@
                 <[string8][Input][FuelSelector.Output]>
             >
 
-            // fuel consumption
             <[logic_range][FuelSelectorOpen][]
                 <[string8][Input][FuelSelector.Output]>
                 <[tmvector2d][Range][ -0.5 3.5 ]>
@@ -1781,6 +1808,7 @@
                 <[tmvector2d][Range][ -1.5 3.5 ]>
             >
 
+            // fuel consumption
             <[fuel_rail][FuelReservoirTank][]
                 <[float64][DesignFlow][0.1]>
                 <[float64][Pressure][107000.0]>
@@ -1803,9 +1831,9 @@
                 <[string8][InputPressure1][FuelReservoirTank.OutputPressure]>
                 <[string8][AddFlow0][LeftFuelTank.AddFlow]>
                 <[string8][AddFlow1][FuelReservoirTank.AddFlow]>
-                <[tmvector3d][R0][ 0.4  0.66 0.66 ]>
+                <[tmvector3d][R0][ 0.40 0.66 1.55 ]>
                 <[tmvector3d][R1][ 1.0  0.0 -0.2 ]>
-                <[float64][MaximumFlow][0.04]>
+                <[float64][MaximumFlow][0.05]>
                 <[string8][Input][FuelSelectorLeft.Output]>
             >
             <[fuel_valve][RightTankConnection][]
@@ -1813,47 +1841,10 @@
                 <[string8][InputPressure1][FuelReservoirTank.OutputPressure]>
                 <[string8][AddFlow0][RightFuelTank.AddFlow]>
                 <[string8][AddFlow1][FuelReservoirTank.AddFlow]>
-                <[tmvector3d][R0][ 0.4  -0.66 0.66 ]>
+                <[tmvector3d][R0][ 0.40 -0.66 1.55 ]>
                 <[tmvector3d][R1][ 1.0  0.0 -0.2 ]>
-                <[float64][MaximumFlow][0.04]>
+                <[float64][MaximumFlow][0.05]>
                 <[string8][Input][FuelSelectorRight.Output]>
-            >
-
-            <[servoclassic][PrimerPosition][]
-                <[string8][Input][PrimerInput.Output]>
-                <[float64][Speed][0.25]>
-                <[float64][P0][0.0]>
-                <[float64][P1][1.0]>
-                <[float64][Position][0.0]>
-            >
-            <[fuel_pump][AuxiliaryFuelPump][]
-                <[string8][InputPressure0][FuelReservoirTank.OutputPressure]>
-                <[string8][InputPressure1][FuelAux.OutputPressure]>
-                <[string8][AddFlow0][FuelReservoirTank.AddFlow]>
-                <[string8][AddFlow1][FuelAux.AddFlow]>
-                <[float64][MaximumFlow][0.02]>
-                <[string8][Input][PrimerPosition.Output]>
-            >
-            <[fuel_valve][FuelCutoff][]
-                <[string8][InputPressure0][FuelAux.OutputPressure]>
-                <[string8][InputPressure1][FuelStrainer.OutputPressure]>
-                <[string8][AddFlow0][FuelAux.AddFlow]>
-                <[string8][AddFlow1][FuelStrainer.AddFlow]>
-                <[float64][MaximumFlow][0.02]>
-                <[string8][Input][FuelSelectorOpen.Output]>
-            >
-            <[fuel_pump][EngineFuelPump][]
-                <[string8][InputPressure0][FuelStrainer.OutputPressure]>
-                <[string8][InputPressure1][FuelEngine.OutputPressure]>
-                <[string8][AddFlow0][FuelStrainer.AddFlow]>
-                <[string8][AddFlow1][FuelEngine.AddFlow]>
-                <[float64][MaximumFlow][0.02]>
-                <[string8][Input][FuelPumpSwitch.Output]>
-            >
-            <[fuel_engine][EngineFuelControl][]
-                <[string8][InputPressure][FuelEngine.OutputPressure]>
-                <[string8][AddFlow][FuelEngine.AddFlow]>
-                <[string8][InputFuelFlow][Engine.FuelFlow]>
             >
 
             // primer fuel pump
@@ -1888,46 +1879,32 @@
                 <[float64][Threshold][0.8]>
             >
 
-            // fuel system start  cont.
-
-            <[input_switch][FuelPumpSwitch][]
-                <[string8][Message][Controls.FuelPump]>
-                <[string8][Events][ SwitchSound.Trigger ]>
-                <[string8][EventsRelease][ SwitchSound.Trigger ]>
-                <[float64][Value][0.0]>
+            <[servoclassic][PrimerPosition][]
+                <[string8][Input][PrimerInput.Output]>
+                <[float64][Speed][0.25]>
+                <[float64][P0][0.0]>
+                <[float64][P1][1.0]>
+                <[float64][Position][0.0]>
             >
-            <[electrical_load][FuelPumpSwitchLoad][]
-                <[string8][InputEnable][FuelPumpSwitch.Output]>
-                <[string8][InputVoltage][MainBus.Output]>
-                <[string8][AddLoad][MainBus.AddLoad]>
-                <[float64][MinimumVoltage][15.0]>
-                <[float64][RatedCurrent][2.5]>
+            <[fuel_pump][AuxiliaryFuelPump][]
+                <[string8][InputPressure0][FuelReservoirTank.OutputPressure]>
+                <[string8][InputPressure1][FuelAux.OutputPressure]>
+                <[string8][AddFlow0][FuelReservoirTank.AddFlow]>
+                <[string8][AddFlow1][FuelAux.AddFlow]>
+                <[float64][MaximumFlow][0.03]>
+                <[string8][Input][PrimerPosition.Output]>
             >
-            <[output][FuelPumpSwitchOn][]
-                <[string8][Input][FuelPumpSwitch.Output]>
-            >
-            <[sender][SenderFuelPump][]
-                <[string8][Input][FuelPumpSwitch.Output]>
-                <[string8][Message][Aircraft.FuelPumps]>
-            >
-
-            // fuel level
-            <[fuel_deprecated_tank][FuelTank][]
-                <[float64][MassFull][1200.0]>
-                <[float64][FillLevel][0.6]>
-                <[string8][InputPressure][FuelTankFuelLine.Output]>
-                <[string8][AddFlow][FuelTankFuelLine.AddFlow]>
-            >
-            <[fuel_deprecated_line][FuelTankFuelLine][]
-                <[float64][Pressure][101325.0]>
-            >
-            <[needle][NeedleFuelLevel][]
-                <[string8][Input][FuelTank.Output]>
-                <[string8][InputEnable][FuelMeterOn.Output]>
-                <[float64][Speed][20.0]>
-                <[float64][Damping][0.8]>
-            >
-
+            // fuel shutoff valve
+            // <[input_switch][FuelShutOff][]
+                // <[string8][Message][Controls.FuelShutOff]>
+                // <[string8][Events]       [ FuelShutOffSound.Trigger ]>
+                // <[string8][EventsRelease][ FuelShutOffSound.Trigger ]>
+                // <[float64][Value][0.0]>
+            // >
+            // <[logic_greater][FuelShutValveOpen][]
+                // <[string8][Input0][0.5]>
+                // <[string8][Input1][FuelShutOff.Output]>
+            // >
             <[input_lever][FuelShutOffLeverInput][]
                 <[tmvector2d][Range][ 0.0 1.0 ]>
                 <[uint][Positions][41]>
@@ -1943,12 +1920,46 @@
             <[output_free][FuelShutOffLeverOutput][]
                 <[string8][Input][FuelShutOffLever.Output]>
             >
-            <[logic_greater][FuelShutOff][]
-                <[string8][Input0][FuelShutOffLever.Output]>
-                <[string8][Input1][0.2]>
+            <[fuel_valve][FuelCutoff][]
+                <[string8][InputPressure0][FuelAux.OutputPressure]>
+                <[string8][InputPressure1][FuelStrainer.OutputPressure]>
+                <[string8][AddFlow0][FuelAux.AddFlow]>
+                <[string8][AddFlow1][FuelStrainer.AddFlow]>
+                <[float64][MaximumFlow][0.05]>
+                <[string8][Input][FuelShutOffLever.Output]>
             >
-            <[product][MixtureCombined][]
-                <[string8][Inputs][ ServoMixture.Output FuelShutOff.Output ]>
+
+            // fuel pump
+            <[input_switch][FuelPumpSwitch][]
+                <[string8][Message][Controls.FuelPump]>
+                <[string8][Events][ SwitchSound.Trigger ]>
+                <[string8][EventsRelease][ SwitchSound.Trigger ]>
+                <[float64][Value][0.0]>
+            >
+            <[electrical_load][FuelPumpSwitchLoad][]
+                <[string8][InputEnable][FuelPumpSwitch.Output]>
+                <[string8][InputVoltage][MainBus.Output]>
+                <[string8][AddLoad][MainBus.AddLoad]>
+                <[float64][MinimumVoltage][15.0]>
+                <[float64][RatedCurrent][10.0]>
+            >
+            <[sender][SenderFuelPump][]
+                <[string8][Input][FuelPumpSwitch.Output]>
+                <[string8][Message][Aircraft.FuelPumps]>
+            >
+            <[fuel_pump][EngineFuelPump][]
+                <[string8][InputPressure0][FuelStrainer.OutputPressure]>
+                <[string8][InputPressure1][FuelEngine.OutputPressure]>
+                <[string8][AddFlow0][FuelStrainer.AddFlow]>
+                <[string8][AddFlow1][FuelEngine.AddFlow]>
+                <[float64][MaximumFlow][0.04]>
+                <[string8][Input][FuelPumpSwitch.Output]>
+            >
+
+            <[fuel_engine][EngineFuelControl][]
+                <[string8][InputPressure][FuelEngine.OutputPressure]>
+                <[string8][AddFlow][FuelEngine.AddFlow]>
+                <[string8][InputFuelFlow][Engine.FuelFlow]>
             >
 
             // fuel system end
@@ -2768,10 +2779,12 @@
             <[output_free][StopwatchOutput][]
                 <[string8][Input][Stopwatch.Output]>
             >
+            <[event_sound][ClockClickSound][]
+            >
             <[input_button][ClockControl_Pressed][]
                 <[string8][Message][Clock.Control]>
-                <[string8][Events][ ButtonSound.Trigger Stopwatch.Trigger ]>
-                <[string8][EventsRelease][ ButtonSound.Trigger ]>
+                <[string8][Events][ ClockClickSound.Trigger Stopwatch.Trigger ]>
+                <[string8][EventsRelease][ ClockClickSound.Trigger ]>
             >
 
             <[input_switch][AttitudeCageInput][]
@@ -3312,6 +3325,41 @@
 
 
             // animations start
+
+            // air valve grip
+            <[input_lever][AirValveInput][]
+                <[string8][Message][Controls.AirValve]>
+                <[tmvector2d][Range][ 0.0 1.0 ]>
+                <[uint32][Positions][21]>
+                <[float64][Value][1.0]>
+            >
+            <[output_free][AirValveInputOutput][]
+                <[string8][Input][AirValveInput.Output]>
+            >
+            <[servolinear][AirPressure][]
+                <[string8][Input][AirValveInput.Output]>
+                <[float64][OutputSpeed][0.2]>
+                <[float64][Position][1.0]>
+                <[float64array][InputPosition][  0.0 0.2 1.0 ]>
+                <[float64array][OutputPosition][ 0.0 0.6 1.0 ]>
+            >
+            <[needle][AirPressureNeedle][]
+                <[string8][Input][AirPressure.Output]>
+                <[float64][Speed][1.0]>
+                <[float64][Damping][0.8]>
+            >
+            <[event_sound][AirPressureSound][]
+            >
+            <[event_edge_rising][AirPressureEvent][]
+                <[string8][Input][AirPressure.Output]>
+                <[string8][Events][ AirPressureSound.Trigger ]>
+                <[float64][Value][1.0]>
+                <[float64][Threshold][0.1]>
+            >
+            <[logic_greater][AirPressureOn][]
+                <[string8][Input0][AirPressure.Output]>
+                <[string8][Input1][0.6]>
+            >
 
             // door
             <[input_lever][DoorInput][]
@@ -4259,7 +4307,7 @@
             >
 
             <[rigidbodygraphics][Cockpit][]
-                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches PneumaticNeedle MiddleConsole CompassCasing CompassLine EmegencyExitRod EmegencyExitHandles LeftSunVisor RightSunVisor ]>
+                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches MiddleConsole CompassCasing CompassLine EmegencyExitRod EmegencyExitHandles LeftSunVisor RightSunVisor ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
@@ -4751,7 +4799,7 @@
                 <[tmvector3d][Pivot][1.7824 0.1173 0.7113]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
-			// ignition switch
+            // ignition switch
             <[hingedbodygraphics][SwitchIgnitionMaster][]
                 <[string8][GeometryList][ IgnitionSwitch ]>
                 <[uint32][PositionID][Fuselage.R]>
@@ -4791,6 +4839,79 @@
                 <[tmvector3d][Pivot][1.7935 0.2129 0.7815]>
                 <[string8][InputIllumination0][InstrumentsLighting.Output]>
             >
+            // air pressure valve and indicator
+            <[hingedbodygraphics][AirValveKnob][]
+                <[string8][GeometryList][ AirPressureKnob ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[string8][InputID][AirValveInput.Output]>
+                <[tmvector3d][Axis][ 0 0 1.0 ]>
+                <[tmvector3d][Pivot][0.9096 0.6682 0.2455]>
+                <[float64][Scaling][5.75]>
+                <[string8][InputIllumination0][PanelLighting.Output]>
+            >
+            <[hingedbodygraphics][AirValveIndicator][]
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[string8][GeometryList][ PneumaticNeedle ]>
+                <[string8][InputID][AirPressureNeedle.Output]>
+                <[tmvector3d][Axis][ 0.0 0.0 -1.0 ]>
+                <[tmvector3d][Pivot][1.045 0.6748 0.2458]>
+                <[float64][Scaling][3.6]>
+                <[float64][Offset][-1.27]>
+                <[string8][InputIllumination0][InstrumentsLighting.Output]>
+            >
+
+            // INOP switches (TODO)
+            <[hingedbodygraphics][INOPSwitches][]
+                <[string8][GeometryList][
+                                         UpperFlapSwitch
+                                         FlapControlSwitch
+                                         LowerFlapSwitch
+                                         AileronTrimmingSwitch
+                                         ElevatorTrimmingSwitch
+                                         RudderTrimmingSwitch
+                                         RadioCompassSwitch
+                                         MarkersSwitch
+                                         AntiCollistionSwitch
+                                         WheelBrakeSwitch
+                                         OilShuttersSwitch
+                                         EngineCowlingSwitch
+                                         FireEquipmentSwitch
+                                         PassengerLightSwitch
+                                         FuselageLightSwitch
+                                         CargoLightSwitch
+                                         CockpitLightSwitch
+                                         LeftUfoLightSwitch
+                                         RightUfoLightSwitch
+                                         CentralUfoLightSwitch
+                                         TailGearLickingSwitch
+                                         ClockHeatingSwitch
+                                         RightFanSwitch
+                                         LeftFanSwitch
+                                         RadioAltimSwitch
+                                         WipersSystemSwitch
+                                         LeftWiperSwitch
+                                         RightWiperSwitch
+                                         FuelResidueSwitch
+                                         ExitEmergencySwitch
+                                         VentilationSystemSwitch
+                                         FireProtectSwitch
+                                         LeftVentilSwitch
+                                         LeftHdgSyncButton
+                                         RightHdgSyncButton
+                                         ParkingBrakeLever
+                                          ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+            //    <[uint32][InputID][ .Output]>
+                <[float64][Scaling][1.123643]>
+                <[tmvector3d][Axis][ 0.0 1.0 0.0 ]>
+                <[tmvector3d][Pivot][1.7824 0.1173 0.7113]>
+                <[string8][InputIllumination0][InstrumentsLighting.Output]>
+            >
+
+        // Warnings
 
             // approach marker
             <[graphics_input][InnerMarker][]
@@ -4862,6 +4983,27 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[uint32][InputID][OilPressureWarning.Output]>
                 <[tmvector3d][Axis][1.0 0.0 0.0]>
+                <[float64][Scaling][-0.0002]>
+                <[float64][Offset][0.0002]>
+                <[string8][InputIllumination0][NaturalLighting.Output]>
+            >
+             // fuel level low warning
+            <[movinggraphics][LeftFuelLevelLowWarning][]
+                <[string8][GeometryList][ LeftLowFuelWarning ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][InputID][LeftLowFuelWarning.Output]>
+                <[tmvector3d][Axis][0.999790 0.0 -0.020513]>
+                <[float64][Scaling][-0.0002]>
+                <[float64][Offset][0.0002]>
+                <[string8][InputIllumination0][NaturalLighting.Output]>
+            >
+            <[movinggraphics][RightFuelLevelLowWarning][]
+                <[string8][GeometryList][ RightLowFuelWarning ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][InputID][RightLowFuelWarning.Output]>
+                <[tmvector3d][Axis][0.999790 0.0 -0.020513]>
                 <[float64][Scaling][-0.0002]>
                 <[float64][Offset][0.0002]>
                 <[string8][InputIllumination0][NaturalLighting.Output]>
@@ -4980,7 +5122,7 @@
                 <[float64][Offset][0.336674]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
             >
-			// mixture switch
+            // mixture switch
             <[hingedbodygraphics][MixtureSwitch][]
                 <[string8][GeometryList][ MixtureSwitch ]>
                 <[uint32][PositionID][Fuselage.R]>
@@ -5119,7 +5261,7 @@
             >
 
          // Gauges
-		 
+
             // wunderbaum
             <[graphics_input][WunderbaumInput][]
                 <[uint32][InputID][SideslipAngle.Output]>
@@ -8538,6 +8680,40 @@
                 <[string8][InputPitch]  [1.0]>
                 <[string8][SoundFile]   [primer.wav]>
                 <[tmvector3d][R0][ 0.8869 0.7143 0.3134 ]>
+                <[float64][Radius][0.5]>
+                <[float64][Range][4.0]>
+                <[bool][External][false]>
+            >
+            // air pressure sound
+            <[soundinput][AirPressureSoundInput][]
+                <[string8][InputID][AirPressureSound.Output]>
+            >
+            <[sound_multi][AirPressureRaising][]
+                <[uint32][PositionID]   [Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][VelocityID]   [Fuselage.V]>
+                <[string8][InputTrigger][AirPressureSoundInput.Output]>
+                <[string8][InputVolume] [1.0]>
+                <[string8][InputPitch]  [1.0]>
+                <[string8][SoundFile]   [avionics.wav]>
+                <[tmvector3d][R0][ 0.9096 0.6682 0.2591 ]>
+                <[float64][Radius][0.5]>
+                <[float64][Range][4.0]>
+                <[bool][External][false]>
+            >
+            // clock click sound
+            <[soundinput][ClockClickSoundInput][]
+                <[string8][InputID][ClockClickSound.Output]>
+            >
+            <[sound_multi][ClockClickSound][]
+                <[uint32][PositionID]   [Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][VelocityID]   [Fuselage.V]>
+                <[string8][InputTrigger][ClockClickSoundInput.Output]>
+                <[string8][InputVolume] [0.2]>
+                <[string8][InputPitch]  [1.0]>
+                <[string8][SoundFile]   [click.wav]>
+                <[tmvector3d][R0][ 1.779 -0.3206 0.7141 ]>
                 <[float64][Radius][0.5]>
                 <[float64][Range][4.0]>
                 <[bool][External][false]>

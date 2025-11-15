@@ -37,9 +37,9 @@
                 <[vector3_float64][R0][1.44 0.5997 0.6888]>  
                 <[matrix3_float64][B0][ 0.173648 -0.137059 0.976824 0.0 0.990268 0.139173 -0.984808 -0.024167 0.171958 ]>
                 <[string8][InputTransform][LeftYokeTransform.Output]>
-                <[vector3_float64][Direction2][ 0.0 0.0 -1.0 ]>
+                <[vector3_float64][Direction2][ 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
-                <[float64][StepDistance][0.002]>
+                <[float64][StepDistance][0.0002]>
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Pitch.Input]>
                     <[string8][Qualifiers][step]>
@@ -58,9 +58,9 @@
                 <[vector3_float64][R0][1.44 0.2985 0.6888]>
                 <[matrix3_float64][B0][ 0.173648 0.137059 0.976824 0.0 0.990268 -0.139173 -0.984808 0.024167 0.171958 ]>
                 <[string8][InputTransform][LeftYokeTransform.Output]>
-                <[vector3_float64][Direction2][ 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction2][ 0.0 0.0 -1.0 ]>
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
-                <[float64][StepDistance][0.002]>
+                <[float64][StepDistance][0.0002]>
                 <[control_message][OnStep][]
                     <[string8][Message][Controls.Pitch.Input]>
                     <[string8][Qualifiers][step]>
@@ -410,7 +410,7 @@
             > 
      
             // Switches
-			
+            
             // fuel meter circuit breaker
             <[control_cylinder][FuelMeterSwitch][]
                 <[string8][Type][switch toggle]>
@@ -425,7 +425,7 @@
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
-            >			
+            >            
             // mixture circuit breaker
             <[control_cylinder][MixtureSwitch][]
                 <[string8][Type][switch toggle]>
@@ -849,7 +849,7 @@
                 >
                 <[float64][Radius][0.008]>
                 <[float64][Length][0.03]>
-            >			
+            >            
             // autopilot altitude mode switch
             <[control_cylinder][AutopilotAltitudeModeSwitch][]
                 <[string8][Type][switch toggle]>
@@ -982,7 +982,7 @@
                 >
                 <[float64][Radius][0.007]>
                 <[float64][Length][0.019]>
-            >			
+            >            
             // attitude indicator adjust
             <[control_cylinder][AttitudeIndicatorAdjust][]
                 <[string8][Type][knob]>
@@ -1081,7 +1081,22 @@
                     <[float64][Value][1.0]>
                 >
                 <[float64][Radius][0.005]>
-            >     
+            >
+            // air valve grip
+            <[control_cylinder][AirValveKnob][]
+                <[string8][Type][knob]>
+                <[vector3_float64][R0][0.9096 0.6682 0.2591]>
+                <[matrix3_float64][B0][ 0 0 1 0 1 0 -1 0 0 ]>
+                <[vector3_float64][Direction][0.0 0.0 1 ]>
+                <[float64][StepAngle][0.1]>
+                <[control_message][OnRotate][]
+                    <[string8][Message][Controls.AirValve]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.018]>
+                <[float64][Length][0.005]>
+            >            
             // door handle
             <[control_input][DoorAngle][]
                 <[uint32][InputID][ServoDoorSequence.Output]>
@@ -1128,7 +1143,7 @@
 //   wzdłuż   <[matrix3_float64][B0][ 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 1.0 ]>
 //   stick    <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
 //   w poprzek <[matrix3_float64][B0][ 0.0 -1.0 0.0  1.0 0.0 0.0  0.0 0.0 1.0 ]>   
-	
+    
 // UpperFlapCircuitBreaker  15A
 // Flap ControlCircuitBreaker15A
 // LowerFlapsCircuitBreaker 15A
