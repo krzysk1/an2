@@ -2,6 +2,11 @@
     <[modelmanager][][]
         <[pointer_list_tmcontrol][ControlObjects][] 
 
+//   wzdłuż   <[matrix3_float64][B0][ 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 1.0 ]>
+//   stick    <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+//   w poprzek <[matrix3_float64][B0][ 0.0 -1.0 0.0  1.0 0.0 0.0  0.0 0.0 1.0 ]>   
+    
+    
             // yokes
             <[control_input][ElevatorTravel][]
                 <[uint32][InputID][ServoElevatorPosition.Output]>
@@ -1055,8 +1060,8 @@
             <[control_box][MapZoomKnob][]
                 <[string8][Type][knob]>
                 <[vector3_float64][R0][1.805 0.09515 0.9914]>
-                <[matrix3_float64][B0][ 0.965926 -0.258819 0.0  0.0 1.0 0.0  0.0 0.258819 0.965926 ]>
-                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[matrix3_float64][B0][ 0.965926 -0.258819 0.0  0.258819 0.965926 0.0  0.0  0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.965926 -0.258819 0.0 ]>
                 <[float64][StepAngle][0.3]>
                 <[control_message][OnRotate][]
                     <[string8][Message][GPS.Zoom]>
@@ -1074,7 +1079,7 @@
                 <[string8][Type][button]>
                 <[vector3_float64][R0][1.78 0.03 0.99]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
-                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 0.965926 -0.258819 0.0 ]>
                 <[control_message][OnPush][]
                     <[string8][Message][GPS.Hide]>
                     <[string8][Qualifiers][toggle]>
@@ -1135,59 +1140,502 @@
                 <[float64][Radius][0.006]>
                 <[float64][Length][0.02]>
             >     
+
+            // Upper Flap Circuit Breaker 15A
+            <[control_cylinder][UpperFlapCircuitBreakerSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.1410 0.8065 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.UpperFlap]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Flap Control Circuit Breaker 15A
+            <[control_cylinder][FlapControlCircuitBreakerSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.1187 0.8065 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.FlapControl]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Lower Flaps Circuit Breaker 15A
+            <[control_cylinder][LowerFlapsCircuitBreakerSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.0964 0.8065 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.LowerFlap]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Aileron Trimming Tab 10A
+            <[control_cylinder][AileronTrimmingSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.074 0.8065 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.AileronTrimming]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Elevator Trimming Tab 10A
+            <[control_cylinder][ElevatorTrimmingSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.0515 0.8065 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.ElevatorTrimming]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Rudder Trimming Tab 10A
+            <[control_cylinder][RudderTrimmingSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.0298 0.8065 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.RudderTrimming]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Radio Compass 10A
+            <[control_cylinder][RadioCompassSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 -0.07135 0.8065 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.RadioCompass]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Cruise Indicator Light 15A
+            <[control_cylinder][CruiseIndicatorLightSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 -0.0938 0.8065 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.CruiseIndicator]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Anti Collision Light 15A
+            <[control_cylinder][AntiCollisionLightSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 -0.1155 0.8065 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.AntiCollisionLight]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Wheel Brake Release 15A
+            <[control_cylinder][WheelBrakeReleaseSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.1625 0.7587 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.WheelBrakeRelease]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Oil Cooler Shutters 5a
+            <[control_cylinder][OilCoolerShuttersSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.1401 0.7587 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.OilCoolerShutters]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Engine Cowlings 2A
+            <[control_cylinder][EngineCowlingsSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.1178 0.7587 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.EngineCowlings]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Fire Ext Equipment 2A
+            <[control_cylinder][FireExtEquipmentSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.0954 0.7587 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.FireExtEquipment]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Passenger Lights 10A
+            <[control_cylinder][PassLightsSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.073 0.7587 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.PassengerLights]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Fuselage Light 10A
+            <[control_cylinder][FuselageLightSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.773 0.0505 0.7587 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.FuselageLight]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Cargo Light 5A
+            <[control_cylinder][CargoLightSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.775 0.1619 0.7113 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.CargoLight]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Cockpit Lights 5A
+            <[control_cylinder][CockpitLightsSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.775 0.1395 0.7113 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.CockpitLights]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Left UFO Lights 2A
+            <[control_cylinder][LeftUFOSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.775 0.0948 0.7113 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.LeftUfoLights]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Right UFO Lights 2A
+            <[control_cylinder][RightUFOSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.775 0.0724 0.7113 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.RightUfoLights]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Central UFO Lights 2A
+            <[control_cylinder][CentralUFOSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.775 0.04995 0.7113 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.CentralUfoLights]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // TailGear Locking 5A
+            <[control_cylinder][TailGearLockingSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.775 0.0462 0.6421 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.TailGearLock]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Clock Heating Switch 5A
+            <[control_cylinder][ClockHeatingSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.775 -0.5622 0.4153 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.ClockHeating]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            //Right Fan Switch 5A
+            <[control_cylinder][RightFanSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.775 -0.5817 0.4153 ]>
+                <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
+                <[vector3_float64][Direction][ 0.0 0.0 1.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.RightFan]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Left Ventil 5A
+            <[control_cylinder][LeftFanSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 0.9936 0.6878 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.LeftFan]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Radio Altmeter 10A
+            <[control_cylinder][RadioAltmeterSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.173 0.7256 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.RadioAltimeter]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >            
+            // Ventilation System 10A
+            <[control_cylinder][VentilationSystemSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.11 0.7256 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.Ventilation]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Fire Protect System 5A
+            <[control_cylinder][FireProtectSystemSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.051 0.7256 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.FireProtection]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Left Ventillation 5A
+            <[control_cylinder][LeftVentillSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 1.051 0.7464 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.LeftVentilation]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Wipers 10A
+            <[control_cylinder][WipersSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 0.9351 0.7489 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.Wipers]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Left Wiper 5A
+            <[control_cylinder][LeftWiperSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 0.9351 0.7282 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.LeftWiper]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Right Wiper 5A
+            <[control_cylinder][RightWiperSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 0.9351 0.7081 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.RightWiper]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Fuel Residue System 5A
+            <[control_cylinder][FuelResidueSystemSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 0.9351 0.6878 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.FuelResidueSystem]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
+            // Emergency Exit  5A
+            <[control_cylinder][EmergencyExitSwitch][]
+                <[string8][Type][switch toggle]>
+                <[vector3_float64][R0][ 0.8799 0.7489 0.2576 ]>
+                <[matrix3_float64][B0][ 0.0 0.0 1.0 0.0 1.0 0.0  -1.0 0.0 0.0 ]>
+                <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
+                <[float64][StepDistance][0.01]>
+                <[control_message][OnStep][]
+                    <[string8][Message][Electrical.EmergencyExit]>
+                    <[string8][Qualifiers][step]>
+                    <[float64][Value][1.0]>
+                >
+                <[float64][Radius][0.008]>
+                <[float64][Length][0.03]>
+            >
         >
     >
->
-
-
-//   wzdłuż   <[matrix3_float64][B0][ 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 1.0 ]>
-//   stick    <[matrix3_float64][B0][ 0.0 0.0 1.0  0.0 1.0 0.0  -1.0 0.0 0.0 ]>
-//   w poprzek <[matrix3_float64][B0][ 0.0 -1.0 0.0  1.0 0.0 0.0  0.0 0.0 1.0 ]>   
-    
-// UpperFlapCircuitBreaker  15A
-// Flap ControlCircuitBreaker15A
-// LowerFlapsCircuitBreaker 15A
-// AileronTrimming Tab 10A
-// Elevator Trimming Tab 10A
-// Rudder Trimming Tab 10A
-
-// Radio Compass 10A
-// Cruise Indicator Light 15A
-// Anti Collission Light 15A
-
-// Wheel Brake Release 15A
-// Oil Cooler Shutters 5a
-// Engine Cowlings 2A
-// Fire Ext Equipment 2A
-// Pass Lights 10A
-// Fuselage Light 10A
-// Cargo Light 5A
-// Cockpit Lights 5A
-
-// Left UFO Lights 2A
-// Right UFO Lights 2A
-// Central UFO Lights 2A
-
-
-// TailGearLocking 5A
-
-// ADF
-    // TLF/TLG
-    // Flight/Director
-    // Near/Far
-
-// IgnitionCircuitBreaker 
-
-
-// Emergency Locator 20A
-// Radio Altm. 10A
-// Ventilation System 10A
-// Left Ventil 5A
-// Fire Protect System 5A
-
-// Left Ventill 5A
-// Wipers 10A
-// Left Wiper 5A
-// Right Wiper 5A
-// Fuel Residue System 5A
-// Emerg. Exit  5A
+>            
