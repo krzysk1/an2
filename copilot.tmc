@@ -1,9 +1,12 @@
 <[file][][]
     <[hints][][]
         // Antonov An-2
-        <[float64][MaximumTakeOffMass][5250.0]>
+        <[float64][MaximumTakeoffMass][5250.0]>
+        <[float64][DefaultGrossMass][5120.2]>
         <[float64][WingSpan][18.2]>
-        <[float64][WingArea][71.50]>
+        <[float64][WingArea][71.5]>
+        <[float64][LEMAC][0.73953]>
+        <[float64][MAC][2.269]>
         <[float64][HeightOffset][-2.074]>
         <[float64][ApproachSpeed]24.3]>
         <[float64][PatternSpeed][46.3]>
@@ -14,29 +17,29 @@
               <[float64][MinimumSpeed][22.5]>
               <[float64][OptimumSpeed][37.8]>
               <[float64][MaximumSpeed][73.0]>
-              <[bool][TakeOff][true]>
+              <[bool][Takeoff][true]>
            >
            <[copilot_flap_info][Flap15][]
               <[float64][FlapPosition][0.2618]>
               <[float64][MinimumSpeed][21.8]>
               <[float64][OptimumSpeed][35.8]>
               <[float64][MaximumSpeed][40.5]>
-              <[bool][TakeOff][true]>
+              <[bool][Takeoff][true]>
            >
            <[copilot_flap_info][Flap20][]
               <[float64][FlapPosition][0.3491]>
               <[float64][MinimumSpeed][21.5]>
               <[float64][OptimumSpeed][35.6]>
               <[float64][MaximumSpeed][40.5]>
-          //    <[bool][TakeOff][true]>
-           >		
+          //    <[bool][Takeoff][true]>
+           >
            <[copilot_flap_info][Flap25][]
               <[float64][FlapPosition][0.4363]>
               <[float64][MinimumSpeed][20.7]>
               <[float64][OptimumSpeed][34.7]>
               <[float64][MaximumSpeed][40.5]>
-              <[bool][Landing][true]>			
-          //    <[bool][TakeOff][true]>
+              <[bool][Landing][true]>
+          //    <[bool][Takeoff][true]>
            >
            <[copilot_flap_info][Flap30][]
               <[float64][FlapPosition][0.5236]>
@@ -53,19 +56,25 @@
             //  <[bool][Landing][true]>
            >
         >
-        <[string8][AutoPilotType][BASIC]>			
         <[int][EngineCount][1]>
         <[bool][Piston][true]>
         <[bool][GeneralAviation][true]>
         <[bool][ParkingBrake][true]>
         <[bool][TailDragger][true]>
         <[bool][RudderTrimRequired][true]>
+        <[string8][AutoPilotType][BASIC]>
+        <[bool][HasAutopilotAltitudeArm]        [true]>
+        //<[bool][HasAutopilotNavigation]         [true]>
+        <[bool][HasAutopilotAltitudeHold]       [true]>
+        <[bool][HasAutopilotApproach]           [true]>
+        <[bool][HasAutopilotLocalizerBackCourse][true]>
+        <[bool][HasAutopilotVerticalNavigation] [true]>
         <[float64][ElevatorGain][2.5]>
         <[float64][AileronGain][5.5]>
-        <[float64][RudderGain][5.0]>		
+        <[float64][RudderGain][5.0]>
         <[float64][RudderCrossWind][1.1]>
-        <[float64][RudderTakeOff][0.07]>
-        <[float64][RollInertiaFactor][4.0]>		
+        <[float64][RudderTakeoff][0.07]>
+        <[float64][RollInertiaFactor][4.0]>
         <[float64][FlareHeightScaling][0.8]>
         <[float64][FlareExpectedNoseDrop][1.0]>
         <[float64][GainSideSlipRoll][0.3]>

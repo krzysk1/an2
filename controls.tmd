@@ -336,7 +336,7 @@
                 <[float64][StepDistance][0.0001]>
                 <[string8][InputTransform][CoollingFlapsLeverTransform.Output]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Controls.CowlingFlaps]>
+                    <[string8][Message][Controls.CoolingCowl]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][0.1]>
                 >
@@ -469,7 +469,7 @@
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Controls.Electric.Alternator]>
+                    <[string8][Message][Controls.Alternator]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][1.0]>
                 >
@@ -484,7 +484,7 @@
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Controls.Electric.MasterBattery]>
+                    <[string8][Message][Controls.MasterBattery]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][1.0]>
                 >
@@ -863,7 +863,7 @@
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Autopilot.AltitudeMode]>
+                    <[string8][Message][Copilot.VerticalMode]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][1.0]>
                 >
@@ -878,7 +878,7 @@
                 <[vector3_float64][Direction][ 1.0 0.0 0.0 ]>
                 <[float64][StepDistance][0.01]>
                 <[control_message][OnStep][]
-                    <[string8][Message][Autopilot.HeadingMode]>
+                    <[string8][Message][Copilot.LateralMode]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][1.0]>
                 >
@@ -923,7 +923,7 @@
                 <[vector3_float64][Direction][ 0.964205 0.0 -0.265156 ]>
                 <[float64][StepAngle][0.02]>
                 <[control_message][OnRotate][]
-                    <[string8][Message][PressureSetting]>
+                    <[string8][Message][Controls.PressureSetting0]>
                     <[string8][Qualifiers][step]>
                     <[float64][Value][1.0]>
                 >
@@ -1077,7 +1077,7 @@
             >
             <[control_sphere][IphoneGpsHide][]
                 <[string8][Type][button]>
-                <[vector3_float64][R0][1.78 0.03 0.99]>
+                <[vector3_float64][R0][1.787 0.0339 0.99]>
                 <[matrix3_float64][B0][ 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 ]>
                 <[vector3_float64][Direction][ 0.965926 -0.258819 0.0 ]>
                 <[control_message][OnPush][]
@@ -1085,7 +1085,7 @@
                     <[string8][Qualifiers][toggle]>
                     <[float64][Value][1.0]>
                 >
-                <[float64][Radius][0.005]>
+                <[float64][Radius][0.006]>
             >
             // air valve grip
             <[control_cylinder][AirValveKnob][]

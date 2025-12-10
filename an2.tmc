@@ -31,21 +31,42 @@
                 <[string8][Text][Antonov An-2 to radziecki jednosilnikowy dwupłatowy samolot użytkowy/rolniczy (stąd jego inny przydomek Kukuruznik, dosłownie woziwoda) zaprojektowany i produkowany przez Biuro Projektowe Antonowa (obecnie Przedsiębiorstwo Państwowe) od 1946 roku. Dla Aerofly FS4 wykonany przez Krzysztofa Kaniewskiego. Oryginalny model 3D wykonany przez Pedro van Leeuwen - zmodyfikowany przez Mihaly Alberti i Stefan Mueller-Pfeiffer.]>
             >
         >
-        <[float64][MaximumTakeoffMass][5250.0]>
-        <[float64][WingSpan]          [18.2]>
-        <[uint32] [Year]              [1946]>
-        <[uint32] [UnitsBuilt]        [55300]>
-        <[uint32] [EngineCount]       [1]>
-        <[float64][EnginePower]       [750000.0]>
-        <[float64][MaximumAirspeed]   [69.5]>
-        <[float64][MaximumSpeed]      [69.5]>
-        <[float64][MinimumAirspeed]   [23.0]>
-        <[float64][ApproachAirspeed]  [26.3]>
-        <[float64][CruiseAirspeed]    [51.3]>
-        <[float64][CruiseSpeed]       [70.0]>
-        <[float64][MaximumAltitude]   [4160.0]>
-        <[float64][CruiseAltitude]    [3000.0]>
-        <[float64][MaximumRange]      [1390000.0]>
+        <[float64][MaximumTaxiMass]      [5250.0]>
+        <[float64][MaximumTakeoffMass]   [5250.0]>
+        <[float64][MaximumLandingMass]   [5250.0]>
+        <[float64][MaximumZeroFuelMass]  [4350.0]>
+        <[float64][OperatingEmptyMass]   [3450.0]>
+        <[float64][MaximumFuelMass]      [936.0]> //1200l
+        <[float64][MaximumPayload]       [1500.0]>
+        <[uint32] [MaximumPersonsOnBoard][12]>
+        <[float64][WingSpan]             [18.2]>
+        <[float64][WingArea]             [71.50]>
+        <[float64][Length]               [12.4]>
+        <[float64][Height]               [4.01]>
+        <[float64][MainGearWidth]        [3.45]>
+        <[uint32] [Year]                 [1946]>
+        <[uint32] [UnitsBuilt]           [55300]>
+        <[uint32] [EngineCount]          [1]>
+        <[float64][EnginePower]          [750000.0]>
+        <[float64][MaximumAirspeed]      [69.5]>
+        <[float64][MaximumSpeed]         [69.5]>
+        <[float64][MinimumAirspeed]      [23.0]>
+        <[float64][ApproachAirspeed]     [26.3]>
+        <[float64][CruiseAirspeed]       [51.3]>
+        <[float64][CruiseSpeed]          [70.0]>
+        <[float64][MaximumAltitude]      [4160.0]>
+        <[float64][CruiseAltitude]       [3000.0]>
+        <[float64][MaximumRange]         [1390000.0]>
+        <[float64][MaximumLoadRange]     [1390000.0]>
+        <[float64][MaximumFuelRange]     [1390000.0]>
+        <[float64][MaximumFerryRange]    [1390000.0]>
+        <[float64][MaximumGlideRatio]    [9.0]>
+        <[float64][TakeoffDistance]      [200.0]>
+        <[float64][LandingDistance]      [220.0]>
+        <[float64][FuelDensity]          [780.0]>
+        <[float64][MACLeadingEdge]       [0.73953]>
+        <[float64][MACLength]            [2.269]>
+        <[float64][MACOptimumCG]         [0.2]> // 17,2 – 33 % САХ
         <[vector2_float64][FlapAirspeedRange]   [ 27.0 35.1 ]>
         <[vector2_float64][NormalAirspeedRange] [ 27.0 60.7 ]>
         <[vector2_float64][CautionAirspeedRange][ 60.7 81.0 ]>

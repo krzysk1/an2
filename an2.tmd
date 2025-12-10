@@ -15,11 +15,6 @@
 
             <[telemetry][Telemetry][]
                 <[string8][Body][Fuselage]>
-                <[tmvector3d][LookAtPosition][ -0.015 0.000 0.317 ]>
-            >
-            <[sender][SenderMass][]
-                <[string8][Input][4817.2]>
-                <[string8][Message][Aircraft.Mass]>
             >
 
             // Cameras
@@ -172,7 +167,7 @@
             >
 
             <[rigidbody][LeftUpperWing][]
-                <[float64][Mass][337.4]>
+                <[float64][Mass][237.4]>
                 <[tmvector3d][InertiaLength][ 2.15 7.92 0.30 ]>
                 <[tmvector3d][R0][-0.33480 4.62753 1.549792]>
                 <[tmmatrix3d][B0][1.0 0.0 0.0 0.0 0.99863 0.052336 0.0 -0.052336 0.99863]>
@@ -186,7 +181,7 @@
                 <[string8][InputLock][1.0]>
             >
             <[rigidbody][RightUpperWing][]
-                <[float64][Mass][337.4]>
+                <[float64][Mass][237.4]>
                 <[tmvector3d][InertiaLength][ 2.15 7.92 0.3 ]>
                 <[tmvector3d][R0][-0.33489 -4.62753 1.549792]>
                 <[tmmatrix3d][B0][1.0 0.0 0.0 0.0 0.99863 -0.052336 0.0 0.052336 0.99863]>
@@ -841,7 +836,7 @@
             // autopilot start
 
             <[input_switch][AutopilotAltitudeModeSwitch][]
-                <[string8][Message][Autopilot.AltitudeMode]>
+                <[string8][Message][Copilot.VerticalMode]>
                 <[float64][Value][0.0]>
                 <[string8][Events][ SwitchSound.Trigger ]>
                 <[string8][EventsRelease][ SwitchSound.Trigger ]>
@@ -856,7 +851,7 @@
 
             // selected heading
             <[input_switch][AutopilotHeadingModeSwitch][]
-                <[string8][Message][Autopilot.HeadingMode]>
+                <[string8][Message][Copilot.LateralMode]>
                 <[float64][Value][0.0]>
                 <[string8][Events][ SwitchSound.Trigger ]>
                 <[string8][EventsRelease][ SwitchSound.Trigger ]>
@@ -1357,7 +1352,7 @@
                 <[tmvector2d][Range][ 0.0 1.0 ]>
                 <[uint][Positions][41]>
                 <[float64][Value][0.0]>
-                <[string8][Message][Controls.CowlingFlaps]>
+                <[string8][Message][Controls.CoolingCowl]>
             >
             <[servoclassic][ServoCowling][]
                 <[string8][Input][CowlingFlapsInput.Output]>
@@ -1727,24 +1722,42 @@
                 <[string8][Body][LeftUpperWing]>
                 <[float64][Capacity][468.0]>
                 <[float64][Mass][268.0]>
-                <[tmvector3d][R0][ -0.12 1.56 1.55 ]>
-                <[tmvector3d][X0][  0.85 0.00 0.00 ]>
-                <[tmvector3d][Y0][  0.00 0.00 0.13 ]>
-                <[tmvector3d][R1][ -0.12 0.66 1.55 ]>
-                <[tmvector3d][X1][  0.85 0.00 0.00 ]>
-                <[tmvector3d][Y1][  0.00 0.00 0.13 ]>
+                <[fuel_tank_stations][Stations][]
+                    <[fuel_tank_station][][]
+                        <[tmvector3d][R0][ -0.12 0.66 1.55 ]>
+                        <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
+                        <[tmvector3d][Y0][ 0.0 0.0 1.0 ]>
+                        <[tmvector3d][Dimensions][ 0.85 0.13 ]>
+                    >
+                    <[fuel_tank_station][][]
+                        <[tmvector3d][R0][ -0.12 1.56 1.55 ]>
+                        <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
+                        <[tmvector3d][Y0][ 0.0 0.0 1.0 ]>
+                        <[tmvector3d][Dimensions][ 0.85 0.13 ]>
+                    >
+                >
+                <[tmvector2d][MassMap][ ( 0.0 0.0 ) ( 536.0 268.0 ) ]>
                 <[tmvector3d][Outlet0][ 0.40 0.66 1.55 ]>
             >
             <[fuel_tank][RightFuelTank][]
                 <[string8][Body][RightUpperWing]>
                 <[float64][Capacity][468.0]>
                 <[float64][Mass][248.0]>
-                <[tmvector3d][R0][ -0.12 -0.66 1.55 ]>
-                <[tmvector3d][X0][  0.85 0.00 0.00 ]>
-                <[tmvector3d][Y0][  0.00 0.00 0.13 ]>
-                <[tmvector3d][R1][ -0.12 -1.56 1.55 ]>
-                <[tmvector3d][X1][  0.85 0.00 0.00 ]>
-                <[tmvector3d][Y1][  0.00 0.00 0.13 ]>
+                <[fuel_tank_stations][Stations][]
+                    <[fuel_tank_station][][]
+                        <[tmvector3d][R0][ -0.12 -0.66 1.55 ]>
+                        <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
+                        <[tmvector3d][Y0][ 0.0 0.0 1.0 ]>
+                        <[tmvector3d][Dimensions][ 0.85 0.13 ]>
+                    >
+                    <[fuel_tank_station][][]
+                        <[tmvector3d][R0][ -0.12 -1.56 1.55 ]>
+                        <[tmvector3d][X0][ 1.0 0.0 0.0 ]>
+                        <[tmvector3d][Y0][ 0.0 0.0 1.0 ]>
+                        <[tmvector3d][Dimensions][ 0.85 0.13 ]>
+                    >
+                >
+                <[tmvector2d][MassMap][ ( 0.0 0.0 ) ( 536.0 268.0 ) ]>
                 <[tmvector3d][Outlet0][ 0.40 -0.66 1.55 ]>
             >
 
@@ -1759,6 +1772,27 @@
                 <[string8][InputEnable][FuelMeterOn.Output]>
                 <[float64][Speed][20.0]>
                 <[float64][Damping][0.8]>
+            >
+
+            // engine vacuum or suction
+            <[linear_interpolation][EngineVacuum][]
+                <[string8][Input][DriveShaft.RotationSpeed]>
+                <[tmvector2d][Map][ (0.0 0.0) (52.4 6772.0) (104.0 15237.0) (209.4 16930.0) (282.7 17945.8) ]>
+            >
+            <[output_free][EngineVacuumOutput][]
+                <[string8][Input][EngineVacuum.Output]>
+            >
+            // 2 in hg
+            <[logic_greater][EngineVacuumLow][]
+                <[string8][Input0][5079.0]>
+                <[string8][Input1][EngineVacuum.Output]>
+            >
+            <[output_free][VacuumWarning][]
+                <[string8][Input][EngineVacuumLow.Output]>
+            >
+            <[sender][SenderWarningVacuum][]
+                <[string8][Input][EngineVacuumLow.Output]>
+                <[string8][Message][Warnings.LowVacuum]>
             >
 
             // fuel warnings
@@ -1784,6 +1818,34 @@
             >
             <[output_free][RightLowFuelWarningOutput][]
                 <[string8][Input][RightLowFuelWarning.Output]>
+            >
+
+            // warnings
+
+            <[logic_or][FuelWarning][]
+                <[string8][Inputs][ LeftLowFuelWarning.Output RightLowFuelWarning.Output ]>
+            >
+            <[output_free][FuelWarningOutput][]
+                <[string8][Input][FuelWarning.Output]>
+            >
+            <[sender][SenderWarningFuel][]
+                <[string8][Input][FuelWarning.Output]>
+                <[string8][Message][Warnings.LowFuelPressure]>
+            >
+
+            <[logic_or][MasterWarning][]
+                <[string8][Inputs][ OilPressureWarning.Output VoltageLowWarning.Output ]>
+            >
+            <[logic_or][MasterCaution][]
+                <[string8][Inputs][ EngineVacuumLow.Output FuelWarning.Output ]>
+            >
+            <[sender][SenderMasterWarning][]
+                <[string8][Input][MasterWarning.Output]>
+                <[string8][Message][Warnings.MasterWarning]>
+            >
+            <[sender][SenderMasterCaution][]
+                <[string8][Input][MasterCaution.Output]>
+                <[string8][Message][Warnings.MasterCaution]>
             >
 
             // fuel selector
@@ -2048,7 +2110,7 @@
 
             // main battery switch
             <[input_switch][SwitchMasterBattery][]
-                <[string8][Message][Controls.Electric.MasterBattery]>
+                <[string8][Message][Controls.MasterBattery]>
                 <[string8][Events][ SwitchSound.Trigger ]>
                 <[string8][EventsRelease][ SwitchSound.Trigger ]>
                 <[float64][Value][1.0]>
@@ -2077,9 +2139,27 @@
                 <[string8][Input][BatterySwitch.OutputCurrent]>
             >
 
+            <[output][BatteryVoltage][]
+                <[string8][Input][BatteryBus.Output]>
+            >
+            <[logic_greater][BatteryVoltageLow][]
+                <[string8][Input0][23.7]>
+                <[string8][Input1][BatteryBus.Output]>
+            >
+            <[logic_and][VoltageLowWarning][]
+                <[string8][Inputs][ BatteryVoltageLow.Output BatterySwitch.Output ]>
+            >
+            <[output_free][VoltageLowWarningOutput][]
+                <[string8][Input][VoltageLowWarning.Output]>
+            >
+            <[sender][SenderWarningVoltage][]
+                <[string8][Input][VoltageLowWarning.Output]>
+                <[string8][Message][Warnings.LowVoltage]>
+            >
+
             // alternator master switch
             <[input_switch][SwitchMasterAlternator][]
-                <[string8][Message][Controls.Electric.Alternator]>
+                <[string8][Message][Controls.Alternator]>
                 <[string8][Events][ SwitchSound.Trigger ]>
                 <[string8][EventsRelease][ SwitchSound.Trigger ]>
                 <[string8][Value][1.0]>
@@ -2408,25 +2488,24 @@
                 <[string8][Events][ LeftPanelSwitchSound.Trigger ]>
                 <[string8][EventsRelease][ LeftPanelSwitchSound.Trigger ]>
             >
-            <[electrical_load][SwitchWipersLoad][]
-                <[string8][InputEnable][SwitchWipers.Output]>
-                <[string8][InputVoltage][MainBus.Output]>
-                <[string8][AddLoad][MainBus.AddLoad]>
-                <[float64][MinimumVoltage][15.0]>
-                <[float64][RatedCurrent][2.5]>
-            >
             <[input_switch][SwitchLeftWiper][]
                 <[string8][Message][Electrical.LeftWiper]>
                 <[float64][Value][0.0]>
                 <[string8][Events][ LeftPanelSwitchSound.Trigger ]>
                 <[string8][EventsRelease][ LeftPanelSwitchSound.Trigger ]>
             >
-            <[electrical_load][SwitchLeftWiperLoad][]
-                <[string8][InputEnable][SwitchLeftWiper.Output]>
+            <[logic_or][LeftWiperActivated][]
+                <[string8][Inputs][ SwitchWipers.Output SwitchLeftWiper.Output ]>
+            >
+            <[electrical_load][LeftWiperLoad][]
+                <[string8][InputEnable][LeftWiperActivated.Output]>
                 <[string8][InputVoltage][MainBus.Output]>
                 <[string8][AddLoad][MainBus.AddLoad]>
                 <[float64][MinimumVoltage][15.0]>
                 <[float64][RatedCurrent][2.5]>
+            >
+            <[output][LeftWiperOn][]
+                <[string8][Input][LeftWiperLoad.Output]>
             >
             <[input_switch][SwitchRightWiper][]
                 <[string8][Message][Electrical.RightWiper]>
@@ -2434,12 +2513,18 @@
                 <[string8][Events][ LeftPanelSwitchSound.Trigger ]>
                 <[string8][EventsRelease][ LeftPanelSwitchSound.Trigger ]>
             >
-            <[electrical_load][SwitchRightWiperLoad][]
-                <[string8][InputEnable][SwitchRightWiper.Output]>
+            <[logic_or][RightWiperActivated][]
+                <[string8][Inputs][ SwitchWipers.Output SwitchRightWiper.Output ]>
+            >
+            <[electrical_load][RightWiperLoad][]
+                <[string8][InputEnable][RightWiperActivated.Output]>
                 <[string8][InputVoltage][MainBus.Output]>
                 <[string8][AddLoad][MainBus.AddLoad]>
                 <[float64][MinimumVoltage][15.0]>
                 <[float64][RatedCurrent][2.5]>
+            >
+            <[output][RightWiperOn][]
+                <[string8][Input][RightWiperLoad.Output]>
             >
             <[input_switch][SwitchEmergencyExit][]
                 <[string8][Message][Electrical.EmergencyExit]>
@@ -2692,7 +2777,7 @@
                 <[string8][Input][Altimeter.PressureAltitude]>
             >
             <[input_default][PressureSettingInput][]
-                <[string8][Message][PressureSetting]>
+                <[string8][Message][Controls.PressureSetting0]>
                 <[uint][Positions][201]>
                 <[tmvector2d][Range][ 95000.0 105000.0]>
                 <[float64][Value][101325.0]>
@@ -4363,7 +4448,7 @@
             >
 
             <[rigidbodygraphics][Cockpit][]
-                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches MiddleConsole CompassCasing CompassLine EmegencyExitRod EmegencyExitHandles LeftSunVisor RightSunVisor LeftHdgSyncButton RightHdgSyncButton ]>
+                <[string8][GeometryList][ CockpitDecal CompassGlass Dashboard WarningsLamps GaugeFaces  Nav1CompassKnob GaugeGlass UfoLights AllSwitchPanels AllSwitches MiddleConsole CompassCasing CompassLine EmegencyExitRod EmegencyExitHandles LeftSunVisor RightSunVisor LeftHdgSyncButton RightHdgSyncButton Wipers ]>
                 <[uint32][PositionID][Fuselage.R]>
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
@@ -4626,9 +4711,48 @@
                 <[uint32][OrientationID][Fuselage.Q]>
                 <[uint32][InputID][LeftFanAngle.Output]>
                 <[float64][Scaling][16.0]>
-                <[tmvector3d][Axis][ -0.936075 -0.340939 -0.086741 ]>
-                <[tmvector3d][Pivot][1.525 0.6540 0.6727]>
+                <[tmvector3d][Axis][ -0.939932 -0.341362 0.0 ]>
+                <[tmvector3d][Pivot][1.5234 0.6535 0.6799]>
                 <[string8][InputIllumination0][PanelLighting.Output]>
+            >
+			// wipers
+            <[graphics_flasher][WiperFlasher][]
+                <[string8][InputTime][UniversalTime.Output]>
+                <[string8][Function][Triangle]>
+                <[float64][Period][2.5]>
+                <[float64][Minimum][0.1]>
+            >
+            <[graphics_input][LeftWiperOn][]
+                <[uint32][InputID][LeftWiperOn.Output]>
+            >
+            <[graphics_product][LeftWiperEnable][]
+                <[uint32][Input0][WiperFlasher.Output]>
+                <[uint32][Input1][LeftWiperOn.Output]>
+            >
+            <[hingedbodygraphics][LeftWiperArm][]
+                <[string8][GeometryList][ LeftWiper LeftWiperRod ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][Input][LeftWiperEnable.Output]>
+                <[tmvector3d][Axis][ 0.530393 0.764390 0.366595 ]>
+                <[tmvector3d][Pivot][1.695 0.7663 0.7351]>
+                <[float64][Scaling][1.1]>
+            >
+            <[graphics_input][RightWiperOn][]
+                <[uint32][InputID][RightWiperOn.Output]>
+            >
+            <[graphics_product][RightWiperEnable][]
+                <[uint32][Input0][WiperFlasher.Output]>
+                <[uint32][Input1][RightWiperOn.Output]>
+            >
+            <[hingedbodygraphics][RightWiperArm][]
+                <[string8][GeometryList][ RightWiper RightWiperRod ]>
+                <[uint32][PositionID][Fuselage.R]>
+                <[uint32][OrientationID][Fuselage.Q]>
+                <[uint32][Input][RightWiperEnable.Output]>
+                <[tmvector3d][Axis][ 0.530393 -0.764390 0.366595 ]>
+                <[tmvector3d][Pivot][1.695 -0.7641 0.7394]>
+                <[float64][Scaling][-1.05]>
             >
 
             // allswitch
